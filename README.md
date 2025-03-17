@@ -11,3 +11,6 @@ Main focus is
 
 Good attempt, learnt a bit about the challenges, pitfalls and correct ways to do it. Useful practice.
 
+Took few days to build and used for few days.
+
+Searching it might be pushing the limits on memory limits of JS browser over the long run.
