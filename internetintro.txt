@@ -1,0 +1,127 @@
+
+
+["Internet basics",
+"00013. ",
+"2024-05-15 02:16:25",
+"2024-05-17 02:16:25",
+"",
+""" `
+
+<div class="heading2">How does the Internet work?</div><hr/>
+
+`""",
+""" createLinkBlock("How the internet works in 5 minutes-Aaron Titus with Karissa Phelps", "https://www.youtube.com/watch?v=7_LPdttKXPc", `
+1. Servers and ISP send messages and files via their IP address to a client computer.
+2. An example of client computer using an ISP to receive data from Servers is DSL(Digital Subscriber Line).
+` + showInlineLink("https://www.tutorialspoint.com/dsl/index.htm", "DSL") + `
+3. An ISP can also be a Server of a domain name
+4. Information is sent in packets
+5. IP addresses and routers send packets to correct destination
+6. 10 to 15 routers per packet sent and received
+7. Every packet is wrapped in several layers - 1st layer is IP address of client computer
+8. Every router adds it's own IP address and layer to a packet till it reaches it's destination.
+9. Server responses also obey the reverse of this rule. Every server response that reaches a router,
+unwraps a layer(as opposed to adding a layer from client packet to server) till it reaches the client computer correctly.
+`)""",
+
+
+"""showLink(`?page=digital-subscriber-line`, `DSL page`)""",
+
+
+"""createBlock("URL", `
+Uniform Resource Locator (Tim Berners Lee RFC 1738)
+Alias of URL - Web address, link, address, Universal Document Identifiers, URI
+URI - Uniform Resource Identifier
+
+URL exists in the context of HTTP
+HTTP has various protocols like HTTP1 HTTP2
+HTTP/2 only modifies HTTP1 and 1.1 in framing(formatting) and transported between client and server.
+The objectives of HTTP/2 are to reduce latency by enabling full request and response multiplexing, 
+minimize protocol overhead via efficient compression (like Gzip) of HTTP header fields and add support for
+request prioritization and server push(preemptive sending to client).
+
+HTTPS and other protocols also exist for communication
+
+Scheme is the URL fragment upto the domain name
+Eg - http://example.com has scheme http
+http://www.example.com is different from http://example.com
+
+Domain name is a hierarchical sequence of names(labels) separated by periods(dots) and ending with an extension.
+
+URL can also be used for FTP(file transfer) and SMTP(email) and other applications like database access(JDBC)
+URL has a living standard
+
+`)""",
+
+
+"""showLink("https://url.spec.whatwg.org/", "URL Living standard") """,
+"""showLink("https://en.wikipedia.org/wiki/URL", "URL Wiki")""",
+
+"""`
+Consider a URL http://example.com/index.html
+URL fragments can be 
+protocol - http
+hostname - example.com or www.example.com
+filename - index.html
+
+URI - scheme ":" ["//" authority] path ["?" query] ["#" fragment]
+
+IANA (International Assigned Numbers Authority)
+
+Some scheme are http, https, ftp, mailto, file, data, irc
+
+Authority can optionally have @username:password and :port_number
+
+Also CGI(Common Gateway Interface) can be used for URL
+
+Consider http://www.example.com/questions/3361/my-document
+"questions" is first part of path(Executable program) and pathinfo refers to "/3361/my-document" which is passed to program "questions"
+A clean url does not have a query, it only has a slug like "3361/my-document"
+
+An IRI is considered Internationalized Resource Identifier that only uses Unicode characters
+The domain in an IRI is called IDN Internationalized Domain Name
+Punycode is used by the Domain Name System (DNS) for converting say chinese to english xn-- the double dashes signify the characters were originally non-ASCII.
+
+A PRL or PRURL is Protocol Relative URL which uses the current protocol of client by default eg- //example.com
+
+Qname - Qualified Name - a fully qualified name in an XML document of an element, attribute or identifier
+Eg- x:p, doc in xml document are Qnames
+<?xml version="1.0"?>
+<doc xmlns:x="https://example.com/ns/foo">
+  <x:p/>
+</doc>
+
+`""",
+"""`
+
+HTTP is unencrypted 
+HTTPS represents HTTP over a secure TLS channel
+TLS is also known as SSL(Secure Sockets Layer)
+Owasp contain some extra information over certain protocols
+`""",
+"""showInlineLink("https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html", "OWASP cheatsheet TLS")
+""",
+"""`
+
+HTTP is textual(plaintext) and stateless
+REST is REpresentational State Transfer that provides constraints of software architecture that allow efficient, reliable and scalable distributed systems.
+
+
+HTTP belongs to the application layer of OSI model
+
+The complete docs of HTTP on MDN are
+
+`""",
+
+"""showLink("https://developer.mozilla.org/en-US/docs/Web/HTTP", "HTTP MDN")
+""",
+
+"""createBlock(`Glossary`, `
+1. PURL Persistant URL vs Permalink
+2. CURIE Compact URI -  considered a datatype that can be used to shorten URL eg- [isbn:0393315703] or [wikipedia:Biome]
+3. Typosquatting
+4. Url normalization
+5. Namespace
+`)"""
+]
+

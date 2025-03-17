@@ -1,0 +1,43 @@
+
+
+
+["Byte code",
+"00004. ",
+"2024-04-29 00:00:00",
+"2024-04-29 00:00:00",
+"",
+
+""" createLinkBlock("Wikipedia Byte Code", "https://en.wikipedia.org/wiki/Bytecode", `
+1. Byte code is an intermediary output that many languages give for the source code.
+2. Byte code enables platform independence by providing a framework for cross platform
+3. Byte code is finally compiled to machine code for a specific system
+4. Also known as p-code or portable code or virtual machine code
+`)""",
+
+""" createBlock(`Glossary`, ``""",
+"""`
+1. Intermediate representation
+2. Platform
+3. Runtime system
+4. Abstract Syntax Tree
+5. Semantic analysis (compilers+
+6. Byte opcodes
+7. Cross platform
+8. P-code-machine aka interpreter
+9. Virtual stack machines
+10. Register machines
+11. Object modules - object file - a file containing relocatable format machine code
+12. Smalltalk
+13. Perl
+14. Byte code engineering library
+15. Dalvik
+16. Emacs lisp
+17. R language
+18. Python .pyc
+19. SQLite
+20. Web assembly
+21. Yarv in Ruby
+22. Zend engine in PHP
+23. LLVM
+`)"""
+]

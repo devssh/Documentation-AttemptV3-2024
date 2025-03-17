@@ -1,0 +1,13 @@
+["References glossary",
+"Glossary III",
+"2024-05-08 15:30:00",
+"2024-05-17 15:30:00",
+""
+"",
+
+""" `
+Pages that have been visited will show links here.
+
+`""",
+"""Object.keys(references).sort().map((x, i) => String(i+1) + ". " + references[x]).join("\\n\\n")"""
+]

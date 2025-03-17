@@ -1,0 +1,21 @@
+
+
+
+
+["First class functions-Higher order function",
+"00006. ",
+"2024-05-08 16:42:52",
+"2024-05-17 16:42:52",
+"",
+""" createBlock(`First class functions refers to a programming language functionality to 
+`, `
+1. Be able to declare a function and assign it to variable
+2. Be able to pass functions as parameters or arguments to other functions
+3. Be able to return functions as output from other functions
+`)""",
+"""`
+A Higher Order Function HOF takes functions as parameters and returns functions
+
+`
+"""
+]

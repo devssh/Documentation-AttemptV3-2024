@@ -1,0 +1,132 @@
+
+
+
+["Web Workers API",
+"00011. ",
+"2024-05-10 13:10:00",
+"2024-05-17 13:10:00",
+"",
+"""createLinkBlock(`Structured Clone rules
+`, "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm", `
+1. Workers use postMessage(message, options/transfer) to communicate with each other, DedicatedWorkerGlobalScope.postMessage()
+IndexedDB stores objects,
+and other APIs copy objects,
+USING structuredClone() which internally calls the Structured Clone Algorithm
+2. Worker interface creates a background task via the script which can send messages back to the creator
+3. Not all interfaces are available to web workers 
+4. Worker.postMessage(), Worker.terminate(), WorkerGlobalScope.importScripts()
+5. Workers can be - DedicatedWorkerGlobalScope, SharedWorkerGlobalScope, ServiceWorkerGlobalScope
+6. The list of API for workers - 
+Background Fetch API
+Background Synchronization API
+Barcode Detection API
+Broadcast Channel API
+Canvas API
+Channel Messaging API
+Console API
+Compression Streams API
+CSS Font Loading API
+CustomEvent
+Encoding API (e.g. TextEncoder, TextDecoder)
+Fetch API
+File API
+File System API
+Idle Detection API
+IndexedDB API
+Media Capabilities API
+Media Source Extensions API (dedicated workers only)
+Network Information API
+Notifications API
+Payment Handler API
+Performance API
+Permissions API
+Prioritized Task Scheduling API
+Push API
+Server-sent events
+Service Worker API
+Streams API
+Trusted Types API
+URL API (e.g. URL)
+URL Pattern API
+User-Agent Client Hints API
+WebCodecs API
+Web Crypto API (e.g. Crypto)
+Web Locks API
+Web Serial API
+Web Periodic Background Synchronization API
+WebGPU API
+WebUSB API
+WebSockets API
+XMLHttpRequest API
+Worker
+WorkerGlobalScope
+WorkerLocation
+WorkerNavigator
+`)""",
+
+
+"""showLink("https://worker-playground.glitch.me/", "Worker test sandbox/playground") """,
+
+
+"""createBlock(`
+Related terms:
+
+`, `
+1. Service workers
+`)""",
+
+
+"""createBlock(`
+Structured clone rules
+`, `
+1. Function cannot be cloned in object
+2. Recursively traverse objects and have a map of previously visited nodes to avoid infinite traversal.
+3. DOM nodes cannot be cloned, DataCloneError is thrown
+4. Certain object properties are not preserved
+for e.g. - 
+last index of RegExp objects (internal state of regular expression in use)
+property descriptors, getters, setters, metadata like features are not duplicated
+a readonly object marked with property descriptor("@readonly"), it will be read/write in duplicate by default
+Prototype chain is not walked or duplicated
+`)""",
+
+
+"""createBlock(`
+Here is list of some Web interfaces
+`, `
+Web/API types
+AudioData
+Blob
+CropTarget
+CryptoKey
+DOMException: browsers must serialize the properties name and message. Other attributes may also be serialized/cloned.
+DOMMatrix
+DOMMatrixReadOnly
+DOMPoint
+DOMPointReadOnly
+DOMQuad
+DOMRect
+DOMRectReadOnly
+File
+FileList
+FileSystemDirectoryHandle
+FileSystemFileHandle
+FileSystemHandle
+GPUCompilationInfo
+GPUCompilationMessage
+ImageBitmap
+ImageData
+RTCCertificate
+VideoFrame
+`)""",
+
+
+
+"""createBlock(`
+References
+`, `
+1. Transferrable objects - serializable in HTML living standard
+2. Object.getOwnPropertyDescriptor(object, "property") - returns object.configurable true object which is copy excluding prototype chain
+`)"""
+]
+

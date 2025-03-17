@@ -1,0 +1,134 @@
+
+
+
+["IndexDb basics",
+"00009. ",
+"2024-05-09 17:19:40",
+"2024-05-17 17:19:40",
+"",
+
+""" createBlock(`IndexDb has
+`, `
+1. Low level API that is close to instruction set
+2. Support for structured data like files and blobs
+3. High performance searches
+4. Transactional DB for RDBMS
+5. Unlike fixed column tables it uses objects. 
+It is possible to define schema, 
+open connections and 
+store objects provided they have key and support structured clone algorithm. 
+6. IndexDB supports async non-blocking operations in a transactional way to update DB.
+7. Every browser has storage quota and eviction criteria when DB size exceeds local storage limits or 
+criteria for when limit is reached.
+Firefox for example 
+8. A Window.indexedDB.open() returns an IDBRequest object. This interface provides a way to fire async non blocking requests.
+`)""",
+
+"""showLink("https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API", "IndexedDB MDN")""",
+"""createLinkBlock(`IndexedDB classes MDN`, "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API", `
+1. IDBFactory is Window.indexedDB
+2. 
+`)""",
+"""showLink("https://w3c.github.io/IndexedDB/", "Indexed Database API W3C")""",
+
+"""createBlock(`Storage in browser
+The main types of storage in browser are
+`, `
+1. Cookies - state information about navigation
+2. WebStorage - localStorage and sessionStorage
+3. IndexedDB - larger data structures
+4. Cache API - for network request responses
+5. Origin Private File System (OPFS)
+6. WebAssembly code caches
+7. WebSQL
+`)""",
+
+
+"""createBlock(`
+Eviction Policies`, `
+Browser stored data can be - 
+
+"best effort"(default, as long as origin is below quota) 
+
+or
+
+ "persistant"(transparent and evicted by user settings)
+Persistant storage gives a popup to user
+Chromium browsers accept/deny it based on history of user choices
+Private browsing deletes data after use
+
+Critical data - navigator.storage.persist()
+`)""",
+
+
+"""createBlock(`
+How much data can be store?
+`, `
+- Cookies - They are added to every request for navigation so they impact performance
+
+- Web Storage - 10 MiB in browser per origin, 5MiB for session storage 5Mib for local storage
+
+- Firefox - Minimum of 10GiB for best effort or 10% of disk storage capacity and eTLD + 1 domain group limit
+For persistant storage - 50% of hard disk capacity or 8TiB and no eTLD limit
+
+- Chromium - 60% of hard disk in both best effort and persistant quota per origin
+
+- Safari - For privacy cross-origin have 1/10th their parent quota as separate
+
+60% quota, ` + showLink("https://www.webkit.org/blog/14403/updates-to-storage-policy/", "Webkit blog") + `, 
+
+Older models have 20% quota or 1GiB limit for quota
+
+- navigator.storage.estimate() gives space available(padded space, total space to avoid detection)
+
+- QuotaExceededError, data eviction is more often on Storage pressure devices and proactively by Safari for less used websites
+LRU policy is used
+navigator.storage.persist - priority is given to persistant over best effort
+`)""",
+
+
+"""createBlock(`
+Fingerprinting
+
+The things that are disallowed to prevent fingerprinting of users and browser version are
+`, `
+1. Browser version
+2. Timezone and preferred language
+3. Video and audio codecs available to system
+4. Fonts installed on system
+5. State of browser settings
+6. Computer's display size and resolution(exact - should be padded)
+7. Cover your tracks.eff.org
+8. W3C mitigating browser fingerprinting in web specifications 
+`)""",
+
+
+"""createBlock(`
+Origins
+`, `
+1. Cross origins can read any embeddings by leaking read access.
+examples are script tag, link tag, 
+img tag, video tag, audio tag, 
+object tag, embed tag,
+@fontface, iframe tag
+
+2. X-Frame-Options header can prevent cross-origin framing
+
+3. Use a CSRF token(Cross Site Request Forgery) and make sure the page cannot be read by cross origin having the token.
+`)""",
+"""createBlock(`
+Related Terms
+`, `
+1. Web Storage
+2. Structured clone
+3. WorkerGlobalScope
+4. Window
+5. Storage API
+6. Fingerprinting security
+7. Storage pressure eviction
+8. eTLD - effective Top Level Domain
+9. Least Recently Used LRU Policy
+10. Preflight request in origin
+`)"""
+]
+

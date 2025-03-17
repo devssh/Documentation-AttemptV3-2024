@@ -1,0 +1,756 @@
+
+
+
+["JS Language Basics",
+"00015. ",
+"2024-05-27 15:23:00",
+"2024-06-28 03:16:00",
+"",
+"""createBlock(`Values`, `
+1. The basic value type is bits of information. (bitstream)
+2. Values can be stored in volatile memory like RAM(approx 100 billion bits or around 10Gigabytes) on a home computer.
+3. Hard disk has a few orders of magnitude more. 
+4. Variables can have type, variable are not all needed at once in RAM. So we can store them in hard disk on excess.
+5. JS uses 64 bits for a number. 2^65 -1 is the max number
+6. Chunks are created to partition the bits and each chunk can store a value and have a variable name.
+7. While older computers used 8 bit or 16 bit causing overflow error, it is not in JS with 64 bits for number.
+8. Bigger numbers get shortened to 1.237230264032737e+191 for example for 192 digit number.
+9. Since every 10 bits of 2 lead to x1024, 64 bits would be in the order of 10^20 or a 100 quintillion (quintillion = 10 to power 18)
+10. Considering sign and decimal point 15 decimal digits as whole number can be stored in JS (10 quadrillion)
+11. Scientific notation can be used to store number in JS. var number = 2.998e8
+12. Arithmetic uses operators. Operators have operator "precedence" for the BODMAS rules. 
+13. Special numbers Infinity and -Infinity. NaN is also a special number.
+14. Strings are created with single quote, double quote and backticks. 
+15. Escape characters in strings for newline and escaping quotation marks.
+16. Unicode standard models the strings to bits.
+17. There is complication for string representation.
+18. JS uses 16 bits for string representation of character. But unicode uses almost 32 bits. 
+19. And emoji take up 2 characters (which would make it 64 bits)
+20. Backtick strings are called 'template literals' and can also embed other values using dollar curly brackets.
+21. \$\{\} computes a string and includes it in that position in the string
+22. unary operators - typeof 4.5 is a valid syntax, that doesn't need brackets for applying typeof to a value like 4.5
+23. the minus sign is both a binary operator and unary operator. 10 - 8 here it is binary. -8 here it is unary
+24. Boolean type - comparison can produce boolean as well. 
+25. Comparison in string "Z" < "a" is true as capital letters are "less" than lowercase.
+26. Only NaN == NaN is false where it does not equal itself as it denotes a nonsensical calculation to another nonsense.
+27. Logical operators like && || and ! for the "and", "or", "not". 
+28. and = && is an invalid variable assignment unlike Haskell. In javascript this throws a SyntaxError
+29. JS is surprising close to C++, it allows web assembly for hardware device implementations and tries to be flexible.
+30. JS is not flexible enough out of the box without mod to support complete rewrite of syntax unlike haskell which ships with it's own OS to support monad-lisp clojures but it has HOF.
+31. Using as litte parenthesis as necessary. && has least precedence in operator so that 1 + 1 == 2 && 10 * 10 > 50 works as expected
+32. Ternary Operators work on 3 or more operands, true ? 1 : 2 is ternary operator
+33. ?: is the only ternary(conditional) operator in javascript and it uses 2 symbols to disallow implicit reordering LTR -> RTL and reversal.
+34. null and undefined denote absence of meaningful value and are empty values. They are to be treated as interchangeable for good design.
+35. odd things in js relating automatic type conversion 
+36. 8*null -> 0 ; "5" - 1 -> 4 ; "5" + 1 -> "51" ; "five" * 2 -> NaN ; false == 0 -> true ;
+37. Type coercion rules happen when mismatch of type occurs to silently fix type problem for reliability in dynamic nature.
+38. Null and undefined only produce true when both sides are null or undefined
+39. null == 0 -> false ; null == undefined -> true ;
+40. "" == false -> true;
+41. To prevent accidental type conversions check for 3 things in comparison - false, null, (intended type like string, object etc)
+42. null || false || "user" can prevent problems. var textDisplayed =  isReady == null || isReady == false || "user";
+43. "Agnes" || "user" -> Agnes ;  null || "user" -> user ; is way of setting default value of variable.
+44. There are 3 short circuit operators || && and ??
+45. All short circuit operators evaluate left before lazy evaluation of right hand side.
+46. || operator evaluates left to true otherwise returns the right hand side. It is used for default value.
+47. 0, NaN and "" evaluate to false. Apart from these four, null or undefined evaluates to false only if it is not compared(careful).
+48. ?? operators only evaluates null or undefined to false. It does not evaluate 0, NaN, "" to false
+49. && operator returns the left hand side if it is false. Otherwise the right is lazy evaluated and return
+50. Conditional operator is also short circuit evaluated. Code that is in wrong block is not evaluated.
+51. Summary - Javascript features for a pocket calculator
+52. Meaningful prose of javascript requires side effects other than nouns and sentence fragments.
+53. A fragment of code that produces a value is an expression. Every value written literally is also an expression Eg- 22, "some"
+54. Any parenthesis also contain expressions and logical operators are also surrounded by expressions
+55. Expressions can nest other expressions recursively
+56. Statements are demarcated by semicolons ; 
+57. A program is defined as 1 or more statements. So 1; is technically a program which does nothing but has one statement.
+58. The definition of side effects in JS - any state change which affects the statements after it or prints to screen
+59. Side effects are not only mutation of state, all programs are build on side effects in Object oriented languages
+60. How does a program keep internal state? Bindings. Also known as variables.
+61. Definition of a binding creates a name that can be reused and holds value
+62. Bindings are more like pointers than boxes. They can change value similar to tentacles grabbing objects
+63. Keywords for bindings are let, var, const. Let is new, var is different and pre-2015 JS.
+64. Binding or variable names can include underscore and dollar symbol but no other special symbols.
+65. Variable names also cannot include keywords(in use) and reserved words(for future use)
+66. The list of reserved words and keywords include (for example globalThis is missing)
+ break case catch class const continue debugger default
+ delete do else enum export extends false finally for
+ function if implements import interface in instanceof let
+ new package private protected public return static super
+ switch this throw true try typeof var void while with yield
+67. The environment exists at any time containing the bindings and other preexisting functions for interacting with
+in case of browser example user keyboard and mouse input and many other things.
+68. A lot of values are typed function. Function defines a piece of program wrapped in a value
+69. These values can be applied to run the code Eg prompt("Enter passcode")
+70. Invoking, calling, applying are aliases for executing a function
+71. Parenthesis can be added after the function block definition or value name to run it.
+72. Arguments or parameters refer to the values given to functions
+73. console.log writes it's arguments to a text output device like a hidden section of browser or terminal in nodejs
+74. Bindings cannot have the period or . character. Console.log uses the log property of console object
+75. Console shortcut in Mac is Command Option I, F12 on windows and mac, otherwise using developer tools
+76. Function returning value is also known as producing a value. Producing a value is a side effect.
+77. The result of prompt is a string and can be converted using Number(prompt("Enter a number"))
+78. Straight line control flow differs from conditional execution
+79. if keyword allows to skip a block of code
+80. Number(variable) returns NaN that can be checked with Number.isNaN()
+81. Statements in braces { and } are known as a block. Putting semicolon after blocks can prevent compiler from misindentifying.
+82. Chaining if else statements create a branch which executes on the condition similar to switch
+83. if () {} else if () {} else if {}
+84. while keyword creates a loop
+85. ** operator is an exponentiation operator 2**5 = 32 which is the square root of 1024 which is useful in crypto
+86. do {} while(); and while() {}; are example of do while
+87. A loop can prevent invalid input permanently.
+88. Technically indentation is not necessary in JS. The entire program can be in a single line.
+89. The rule is add spaces, newlines and certain indentation spaces/tabs(preferable converted to spaces) for every open block.
+90. For loops is a more comprehensive form of the while loop
+91. for(initialize;check;update) {}; Remember to not add a ; after the increment i=i+1
+92. For loops are clearer than while, except they add a scope on local and global variable of the block and persistence.
+93. For initialize check and update blocks can be left empty because we have break;
+94. break as a pointer to check condition of loop can stop the loop without conditional check
+95. Continue is a pointer that skips to the update block. Break and continue are control flow modifiers
+96. An infinite loop is when there is no stop condition. 
+97. % is also known as the remainder operator or mod operator.
+98. Combination of loops and % is useful in encrypt (since the numerator can be saved to secretly decrypt :P )
+99. Certain shortening of update block in loop can be done with += -= *= ++ -- operators.
+100. A switch statement is also known as a dispatcher.
+101. Values can be dispatched on switch(value) {case "": break; default: break;} 
+102. Every case dispatches a block of code
+103. A case without a break can result in an intended fall through to promote DRY code.
+104. JS uses camelCase. Alternatives like underscore(snake case), CaptialCase are not for JS bindings.
+105. Constants are also in camelCase. true false NaN. Sometimes constants start with a capital letter.
+106. Interfaces and classes start with capital letter. Number() String()
+107. Technically constructors start with capital letter. Number() is a constructor.
+108. Comments are ignored by the compiler. 
+109. // is a comment 
+110. /*
+This is a multiline comment chunk that is ignored 
+*/
+111. Tracking state of a program involves binding aka variables aka values.
+112. Environment is the list of defined bindings.
+113. Encapsulation of a piece of program is through special values(bindings) called functions
+114. An expression may produce a value( may cause side effects) for a program of desired effect.
+115. FizzBuzz (3 5 15) for 1 to 100
+116. Chessboard nxn board generation with alternating black(#) and white( ) squares
+117. Functions allow us to wrap a piece of program in a value.
+118. Function uses are to give names to subprograms, reuse subprograms, isolate subprograms from each other and structure larger programs.
+119. Creating a vocabulary is possible with functions
+120. When looking at vocubulary it is important to precisely define, be flexible and avoid excessive verbosity
+121. Functions can have a single parameters, multiple parameters or no parameters.
+122. A function can either return a value, or introduce a side effect such as globalThis.console.log = value
+123. return without a value will return undefined
+124. A return always stops the function execution after it and returns the value
+125. There are no rules on the type of value returned so a function could sometimes return an int and the same function sometimes return a string
+126. Since javascript is simply facilitating assembly language it does not impose rules or try to be bulky by default
+127. Parameters of a function are similar to regular variables/bindings but their values are given by the caller of the function
+128. Each binding has a scope in which it is visible.
+129. global referes to the binding scope of all variables outside any function, block or module
+130. local refers to binding scope of function parameters or bindings/variables inside a function
+131. Every time the function is called a new instance of the binding is created
+132. Instance refers to the creation of object from a defined template where every object is unique
+133. global and local scope are also known as global bindings and local bindings
+134. Every function has its own environment that provides isolation and has rules since every caller of function creates a new function environment
+135. Functions that don't use global bindings in them are different from ones that only use local bindings in terms of parallelism
+136. Let and const create local bindings.
+137. In pre-2015 js var creates global bindings even inside functions if declared although preferably should be var in global scope outside function
+138. Scope can look out of their scope but not in reverse. 
+139. Global scope can't see inside function. 
+140. Local scope can see global scope.
+141. If there is overlap of names only the innermost binding is visible on priority
+142. Functions can nest in each other creating degrees of locality inside them
+143. Lexical scoping is known as each local scope can see the local scopes that contain it.
+144. Since global contains everything, every scope can see global.
+145. Binding visibility have various approaches and JS only uses the lexical scoping approach.
+146. Approaches to passing functions as parameters involve pass by value and pass by reference and other details
+147. The function is not the same as it's name. function and function() are distinctly different and can be used in expressions
+148. Function declaration is done with function keyword. 
+149. function name(param1) {...} is valid 
+150. Function declarations are not part of the top to bottom flow of control.
+151. Functions are hoisted to the top. This is useful as it gives freedom to write code with call first and definitions later
+152. Arrow notation can be used to create arrow functions. => instead of function keyword shortens this.
+153. When there is only one parameter the parenthesis can be omitted
+154. const name = (param1, param2) => {...} is valid
+155. const name = param1 => {...} is valid
+156. The arrow points from the parameters to the function body
+157. Arrow functions help to make code less verbose. They were added in 2015 and later versions.
+158. The call stack keeps context of the calls and which scope has control of the program currently
+159. Everytime a function is called the current context is added to the top of the stack
+160. Everytime a function returns it pops the top of the stack and uses that context to continue execution
+161. Stack is related to memory. Out of memory and exceeded recursion depth errors are examples of too big stack
+162. Infinite loops are handled using the stack
+163. Optional arguments are allowed after the necessary parameters are provided. 
+164. There is no limit on any function on how many arguments can be provided during the function call.
+165. Arguments generally refer to the function call and parameters generally refer to function definition
+166. Extra arguments are ignored in JS
+167. If less than required arguments are passed, the rest are by default passed undefined
+168. This helps code get executed even if it is incorrect
+169. Code must be checked for number and correctness of position of arguments to their parameters
+170. This also means function definition may assume variable arguments and undefined to function overload in same block.
+171. Functions can have default parameters with = sign
+172. function name(param1, param2=1) {...} is valid with default value 1 instead of undefined
+173. Functions can also get all the arguments passed to it irrespective of their count
+174. Closure deals with scope of the function. 
+175. Since every instance of function call creates a new local scope, closure deals with the properties of these environments
+176. Different function calls of the same function don't affect each others bindings
+177. Wrapping a value is a good test of the integrity of function closure
+178. function wrapValueTest(n) {return () => n;};
+179. const wrap1 = wrapValueTest(1);
+180. const wrap2 = wrapValueTest(2);
+181. console.log(wrap1(), wrap2());
+182. This gives the expected output and can test the closure
+183. Use of functions in creative ways with closure involves playing with their function signatures for example
+184. function multiplier(n) {return number => number * factor};
+185. const double = multiplier(2);
+186. console.log(double(50)); gives output 100
+187. function values can be divided into their code and their environment
+188. The function body sees the context in which it was created not the context of where it was called.
+189. A function that calls itself is called recursive.
+190. Recursion is fine as long as the function does not overflow the stack.
+191. Recursion helps to define functions more clearly.
+192. Recursion is also closer to how mathematicians use algebra but it is a hack rather than true recursion/identity.
+193. Using recursion has a performance cost, recursion is slower or faster in instances than a simple for loop.
+194. Recursion is always slower as compared to imperatively defining something in a single block by an order of magnitude.
+195. Speed vs elegance represents itself in recursion as a dilemma between human-friendliness and machine-friendliness
+196. Any function can be faster by making it bigger and more convoluted
+197. Handling complexity is sometimes necessary though as topics can get very complicated to read and understand.
+198. Recursion can simplify things to help reduce complexity on priority which is how it has to be balanced.
+199. Efficiency can in certain scenarios be distracting.
+200. Complexity reduction can be priority in scenarios where it is paralysing
+201. Recursion once working correctly can always be rewritten later for performance
+202. Branch exploration using recursion is where recursion can shine in performance, memory management and simplicity
+203. Recursion by itself does not guarantee the simplest, shortest or most optimal solution.
+204. One option for recursion is to define a function with switch dispatcher, that returns null on failure and branches with ?? operator
+205. Recursion often also has a variable that returns history of the branch which can also be used to visualize the branches.
+206 . Recursion simplified - null and failure auto termination, history and recursion visualization with indent, branch step with some calculation
+207. There are two natural ways functions grow in verbosity among many more unnatural ways a function can be created.
+208. The first way growing function verbosity occurs, when I find myself writing increasingly similar functions
+209. Reasons why code should not be excessively verbose?
+210. More code means more space for mistake and bugs, more to read for myself and others to understand.
+211. So repeated functionality finds a good function name and gets stored
+212. The second way is to start using an undefined function to write the usage logic of the function before definition.
+213. By using the TDD second way, only the function name is defined and it's usage defined helps define the function later.
+214. This way the encapsulation(wrap) and SOLID principles are better and usage docs and tests read great!
+215. The second approach has a broad whole specific intent in place before the function is defined which saves time later.
+216. What is a good indicator of how clear a concept is that I'm trying to wrap? - Writing good function name and TDD
+217. First step of simplifying is to write a description using words and multiple sentences of the function I am trying to define.
+218. The optional step is to have a bad implementation ready to be refactored.
+219. The second step is to look at extensibility of the code and possible directions it may take
+220. The third step is to have a function name that is overly long by combining words(an awkward name) that does the job
+221. The fourth and final step is to pick a single concept the function is trying to do and breaking down and decoupling the awkward function
+222. A good trick for functions that return templates is to use string templates(f-strings equivalent in python) instead of making functions that return strings
+223. A function must return a side effect that modifies the state of the program
+224. Don't try to have functions that don't induce side effects and return too often - prematurely optimization of code
+225. How smart and versatile should our function be? Reuse in other scenarios as a module consideration
+226. Overlap between a small section of two modules each having their own author that do the same thing is possible
+227. How bug free and secure is our implementation of the function in module?
+228. Being too busy writing code that I never use is a sign of writing general frameworks for every functionality
+229. Resist the urge to write too general code, for potential reuse, it will drown the important functionality in a sea of irrelevance.
+230. See zeroPad example for template string trick to reduce function verbosity of functions that return template strings
+231. Also see vulnerability of f-string/template string - exploit and injection attack on f-string
+232. Sanitize all template strings from client at backend that are used in API/interface(dollar curly brackets in JS on backticks)
+233. Functions can either have return value, side effects or both
+234. Combinatory functions require return values and are more common in OOP for their reuse value
+235. It is useful to have pure functions that don't produce side effects for return value combinatory functions
+236. Pure functions also restrict reading global values that are not in parameters
+237. This way the pure function can always have same output on same input which is a pleasant property for debugging
+238. Pure functions can be substituted by their return value for an input without affecting the program
+239. Non pure functions require more scaffolding to test and debug
+240. It is efficient to use side effects
+241. Using a wrapper around console.log for example instead of using it directly can help track every command that comes to it
+242. Organisation of a program involves functions to group code into pieces that have a specific task
+243. Function body often contains a checks part then an execution part
+244. Numbers, booleans and strings are the atoms from which datastructures are built.
+245. Objects allow grouping of values including other objects to build complex structures
+246. The weresquirrel is a story for building correlation engine between a simple journal of the day and whether it led to werewolf transformation
+247. Data structures will involve a real work practical example wherever mentioned Jacques or weresquirrel to thread examples and group them.
+248. Happy that Jacques does not have lycanthropy, he wanted to tabulate his daily activities in a journal to find root cause of transformation
+249. Data structures can store this journal information in a variety of ways
+250. To work with a chunk of data, it has to be represented in memory
+251. Now strings in JS do not have a length limit (around a billion character given practical tests on a browser in 2020s)
+252. Javascript though has a better structure called array that will allow easier access than using a string and accessing elements in string
+253. Array syntax is square brackets using commas to seperate the elements
+254. Array element access also uses the square brackets notation
+255. JS uses 0 based counting for array indexes
+256. Using 0 index, the index becomes a skip counter. 0 means no skip first element.
+257. Expressions like myString.length or Math.max access a property of some value
+258. Binding vs value. Values are native to JS and bindings are the variables created to store these values
+259. What are "properties" of values like length and max?
+260. The Math object is a collection of mathematics related constants and functions
+261. Math object is unlike the constructor with capital first letter like Number() or String() mentioned before 
+262. All objects don't give error when a non existant property is called
+263. The only exceptions are undefined and null which throw an Error if a property is called
+264. String.hello returns undefined
+265. undefined.hello returns TypeError: null/undefined has no properties
+266. Properties can be accessed in 2 ways - with a dot and with square brackets
+267. Expressions inside square brackets are evaluated to give a value to use for accessing properties
+268. Using dot takes the literal string provided and does not evaluate
+269. some.x and some[x] are very different. Not to be confused with some.x and some["x"] and some[x]
+270. Why use square notation over dot notation?
+271. Square notation allows use of bindings
+272. Square notation allows spaces and other forbidden characters in dot notation
+273. Square brackets are overloaded to mean 2 things - arrays definition and array element access
+274. Property names must be strings? - Does JS internally convert non string keys to strings?
+275. Dot notation requires that the string start with a letter or underscore, and contain only A-Za-Z0-9 and _(underscore)
+276. Since dot notation disallows numbers we have to use square brackets for arrays
+277. Arrays have properties names that are numbers
+278. Arrays are stored as objects with properties and the properties names are the indexes
+279. myArray[0] is the same as myArray["0"]
+280. arrays also have a length property indicating the builtin functions provided by JS
+281. How does the string.toUpperCase() access the string even though it is not passed as argument?
+282. Pure vs impure functions in native JS methods
+283. Methods of the value are special properties of the value that contain functions
+284. arrays also have push() and pop() methods allowing them to be used as a stack
+285. 
+let myArray = [1, 2];
+myArray.push(3);
+console.log(myArray); 
+// returns [1, 2, 3]
+console.log(myArray.pop()); returns 3
+console.log(myArray); returns [1, 2]
+286. LIFO(Last In First Out) is the same as stack which uses push and pop
+287. Values of type object are arbitrary collections of properties
+288. One reason Objects are created is to simplify the function parameter signature to receive one single argument
+289. Braces are used to create an expression that evaluates to the desired object
+290. Valid binding names involves starting with letter or underscores and containing A-Za-Z0-9 and _(underscore)
+291. let day1 = {squirrel: false, events:["work", "touched tree", "pizza", "running"]};
+292. let descriptions = {work: "Went to work", "touched tree": "Touched a tree"};
+293. Now work did not need string quotes as it was a valid binding name but "touched tree" needed string quotes
+294. Now braces overloading is for 2 things - start of function body(which is grouping statements) and start of object creation
+295. Starting function body with braces on newline helps certain compilers and simplifies compiler design
+296. Braces are checked by compiler when arrow expression is involved 
+297. n => {myObjectProperty: n} will not work because braces are ambiguous with function start(grouping statements) and object creation
+298. n => {{myObjectProperty: n}}; will not work and since there is no return it will not return implicitly
+299. n => {return {myObjectProperty: n}}; will work as intented
+300. let n => 1; n(); will return 1 as expected implicitly returning 1 as braces were not used.
+301. n => ({myObjectProperty: n}); will work as intented with parenthesis instead of return.
+302. Braces are also known as curly brackets{}.
+303. Brackets usually refer to square brackets[].
+304. Parenthesis usually refer to round brackets().
+305. Property bindings are similar to the tentacle model of bindings
+306. Objects are the same as octopuses grasping values. Other bindings may mutate the values they are grasping.
+307. delete is a unary operator that removes tentacle bindings or property bindings
+308. anObject = {left: 1, right: 2};
+309. delete anObject.left;
+310. console.log(anObject);
+311. // -> {right: 2}
+312. It is uncommon but possible to use delete unary operator
+313. Mutability of objects test
+const a = {};
+a.name="abc";
+console.log(a);
+// -> {"name": "abc"}
+314. // now also console doesnt show name in quotes. so {name: "abc"} is what is shows.
+315. This works to set properties on const objects. Const only binds the object not make it's properties immutable.
+316. a = {newObject: 1} //this is not allowed a is const
+317. It is advisable to add quotes anyway for consistency but valid binding names can be enforced by not using quotes which can be useful
+318. A binary operator called "in" can check properties names on objects
+319. Deleting a property with delete keyword also removes it's property name
+320. If a property on object is set to undefined, it still leaves a property name behind.
+321. console.log("right" in anObject); // -> true
+322. delete anObject.left vs anObject.left = undefined
+323. Object.keys(anObject); returns an object's property names
+324. Object.assign(anObject, {center: 3}); will assign all the properties of object 2 to object 1
+325. typeof [] returns an object
+326. Arrays are object specialized to store sequence of things
+327. Now jacques will store day1, day2, dayN as array called journal
+328. let journal = [
+  {events: ["work", "touched tree", "pizza", ...],
+  squirrel
+  },
+...
+];
+329. Indentation inside arrays and objects can help readability. 
+330. But it is not necessary and flat looks better and gives less problem in style on terminal.
+331. Mutation of objects involves identity
+332. "identity" of two objects may not be same as they point to similar object that each have their own life.
+333. == operator compares by identity
+334. == is a shallow operator. 
+335. It is possible to write myself a deep comparison operator for JS(one of the exercises)
+336. Object values can be modified
+337. Strings booleans and numbers are immutable
+338. Combining and deriving from immutable values is possible but the value can't be edited or modified.
+339. let object1 ={};
+let objectCopyByReference = object1;
+let object2 = {};
+console.log(object1==object2);
+// -> false 
+340. // they are not equal in identity and have separate lives
+341. object1.name="abc";
+console.log(objectCopyByReference);
+// -> {name: "abc"}
+
+342. The lycanthropes log description
+343. let events = ["work", "touched tree"];
+let squirrel = false;
+console.log({events, squirrel})
+344. // -> this returns the same as {events: events, squirrel: squirrel}
+345. // -> {events: ["work", "touched tree"], squirrel: false}
+346. If inside brace notation only a property name is provided without value the same binding name is used to give it's value
+347. Using an array as data store and using imperative mutable functions for the data store
+348. let journal = []; // we will rebind this to JOURNAL once all the events are added and make it immutable as data read only
+function addEntry(events, squirrel) {
+journal.push({events, squirrel});
+};
+349. After sufficient data points a correlation can be drawn using statistics on the journal
+350. A statistical variable is not the same as a programming variable
+351. Correlation is a measure of dependence between statistical variables
+352. The first step for statistics is to have a set of measurements for each variable to be measured
+353. In this case every event in events in the journal is a variable, that needs a measurement to make a set of measurements
+354. Correlation is usually measured as a range between -1 and +1 between the variables
+355. Zero correlation means the variables are not related
+356. Positive 1 means the variables are perfectly correlated. Knowing one is same as knowing the other variable
+357. Negative 1 means the variables are perfectly related as opposite. Knowing one is the same as inverting it to know the other
+358. One simple way to measure correlation between boolean variables is to calculate the Phi Coefficient 
+359. Phi Coefficient 𝜑
+360. MATHEMATICAL ITALIC SMALL PHI
+361. Unicode: U+1D711 &#1D711; &#x1D711; , UTF-8: F0 9D 9C 91 &#xF09D9C91;
+362. The Phi Coefficient function input is a frequency table.
+363. The frequency table construction details are to pair all variables to cover all combinations of variables as pairs, and then to count observed occurrences for the pairs.
+364. The output of the phi coefficient function is a number between -1 and 1 for every pair
+365. One of the pairs in the frequency table elements will always be the result variable(squirrel - true/false)
+366. The frequency table will always be a 2x2 table with 4 element frequencies between the two boolean variables
+367. For a frequency table called n, there are 4 elements n00, n01, n10, n11
+368. The way to read it is n00 => the first 0 is always squirrel as false(0) or true(1), the second 0 is some variable as 0 or 1
+369. There are also 4 summation variable n0. n1. n.0 and n.1 , where . represents don't care in logic, which sum the rows and columns of the frequency table
+370. For example to compare phi between squirrel and pizza the frequency table n is described below
+n00 n01
+n10 n11
+76 9 
+4 1
+371. 
+n00 no squirrel no pizza false false 76 occurrences 
+n01 no squirrel true pizza 9 occurrences
+n10 squirrel no pizza 4 occurrences
+n11 squirrel pizza 1 occurences
+372. Now the summation variables are 
+n0. is 76 + 9 = 85
+n1. is 4 + 1 = 5
+n.0 is 76 + 4 = 80
+n.1 is 9 + 1 = 10
+
+373. phi is computed as 𝜑 = (n11*n00 - n10*n01)/sqrt(n1.*n0.*n.0*n.1)
+374. phi computation numerator is multiply correlation 11 00 and subtract non correlation n10 n01
+375. phi numerator is 76 - 36 = 40
+376. phi computation denominator is sqrt multiply normalization factor for range -1 to 1
+377. phi denominator for perfect correlation 1 and -1 and for no correlation 0 will be left as exercise to understand denominator
+378. phi denominator is sqrt(85*5*80*10) = sqrt(340,000) = 100 * sqrt(34) = 583.09
+379. phi value is 0.0686 which is tiny about a 6.86% positive correlation
+
+380. For representing this in JS the structure chosen here is a 4x1 array for n, the frequency table [76, 9, 4, 1]
+381. Flat array is always preferred over nested arrays, even if the dimensions of matrix is quite large in imperative programming
+382. Imperative programming also converts binary of boolean flattened arrays to decimal to use as array index access
+383. For example n[1][0] in nested array will be 10 in binary which is 2 in decimal so n[2] in flattened array is equivalent to n[1][0]
+
+384. By not creating any variable bindings for n00 to n11 and n0. to n.1 phi will look as follows
+385. function phi(table) {
+return (table[3] * table[0] - table[2]*table[1]) / 
+Math.sqrt((table[2] + table[3]) *
+(table[0] + table[1])*
+(table[1] + table[3])*
+(table[0] + table[2]));
+}
+
+386. console.log(phi([76, 9, 4, 1]));
+387. // -> 0.0685
+388. This way we have nothing in memory bloating it except the phi result for performance
+389. We could run it on ram and display output on screen and write it to paper without having ROM or hdd or ssd to reduce the computer architecture requirement.
+
+390. Now we need to create a function that generates the frequency table n from the journal for Jacques
+
+391. console.log(tableFor("pizza", JOURNAL));
+392. // -> [76, 9, 4, 1]
+
+393. Every loop increases the frequency of exactly one index out of 4 in table by 1
+
+394. function tableFor(event, journal) {
+let table = [0, 0, 0, 0];
+for (let i=0; i<journal.length; i++) {
+let entry = journal[i], index=0;
+if (entry.events.includes(event)) index += 1;
+if (entry.squirrel) index += 2;
+table[index] += 1;
+}
+return table;
+};
+
+395. This is read as if false(squirrel) false(event) then index 0
+If true true then index 3
+If true false then index 2
+If false true then index 1
+The first if is the second true/false
+The second if is the first true/false as the order is irrelevant for switch case
+
+396. Now we loop over all the events like pizza to get all the correlations and see if anything stands out
+
+397. for (let i=0; i<JOURNAL.length; i++) {
+let entry = JOURNAL[i]
+// tableFor then phi. Will complete after discussing more syntax for loops 
+}
+
+398. A simpler way of for loops for an array iteration involves not defining index
+
+399. for (let entry of journal) {...}
+
+400. This is called let element of array syntax of for loop for array iteration. It will be discussed later.
+
+401. console.log(journalEvents(JOURNAL));
+402. // -> ["pizza", "carrot", "touched tree", ...] gives the list of events
+
+403. function journalEvents(journal) {
+let events = [];
+for (let entry of journal) {
+for (let event of entry.events) {
+if (!events.includes(event)) {
+events.push(event); 
+//this can be much simpler with map reduce or yield syntax to remove nested for loop
+}
+}
+}
+};
+
+404. for (let event of journalEvents(JOURNAL)) {
+console.log(templateStr'event: templateBind-phi(templateBind-tableFor(event, JOURNAl))');
+// -> carrot: 0.140
+// -> pizza: 0.068 ...
+}
+
+405. A filter can be simply implemented using if statement on for loop for correlation greater than 10% or negative 10%
+correlation > 0.1 || correlation < -0.1 
+
+406. Now peanuts correlates 0.5902 or 59.02% to squirrel transformation
+407. Now brushing teeth correlates -0.3805 or 38.02% negatively to squirrel transformation
+408. Note how we can't just add the phi values without absolute value to get any meaningful combination
+409. What if there was an event called "peanut teeth" which represented "peanuts and not brushing teeth"
+410. After calculating it's frequency table phi("peanut teeth") is exactly 1
+411. Jacques can now live as a squirrel if he chooses to :D
+412. Technically we would have wanted -1 for not transformation so we went in reverse in this example
+413. People often do the opposite of intended
+
+414. Here are some important array functions
+
+415. Appending to array
+416. push() and pop() add and remove at the end of array
+417. unshift() and shift() are add and remove at start of array respectively
+
+418. Prepending to array
+419. unshift adds to start of array for rememberUrgently(task) or rememberOnPriority(task)
+420. shift removes from start of array for getTask()
+
+421. Queues are used by programs to manage things. LIFO FIFO stacks and queues, LRU queue etc
+422. A todo list example is a good way to learn queues
+
+423. indexOf() on an array returns the first index of an element in the array or -1 if not found(i++ iteration)
+424. lastIndexOf() does the same on array except it starts checking from the end of the array(i-- iteration)
+
+425. Both indexOf and lastIndexOf also take an optional second parameter for which index to start searching at
+426. This way we can iterate over regex matches for example without using regex module
+
+427. slice() on an array is also used with start inclusive index and end exclusive index to cut up an array and return subset
+428. Both parameters can also be not provided to slice, second parameter missing cuts to the end, first also missing copies the entire array
+
+429. concat() on arrays can be used to join subset of arrays similar to + operator for strings
+430. Concat also appends a single element to an array if one of the arguments is not an array
+
+431. Strings in JS also have some useful properties
+432. Even though strings have length and toUpperCase properties and a lot of inbuilt functions, I cannot add properties to string
+433. "".length // -> 0
+434. "abc".age = 88;
+435. console.log("abc".age); // -> undefined
+436. let testString = "abc";
+437. "abc".age = 88;
+438. console.log(testString.age); // -> undefined
+439. To make a property stick to string it needs to be wrapped in an object
+440. The JS language does not raise an error for trying to set a property on boolean, string, number values even though they are not objects
+441. Immutable values cannot be changed. Values are immutable. Only object can have properties containing function and values on them
+442. Even though the values are immutable they have properties
+443. One difference between array and string is string.indexOf can search for a subset of string while array would only search by character.
+444. If expected string to behave like array it does not hold on character model of string on indexOf
+445. In short string has reflection and function overloading of it's own class to provide compiler features(even though there is no compiler)
+446. "One two three".indexOf("ee")
+447. .trim() removes whitespace like spaces, newlines, tabs and similar characters from start and end of string
+448. zeroPad is also known as .padStart() which takes desired length and padding character as argument
+449. console.log(String(7).padStart(3, "0")); // -> "007"
+450. "Hello world".split(" ").join(". ") -> "Hello. world"
+451. "LA ".repeat(3) -> "LA LA LA"
+452. Accessing individual characters in a string by treating it as an array has one complication that will be discussed later
+453. Rest parameters are used with ...params notation and can accept variable arguments for a function as an array
+454. console.log(-Infinity < -2) // -> true
+455. Parameters before the rest parameters are not included in the array
+456. Similarly the array can also be split into variable arguments for a function accepting rest parameters
+457. let numbers = myRestParametersFunction(2, 5, 7, 4)
+458. console.log(Math.max(...numbers)); // -> 7
+459. function myRestParametersFunction(...args) {return args};
+460. // or equivalent
+let myRestParametersFunction = (...args) => args;
+461. max(9, ...numbers, 2) is also valid
+462. Triple dot operator also allows spread of arguments inside an array
+["hello", ...names, "and Bob"]
+463. Triple dot operator works with brackets and braces
+464. In braces/objects the repeated values if present, only the last value wins
+465. let coordinates = {x: 108, y:29, z: 39}
+466. {...coordinates, y:15}; // -> for updating coordinates, y will be set to 15 as it is last and wins
+467. The Math object is a grab bag of functions that helps prevent global namespace pollution
+468. A namespace provides a binding so that values don't have to live in the global namespace
+469. Accidental overwriting from collision of function names can be avoided by using a namespace to protect them
+470. Perversely JS only gives a warning for overwriting let(inside certain scope it is constant not to be confused with global let) and const bindings
+471. JS does not give warning for overwriting inbuilt functions(called standard bindings) in global namespace or those declared with var or function keyword
+472. Math object has sin() cos() tan() asin() acos() atan() and sqrt() min() max() random(returns pseudorandom between 0 and 1)
+473. Math.PI also contains PI 
+474. Math.cos(angleInRadians)
+475. For a random point on a circle take a random angle Math.random() * 2 * Math.PI
+476. Then using the angle x coordinate is radius * Math.cos(angleInRadians) and y coordinate is radius * Math.sin(angleInRadians)
+477. For a function that take the radius of a circle with centre at (0, 0) function randomPointOnACircle(radius) the output is
+478. console.log(randomPointOnACircle(2))
+479. // -> {x: 0.37, y: 1.97}
+480. Pseudorandom numbers from Math.random give a number between 0 inclusive and 1 exclusive aka [0,1)
+481. The theory of pseudo random number involves a 2 points
+482. The first point is computers are deterministic machines. They can store state and replicate it exactly.
+483. Computers always react the same way when given same input
+484. The second point is to give the appearance of a random number, the computer/machine can hold a hidden value
+485. Whenever a random number is needed some complicated computations can be performed on the hidden value to create a new value
+486. This new value is stored as the updated hidden value and some number derived from this new value is returned
+487. This produces ever new, hard-to-predict numbers in a way that seems random but can be tested by updating the seed value(hidden value)
+488. The concepts of pseudo random numbers involve Deterministic machine, persistance, private variables of a language, memory access control system
+489. For true randomness an 8k video has many pixels on a grid, by selecting a random frame in a very long video with high resolution and high fps Frames per second, true random numbers can be generated. 
+490. The randomness entropy of the video should be equivalent to a room filled with lava lamps and people are encouraged to be in the lava lamp room as they block the camera and add to the randomness.
+491. True random involves removing persistance and memory, and accepting the input from a source that is not a deterministic machine
+492. True random also involves other constraints, such as compiling the entire code from source after writing the source code personally, producing hardware personally to avoid firmware exploits, protecting communication interception of source randomness input such as by having the system in an offline loop with lavalamp and camera and blocking wireless signals with a jammer and electrostatic shielding, protecting the algorithm used to create randomness, and finally protection from exploits involving limitations of physics understanding of a group of physicists and accounting and tracking every physicist in the world of sufficient expertise in certain areas of mathematics and other impossibilites
+
+493. In other Math functions such as Math.floor for [0, 1) and Math.ceil can produce (0, 1] which can then be multiplied for range and offset by value
+494. Math.round can round to the nearest number up or down, Math.abs can give absolute values
+495. Parameters can be destructured to accept arguments of certain binding. 
+496. If arguments are improper for such destructured parameters it throws an error
+497. Destructuring phi function example
+498. instead of function signature
+499. function phi(table) {...}
+500. we can use destructured parameters
+501. function phi([n00, n01, n10, n11]) {...}
+502. This destructuring also works for objects instead of arrays
+503. This destructuring also works on variable bindings declaration
+504. let {name} = {name: "Bob", age: 23}
+505. console.log(name) // -> Bob
+506. Trying to destructure null or undefined gives an error similar to direct access of index of null
+507. What happens if destructure empty array? It silently passes without error
+508. let {name} = {} or let [name] = []
+509. console.log(name) // -> undefined 
+510. Optional property access helps to resolve the errors involving accepting a value object of certain requirement type
+511. While loop can prevent accepting value of certain improper type, simply loop till valid input is received
+512. Dot notation of object access comes with a variation of optional dot access
+513. Example object.address?.city
+514. This notation also works with calling functions and array access
+515. "string".notAMethod?.()
+516. {}.notAnExistingProperty?.[0]
+517. []?.[2]
+518. // -> undefined is returned on all of the above
+519. ?. Evaluates a value that is not null or undefined. Otherwise it evaluates to undefined
+520. Evaluation of an expression is similar to a function return except implicit in compiler
+521. JSON JavaScript Object Notation was used by Netscape Navigator in Action Script
+522. Because properties grasp values with tentacles than contain it, data is stored in the computer memory as a sequence of bits holding the addresses of the content
+523. So properties are more like pointers than containers
+524. Nested array also use pointers and links to nest arrays rather than true memory storage
+525. Saving data in a file, or using it for persistance, or sending it to another computer over the internet requires a way to do so
+526. One way to save data or transport it is to send the entire computer memory along with address of all values
+527. A simpler and more efficient way involves JSON and serialization concept
+528. A serialized value can be accessed by knowing just one single pointer to the value
+529. Then the serialized value can be loaded and used to access all the containing properties in the file
+530. Serialized values are flat values instead of nested or pointers
+531. JSON(Jason) is used as a data storage and communication format in most languages and systems in the world and is a popular serialization format
+532. JSON has a few restrictions to Javascript objects and array
+533. These restrictions are all keys(properties) have to be quoted, only simple data expressions allowed, no function calls and bindings or anything involving comptutation
+534. The values don't need to be double quoted
+535. JSON data example 
+{
+"squirrel": false,
+"events": ["work", "touched tree", "pizza", "running"]
+}
+536. JS gives us JS.stringify and JS.parse to convert data to and from JSON format
+537. JSON encoded strings can be stored as JS strings using stringify
+538. JSON encoded string can be decoded from JS strings using parse
+
+539. let string = JSON.stringify({"squirrel": false, "events": [...]})
+540. JSON.parse(string)["squirrel"] // -> false
+541. Using objects, arrays and bindings allows us to use a bag to move a collection of values
+542. Arrays are supposed to be used for conceptually identical values in varying amounts
+543. Named properties in array are length and other inbuilt methods
+544. Methods that live in properties of values (usually)act on the value they are stored in(property of)
+545. typeof null is object 
+
+546. Sum of a range exercise 
+Create a range function from python in js that takes start and end, includes start index and excludes end index
+Create a sum function that takes an array and sum it
+Modify range function to include third parameter of step increment that can take positive and negative
+Do not use inbuilt sum and range function equivalents
+
+547. Reversing an array exercise
+Create two functions reverseArray and reverseArrayInPlace
+Compare performance of reverse with side effects and with pure functions taking arguments
+Which is more useful?
+Do not use [].reverse() inbuilt
+
+548. A linked list exercise
+Create an array using nested objects as shown
+[1, 2, 3] => {value: 1, rest: {value: 2, rest: {value: 3, rest: null}}}
+Create functions arrayToList and listToArray to transform between array and the list
+Create function prepend for the object list to insert at start
+Create function nth for object list that returns value of the nth position in object list(equivalent to array index access)
+nth should return undefined if nth is not there
+Also create variation of nth using recursion and without recursion(if it is possible)
+
+549. Deep comparison exercise
+Compare objects with === and use typeof to check objects to the required depth
+Take an exception for typeof null equals object
+Use Object.keys to iterate over objects
+
+
+
+`)""",
+"""createBlock(`Glossary`, `
+1. Typographic conventions
+2. Programming
+3. Why language matters over binary/assembly
+4. What is JavaScript
+5. Code references link of EloquentJS
+6. Overview of book structure
+7. Values Types Operators
+8. Numbers and Special numbers
+9. Arithmetic
+10. Strings
+11. Boolean values
+12. Unary, Binary, Tertiary Operators
+13. Logical operators and comparison
+14. Empty values
+15. Automatic type conversion and type coercion
+16. Short circuiting of logical operators
+17. Program structure fundamentals
+18. Expressions vs statements vs program
+19. Bindings and Return values
+20. Control Flow and Conditional execution
+21. While and do loops and for loops
+22. Dispatching with switch
+23. camelCase and Capitalization
+24. Multiline comments
+25. Functions, definitions, bindings and nested scopes
+26. Pass by value or reference
+27. Declaration notation, arrow functions
+28. The call stack
+29. Optional arguments
+30. Arguments vs parameters and recursion
+31. Simple recursion parameter classes
+32. Handling growing function verbosity
+33. Functions and side effects
+34. Data structures objects and arrays
+35. Weresquirrel example
+36. Datasets, properties, methods and objects
+37. Mutability, immutability and object properties
+38. The Lycanthrope's log example and computing correlation phi
+39. Array loops and further arrayology syntax
+40. Fast access and performant algorithmic properties of strings
+41. Rest parameters and spreading arguments
+42. Namespaces to avoid global pollution
+43. Pseudo random numbers
+44. Destructuring function parameters and argument binding
+45. Optional property access
+46. JSON JavaScript Object Notation and Serialization
+47. Basic exercises in implementation
+`)
+"""
+]

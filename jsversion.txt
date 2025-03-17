@@ -1,0 +1,45 @@
+
+
+
+{"heading": "Version of javascript",
+"index": "00002. ",
+"created-on": "2024-04-01 00:00:00",
+"completed-on": "2024-05-17 00:00:00",
+"last-reviewied-on": "2024-05-17 00:00:00",
+"declarations": "",
+
+"body": [
+
+{
+"type": "createBlock", 
+"block-heading": "Script detection",
+"content": [
+"The Javascript version using <script language='javascript1.x' ></script> is ",
+js_version
+]
+},
+
+{
+"type": "createBlock",
+"block-heading": "Feature Detection",
+"content": [
+"""`Using feature detection for Ecmascript version,
+the version of javascript detected and year of release of the current browser is at least`""",
+this.ecmaScriptInfo(),
+this.newline,
+
+"""`This depends on the browser version running the Javascript on the client side.
+For example: Chrome V8 engine, Firefox: SpiderMonkey`""",
+"`<div class="heading2">`",
+this.ecmaScriptInfo(),
+this.newline,
+this.newline,
+
+"`Maximum version detectable currently 2022 ES13`",
+"`</div>`"
+]
+}
+
+]}
+
+

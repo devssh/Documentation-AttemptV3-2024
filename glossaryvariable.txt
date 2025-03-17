@@ -1,0 +1,14 @@
+
+
+
+
+["Variable glossary",
+"Glossary I",
+"2024-05-08 15:20:00",
+"2024-05-17 15:20:00",
+"""
+""",
+
+""" `* Denotes escaped character\n\n`""",
+"""variableGlossary"""
+]

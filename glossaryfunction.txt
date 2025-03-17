@@ -1,0 +1,16 @@
+
+
+
+
+["Function glossary",
+"Glossary II",
+"2024-05-08 15:27:00",
+"2024-05-17 15:27:00",
+"""
+""",
+
+""" `* Denotes escaped character\n\n`""",
+""" `Don't try hyperlink for functionGlossary it will not have time to load
+
+` + functionGlossary"""
+]

@@ -1,0 +1,381 @@
+Chrome Web Storage and Quota Concepts.
+Authors jsbellchromium.org .
+Last Updated Jan .
+Status public.
+.
+Related Reading.
+Key Concepts.
+Chrome Implementation.
+Standards.
+Quota.
+Concepts.
+Quota Calculations.
+Best Effort vs.
+Persistent Permission.
+Eviction.
+Storage Backend Integration.
+Clearing Browsing Data.
+User Initiated.
+Site Initiated.
+Individual storage APIs.
+ClearSiteData header.
+Quota Eviction.
+Retention Lifetimes.
+Default (a.k.a.
+best effort).
+Incognito Guest Mode (implemented as Incognito session).
+SessionOnly (a.k.a.
+clear on exit).
+Save Session State.
+In Detail Legacy TEMPORARY vs.
+PERSISTENT Model.
+TEMPORARY namespace.
+PERSISTENT namespace.
+Requesting PERSISTENT quota.
+Querying PERSISTENT quota.
+Using PERSISTENT quota.
+.
+Related Reading.
+Web.Dev Storage for the web.
+Key Concepts.
+Chrome Implementation.
+.
+Webvisible storage is scoped to a Browsing Context .
+Each user profile is a separate Browsing Context.
+An Incognito session is its own Browsing Context.
+Guest Mode is implemented as an Incognito Browsing Context.
+A Storage Partition is a class owned by a Browsing Context () which manages storagerelated data so these two terms are often used interchangeably..
+Storage associated with a Browsing Context is known as Browsing Data.
+This includes webvisible storage (cookies localStorage Indexed DB OPFS History API etc).
+This also includes nonwebvisible storage e.g.
+full (crossorigin) history some permissions passwords autofill etc.
+.
+Within webvisible Browsing Data there is.
+cookie jar manages HTTP cookie data (which spans origins).
+originscoped data anything visible only to a single origin via web APIs.
+Within originscoped data a subset is quotamanaged data accounted for by the Quota Manager.
+e.g.
+indexed DB is quotamanaged data.
+e.g.
+local storage is not quotamanaged data each origin has a MB limit.
+Within quotamanaged data there are different storage types.
+.
+This is particularly subtle and confusing it stems in part from abandoned proposals.
+.
+temporary data that the browser stores on behalf of an origin.
+No permission is needed for the site to write to temporary storage up to a browserdefined quota limit for the origin.
+Storage is best effort meaning the browser will do its best to keep the data around but could delete it if disk space is running low more recently used sites need space etc..
+persistent an early proposal for quota management on the web defined two separate namespaces TEMPORARY (the default) and PERSISTENT (grantable by permission).
+Only Chrome implemented this and only for a deprecated quota API and a deprecated legacy file system API.
+Sites need to explicitly request a certain amount of PERSISTENT quota and the user is given a permission prompt to approvedecline.
+If approved data written to the PERSISTENT space will not be evicted by the browser if space is running low it will only be removed if the user explicitly clears storage.
+(functionally deprecated as of M).
+syncable this only applies to data stored via a chrome.syncFileSystem API available to Chrome Apps..
+An origin can be marked with various additional policy.
+unlimitedStorage can be granted to an origin via an extension this removes quota restrictions and exempts an origin from quotabased eviction.
+sessiononly (a.k.a.
+clear on exit) originscoped data will be deleted when the browsing session ends (e.g.
+shutdown).
+.
+Standards.
+.
+The Storage Standard defines originscoped data to exist within an origins storage unit this corresponds to Chromes quotamanaged data for an origin..
+The notion of nonquotamanaged data for an origin is not present in the spec..
+Each storage unit contains a single bucket this corresponds to Chromes temporary storage type.
+.
+A bucket has various modes.
+besteffort the default data in the bucket will be preserved based on the user agents heuristics but no guarantees should be made to the user about the retention.
+persistent assigned via permission when granted the data in the bucket will be preserved unless explicitly cleared by the user.
+.
+NOTE there are two meanings for persistent the old PERSISTENT namespace used in Chrome and the persistent permission defined in the Storage API.
+To disambiguate the latter is often referred to as durable in the Chrome codebase.
+More details below..
+.
+.
+.
+Note The Legacy File System API and the new File System Access APIs Origin Private File System utilize the same storage within the TEMPORARY bucket..
+Quota.
+Concepts.
+Each origin is given a quota a number of bytes of data it is able to store.
+The quota will vary from device to device depending on disk space available.
+As data is stored the usage goes up and as data is deleted the usage goes down.
+Operations in Indexed DB Cache API WebSQL File System etc.
+will fail with a QuotaExceededError if usage would increase past quota.
+.
+.
+This is exposed to script via.
+.
+navigator.storage.estimate().then(.
+(usage quota) > console.log(using usage out of quota).
+error > console.warn(error estimating quota error.name error.message).
+).
+.
+Note that the usage change when storingdeleting data is complicated as Chrome optimizes for speed.
+For example storage systems typically delete data by appending tombstone records then later compacting to recover space so deletions may temporarily increase the space used.
+Storage systems also use compression which reduces the apparent size of data and often allocate in fixed size blocks which increases the apparent size of data..
+Quota Calculations.
+Based on the amount of storage available (disk space) and the type of operating system Chrome computes a total amount of space it is willing to use (temporary pool) and allows each origin to use up to a fraction of that.
+Currently the heuristics are that the total pool size is of the disk and each origin can use at most of that.
+.
+.
+.
+.
+Heres how you can think about quota if GB is granted to the origin by Chrome and .
+GB is used by Indexed DB and .
+GB is used by Cache API then usage would be GB and up to GB more could be stored before QuotaExceededErrors would be seen.
+.
+.
+.
+Special cases.
+In Incognito sessions quotamanaged data is (usually) stored in memory rather than on disk.
+The temporary pool is calculated as the minimum of of system memory or MB (randomized by to prevent fingerprinting).
+Each origin is given up to of that..
+Origins for which the sessiononly policy is applied are further capped at MB (randomized by ) even though the data is stored on disk and they take data from the overall pool.
+This heuristic is applied so that sites see a much lower quota which in turn sites often use as a heuristic for whether or not to download large corpuses of data for offline use since its a poor experience to download large amounts of data which will be wiped when the browser is closed..
+Starting in M free disk space is no longer factored into the quota calculation.
+The quota returned by navigator.storage.estimate() reports the maximum amount of space the quota system will allow the origin to write but does not guarantee that much disk space to be available.
+It is possible that reported quota will be greater than free disk space available so origins should always handle outofdiskspace write errors gracefully..
+.
+These default quota calculations are defined in storagebrowserquotaquotasettings.cc (but can be overridden for different shells e.g.
+chromecast).
+Best Effort vs.
+Persistent Permission.
+Storage is by default best effort anything an origin stores will be retained until the browser is low on storage space at which point the data for the origin least recently accessed will be discarded.
+.
+.
+An origin can request persistent permission if granted the origin will not be cleared when the browser is low on space.
+This can be used when an origin is storing critical data (e.g.
+offline document edits tickets for events or travel etc) although the user can still clear all browser storage.
+The permission will be granted automatically based on heuristics about the users engagement with the site.
+.
+.
+navigator.storage.persist().
+.then(granted > console.log(is the origin now persistent granted).
+.
+This can also be checked without requesting persistence.
+.
+navigator.storage.persisted().
+.then(granted > console.log(is the origin persistent granted).
+.
+Best practice is to request persistent storage if necessary and check if granted before showing any UI that has a guarantee about the data..
+.
+Note that our statistics show that even best effort data is very infrequently cleared automatically by Chrome.
+It is far more common for users to manually clear storage..
+.
+What does this mean for quota Nothing its just about how Chrome behaves when running out of overall storage space.
+You can think about this as an option on the side.
+.
+.
+.
+Eviction.
+Once an origin uses up all of its quota additional storage operations will fail with QuotaExceededError.
+The origin must free up space by deleting data before it can store new data..
+.
+But what happens when Chrome itself runs out of space If you remember the original calculation Chrome will let an origin use up to of the pool.
+This is based on the observation that most sites that a user visits will store very little data while a very small number will benefit from storing a lot and these need to be balanced..
+.
+.
+.
+In the above picture origin a is the least recently visited site origin b the next least recently visited and so on.
+Origin e and origin k are getting close to their quota limits but havent reached it yet and overall Chrome is using less than the limit it selected so nothing will be evicted.
+Origin b has a star () because it was granted the persistent permission..
+.
+Now lets say the user visits origin n again which happens to be a music playing site and the user pins additional tracks for offline listening.
+The site stores even more data (using the quota APIs to make sure its under the limit).
+.
+.
+.
+Note that.
+Each origin is still within its quota.
+But Chrome has exceeded the overall limit.
+.
+The least recently used best effort origins (those without the persistent permission) start being evicted until Chrome is back under the limit.
+.
+.
+.
+When an origin is evicted all of its quotamanaged data (Indexed DB Cache API etc) is deleted..
+.
+Storage Backend Integration.
+.
+The Quota Manager lives in storagebrowserquotaquotamanager.cc.
+It implements eviction logic tracking usage per origin etc.
+Each quotamanaged storage backend implements QuotaClient (storagebrowserquotaquotaclient.h) with a unique QuotaClientID..
+.
+When data is accessed by a quotamanaged storage backend it calls into QuotaManagerNotifyStorageAccessed() which updates the LRU ordering for origins (necessary for eviction control also presented in some UI).
+Before data is added by a quotamanaged storage backend it should call QuotaManagerGetUsageAndQuota() to ensure there is room and fail the request otherwise..
+When data is added or removed by a quotamanaged storage backend it calls into QuotaManagerNotifyStorageModified() with a byte delta (positive or negative)..
+.
+.
+.
+Clearing Browsing Data.
+Browsing Data can be cleared in various ways.
+.
+User Initiated through UI.
+Site Initiated through APIs or HTTP headers.
+Quota Eviction by the Quota Manager.
+Extension initiated through the browsingData api.
+.
+Explicit clearing (by the user or site) overrides any persistence guarantees (e.g.
+persistence permission).
+.
+.
+.
+.
+User Initiated.
+Clear Browsing Data Clear Site Data chrome.browsingData extension API.
+Allow deletion of specific time ranges (any origin modified within that window is wiped).
+UI chromesettingsclearBrowserData (and chromesettingssiteData Remove All).
+Code BrowsingDataRemoverRemoveWithFilterAndReply() StoragePartitionClearData() QuotaManagerGetOriginsModifiedSince() QuotaManagerDeleteOriginData().
+.
+.
+.
+DevTools.
+Allows deletion of individual origins storage types (for developers).
+UI DevTools > Application > Clear storage > Clear site data.
+Code StorageHandlerClearDataForOrigin() StoragePartitionClearData() QuotaManagerGetOriginsModifiedSince() QuotaManagerDeleteOriginData().
+.
+.
+.
+Cookies UI (Cookie Tree).
+Allows deletion of individual origins.
+UI chromesettingssiteData.
+Source chromebrowserbrowsingdata.
+Enumeration BrowsingDataXXXHelperStartFetching(context) XXXContextGetAllOrigins().
+Deletion BrowsingDataXXXHelperDeleteXXX(origin) XXXContextDeleteOrigin(origin).
+implementation notes implementation .
+.
+.
+.
+.
+Android Storage UI.
+Allows deletion of individual origins.
+StorageInfo.java QuotaManager.
+LocalStorageInfo.java (localstorage and cookies).
+.
+.
+.
+Site Initiated.
+Individual storage APIs.
+Quota Managed.
+FileSystem delete individual filesdirectories e.g.
+entry.remove() directoryEntry.removeRecursively().
+Web SQL drop tables.
+Indexed DB delete databases e.g.
+indexedDB.deleteDatabase(databaseName).
+Cache Storage delete caches e.g.
+caches.delete(cacheName).
+Service Worker unregister e.g.
+registration.unregister().
+Other.
+localStorage localStorage.clear().
+sessionStorage sessionStorage.clear().
+ClearSiteData header.
+Spec httpswc.github.iowebappsecclearsitedata.
+ClearSiteData cookies clears cookies (and associated data) related to a responses URL.
+ClearSiteData storage clears originscoped data (both quotamanaged and otherwise) for the responses origin.
+Quota Eviction.
+See QuotaEviction.
+.
+Retention Lifetimes.
+Default (a.k.a.
+best effort).
+Quota Managed Data is preserved until QuotaManager calls QuotaClientDeleteOriginData.
+Others have specific rules (e.g.
+LRU cookie priorities) and perorigin quotas (e.g.
+MB for localStorage).
+Incognito Guest Mode (implemented as Incognito session).
+Settings UI (e.g.
+chromesettingsclearBrowserData) is NOT available within an Incognito session..
+Data can be deleted within an Incognito session via.
+DevTools (application).
+Guest mode (which does not delete the whole session).
+SessionOnly (a.k.a.
+clear on exit).
+chromesettingscookies.
+Keep local data only until you quit the browser applies to all origins.
+Clear on exit useradmin configurable site patterns.
+code SpecialStoragePolicyIsStorageSessionOnly.
+implementation notes on StoragePartition shutdown each backend is shut down it enumerates origins and deletes any set to IsStorageSessionOnly.
+caveats see Save Session State which overrides this.
+Save Session State.
+Called on unusual shutdown (e.g.
+Android) where SessionOnly clearing should be skipped.
+code BrowserContextSaveSessionState.
+implementation notes calls into each backends SetForceKeepSessionState() equivalent sets a flag which causes SessionOnly clearing on shutdown to be bypassed.
+known issues httpscrbug.com.
+.
+.
+.
+In Detail Legacy TEMPORARY vs.
+PERSISTENT Model.
+Just to make things extra confusing Chrome also implements an older proposal with similar names but very different behavior..
+.
+There was an early proposal that each type of storage could be in a temporary area or a persistent area.
+This was only ever implemented in Chrome and only for the Legacy File System API and old Quota APIs..
+.
+TEMPORARY namespace.
+.
+Temporary corresponds to everything described above data is stored as best effort and quota is granted automatically to each origin..
+.
+There are multiple APIs that give the same results based on different proposals over the years.
+.
+Old Chromeonly StorageQuota.
+.
+navigator.webkitTemporaryStorage.queryUsageAndQuota(.
+(usage quota) > console.log(using usage out of quota).
+error > console.warn(error estimating quota error.name error.message).
+).
+.
+New in Chrome and Firefox StorageManager.
+.
+navigator.storage.estimate().then(.
+( usage quota ) > console.log(using usage out of quota).
+error > console.warn(error estimating quota error.name error.message).
+).
+.
+PERSISTENT namespace.
+.
+PERSISTENT quota could be requested which would prompt the user.
+If granted data could be stored using the Legacy File System API that would not be cleared automatically when storage was running low..
+.
+You can think of this PERSISTENT quota as a completely parallel storage world completely independent of the description above it has no relationship to the persistent permission other than the name.
+Since it only works in Chrome and only works with the Chromeonly Legacy File System API and prompts the user with an unclear question and the user may ignore or deny the request the use of these APIs is not recommended.
+While this is still available from the API interface this is functionally deprecated as of M..
+Requesting PERSISTENT quota.
+.
+Old StorageQuota.
+.
+navigator.webkitPersistentStorage.requestQuota(.
+MB.
+granted > console.log(granted granted bytes).
+error > console.warn(error requesting quota error.name error.message).
+).
+Querying PERSISTENT quota.
+.
+Old StorageQuota.
+.
+navigator.webkitPersistentStorage.queryUsageAndQuota(.
+(usage quota) > console.log(using usage out of quota).
+error > console.warn(error getting quota error.name error.message).
+).
+Using PERSISTENT quota.
+.
+window.webkitRequestFileSystem(.
+window.PERSISTENT.
+MB.
+filesystem > .
+console.log(got a file system).
+do stuff with filesystem.
+.
+error > console.warn(error requesting file system error.name error.message).
+).
+.
+.
+.
+Document History.
+removed Flash LSO (removed) and AppCache (deprecatedbeing removed) .
+added note about Legacy File System vs.
+File System Access API.
+Jun added reference to OPFS.
+Jan remove WebkitStorageInfo (removed M) .
+Jan updates around Persisted quota type being functionally deprecated (M).

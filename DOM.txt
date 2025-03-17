@@ -1,0 +1,57 @@
+
+
+
+["Document Object Model DOM",
+"00010. ",
+"2024-05-09 19:00:00",
+"2024-05-09 19:00:00",
+"",
+""" createBlock(`
+DOM
+
+`, `
+1. DOM is an API(aka interface)
+2. It represents and interacts with any HTML or XML-based markup language document.
+3. The document is represented as a node tree or DOM tree.
+4. Each node is an element, text string or comment among others.
+5. Nodes can be accessed, created, moved and changed.
+6. Event listeners can also be added to the Nodes and triggered on occurence of a given event.
+`)""",
+
+
+"""createLinkBlock("DOM standard", "https://dom.spec.whatwg.org/", `
+1.WHATWG - Web Hypertext Application Technology Working Group
+2. HTML5 is a HTML Living Standard of WHATWG since 2004
+3. WHATWG published the Fetch Standard - CORS and HTTP Origin header semantics
+4. WHATWG published the Streams Standard, 
+the Encoding Standard(as opposed to IETF encodings registry), 
+the MIME type sniffing standard,
+the URL standard and 
+the WEB IDL standard.
+`)""",
+
+
+"""createLinkBlock("DOM wiki", "https://en.wikipedia.org/wiki/Document_Object_Model", `
+1. DOM is a cross platform and language independent interface.
+2. Principal standarization of DOM is W3C World Wide Web Consortium and WHATWG
+`)""",
+
+
+"""createLinkBlock("Document interface", "https://developer.mozilla.org/en-US/docs/Web/API/Document", `
+The Document interface serves as an entry point to the DOM tree.
+Document inherits from HTMLDocument("text/html") and XMLDocument("XML, SVG and W3C")
+Document also inherits from Node interface and EventTarget interface
+There are many API(interfaces) to interact with here
+Some standards are DOM standard, HTML standard, CSSOM View Module, Pointer Lock 2.0, Selection API
+`)""",
+
+""" createBlock(`
+Related Terms
+`, `
+1. WHATWG
+2. Shadow DOM subtrees
+3. <frameset>
+4. 
+`)"""
+]
+

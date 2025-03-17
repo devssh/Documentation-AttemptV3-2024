@@ -1,0 +1,3532 @@
+
+
+
+["globalThis-this-Javascript ref",
+"Appendix I",
+"2024-04-29 10:13:00",
+"2024-05-17 10:13:00",
+"",
+""" createBlock(` globalThis object in javascript browser
+
+`, `
+1. globalThis keys
+2. globalThis buildin js full version
+`)""",
+""" createScrollableDiv(`
+
+1. Object.keys(globalThis).join(" ")`, `
+window self document name location customElements history navigation locationbar menubar personalbar scrollbars statusbar toolbar status closed frames length top opener parent frameElement navigator origin external screen innerWidth innerHeight scrollX pageXOffset scrollY pageYOffset visualViewport screenX screenY outerWidth outerHeight devicePixelRatio clientInformation screenLeft screenTop styleMedia onsearch isSecureContext trustedTypes performance onappinstalled onbeforeinstallprompt crypto indexedDB sessionStorage localStorage onbeforexrselect onabort onbeforeinput onbeforetoggle onblur oncancel oncanplay oncanplaythrough onchange onclick onclose oncontextlost oncontextmenu oncontextrestored oncuechange ondblclick ondrag ondragend ondragenter ondragleave ondragover ondragstart ondrop ondurationchange onemptied onended onerror onfocus onformdata oninput oninvalid onkeydown onkeypress onkeyup onload onloadeddata onloadedmetadata onloadstart onmousedown onmouseenter onmouseleave onmousemove onmouseout onmouseover onmouseup onmousewheel onpause onplay onplaying onprogress onratechange onreset onresize onscroll onsecuritypolicyviolation onseeked onseeking onselect onslotchange onstalled onsubmit onsuspend ontimeupdate ontoggle onvolumechange onwaiting onwebkitanimationend onwebkitanimationiteration onwebkitanimationstart onwebkittransitionend onwheel onauxclick ongotpointercapture onlostpointercapture onpointerdown onpointermove onpointerrawupdate onpointerup onpointercancel onpointerover onpointerout onpointerenter onpointerleave onselectstart onselectionchange onanimationend onanimationiteration onanimationstart ontransitionrun ontransitionstart ontransitionend ontransitioncancel onafterprint onbeforeprint onbeforeunload onhashchange onlanguagechange onmessage onmessageerror onoffline ononline onpagehide onpageshow onpopstate onrejectionhandled onstorage onunhandledrejection onunload crossOriginIsolated scheduler alert atob blur btoa cancelAnimationFrame cancelIdleCallback captureEvents clearInterval clearTimeout close confirm createImageBitmap fetch find focus getComputedStyle getSelection matchMedia moveBy moveTo open postMessage print prompt queueMicrotask releaseEvents reportError requestAnimationFrame requestIdleCallback resizeBy resizeTo scroll scrollBy scrollTo setInterval setTimeout stop structuredClone webkitCancelAnimationFrame webkitRequestAnimationFrame chrome fence caches cookieStore ondevicemotion ondeviceorientation ondeviceorientationabsolute launchQueue sharedStorage documentPictureInPicture onbeforematch getScreenDetails queryLocalFonts showDirectoryPicker showOpenFilePicker showSaveFilePicker originAgentCluster credentialless speechSynthesis oncontentvisibilityautostatechange onscrollend webkitRequestFileSystem webkitResolveLocalFileSystemURL google gws_wizbind _F_installCss _ _DumpException _s _qs _xjs_toggles _F_toggles _F_jsUrl gbar_ gbar __PVT gapi ___jsl sbmlhf w W_jd WIZ_global_data IJ_values jsl _hd closure_lm_736642 lnk silk _F_installCssProto wiz_progress userfeedback closure_uid_820386815 closure_lm_383567 osapi gadgets shindig googleapis __REACT_DEVTOOLS_APPEND_COMPONENT_STACK__ __REACT_DEVTOOLS_BREAK_ON_CONSOLE_ERRORS__ __REACT_DEVTOOLS_COMPONENT_FILTERS__ __REACT_DEVTOOLS_SHOW_INLINE_WARNINGS_AND_ERRORS__ __REACT_DEVTOOLS_HIDE_CONSOLE_LOGS_IN_STRICT_MODE__ __REACT_DEVTOOLS_BROWSER_THEME__
+`)""",
+""" createScrollableDiv(`
+Object.keys(globalThis).map((x, i) => {return String(i) + ". " + String(x)}).join(" \n")
+`, `
+0. window \n1. self \n2. document \n3. name \n4. location \n5. customElements \n6. history \n7. navigation \n8. locationbar \n9. menubar \n10. personalbar \n11. scrollbars \n12. statusbar \n13. toolbar \n14. status \n15. closed \n16. frames \n17. length \n18. top \n19. opener \n20. parent \n21. frameElement \n22. navigator \n23. origin \n24. external \n25. screen \n26. innerWidth \n27. innerHeight \n28. scrollX \n29. pageXOffset \n30. scrollY \n31. pageYOffset \n32. visualViewport \n33. screenX \n34. screenY \n35. outerWidth \n36. outerHeight \n37. devicePixelRatio \n38. clientInformation \n39. screenLeft \n40. screenTop \n41. styleMedia \n42. onsearch \n43. isSecureContext \n44. trustedTypes \n45. performance \n46. onappinstalled \n47. onbeforeinstallprompt \n48. crypto \n49. indexedDB \n50. sessionStorage \n51. localStorage \n52. onbeforexrselect \n53. onabort \n54. onbeforeinput \n55. onbeforetoggle \n56. onblur \n57. oncancel \n58. oncanplay \n59. oncanplaythrough \n60. onchange \n61. onclick \n62. onclose \n63. oncontextlost \n64. oncontextmenu \n65. oncontextrestored \n66. oncuechange \n67. ondblclick \n68. ondrag \n69. ondragend \n70. ondragenter \n71. ondragleave \n72. ondragover \n73. ondragstart \n74. ondrop \n75. ondurationchange \n76. onemptied \n77. onended \n78. onerror \n79. onfocus \n80. onformdata \n81. oninput \n82. oninvalid \n83. onkeydown \n84. onkeypress \n85. onkeyup \n86. onload \n87. onloadeddata \n88. onloadedmetadata \n89. onloadstart \n90. onmousedown \n91. onmouseenter \n92. onmouseleave \n93. onmousemove \n94. onmouseout \n95. onmouseover \n96. onmouseup \n97. onmousewheel \n98. onpause \n99. onplay \n100. onplaying \n101. onprogress \n102. onratechange \n103. onreset \n104. onresize \n105. onscroll \n106. onsecuritypolicyviolation \n107. onseeked \n108. onseeking \n109. onselect \n110. onslotchange \n111. onstalled \n112. onsubmit \n113. onsuspend \n114. ontimeupdate \n115. ontoggle \n116. onvolumechange \n117. onwaiting \n118. onwebkitanimationend \n119. onwebkitanimationiteration \n120. onwebkitanimationstart \n121. onwebkittransitionend \n122. onwheel \n123. onauxclick \n124. ongotpointercapture \n125. onlostpointercapture \n126. onpointerdown \n127. onpointermove \n128. onpointerrawupdate \n129. onpointerup \n130. onpointercancel \n131. onpointerover \n132. onpointerout \n133. onpointerenter \n134. onpointerleave \n135. onselectstart \n136. onselectionchange \n137. onanimationend \n138. onanimationiteration \n139. onanimationstart \n140. ontransitionrun \n141. ontransitionstart \n142. ontransitionend \n143. ontransitioncancel \n144. onafterprint \n145. onbeforeprint \n146. onbeforeunload \n147. onhashchange \n148. onlanguagechange \n149. onmessage \n150. onmessageerror \n151. onoffline \n152. ononline \n153. onpagehide \n154. onpageshow \n155. onpopstate \n156. onrejectionhandled \n157. onstorage \n158. onunhandledrejection \n159. onunload \n160. crossOriginIsolated \n161. scheduler \n162. alert \n163. atob \n164. blur \n165. btoa \n166. cancelAnimationFrame \n167. cancelIdleCallback \n168. captureEvents \n169. clearInterval \n170. clearTimeout \n171. close \n172. confirm \n173. createImageBitmap \n174. fetch \n175. find \n176. focus \n177. getComputedStyle \n178. getSelection \n179. matchMedia \n180. moveBy \n181. moveTo \n182. open \n183. postMessage \n184. print \n185. prompt \n186. queueMicrotask \n187. releaseEvents \n188. reportError \n189. requestAnimationFrame \n190. requestIdleCallback \n191. resizeBy \n192. resizeTo \n193. scroll \n194. scrollBy \n195. scrollTo \n196. setInterval \n197. setTimeout \n198. stop \n199. structuredClone \n200. webkitCancelAnimationFrame \n201. webkitRequestAnimationFrame \n202. chrome \n203. fence \n204. caches \n205. cookieStore \n206. ondevicemotion \n207. ondeviceorientation \n208. ondeviceorientationabsolute \n209. launchQueue \n210. sharedStorage \n211. documentPictureInPicture \n212. onbeforematch \n213. getScreenDetails \n214. queryLocalFonts \n215. showDirectoryPicker \n216. showOpenFilePicker \n217. showSaveFilePicker \n218. originAgentCluster \n219. credentialless \n220. speechSynthesis \n221. oncontentvisibilityautostatechange \n222. onscrollend \n223. webkitRequestFileSystem \n224. webkitResolveLocalFileSystemURL \n225. js_version
+`)""",
+""" createScrollableDiv(`
+Sorted globalThis keys
+
+Object.keys(globalThis).sort().map((x, i) => {return String(i) + ". " + String(x)}).join(" \n")
+`, `
+\n0. alert \n1. atob \n2. blur \n3. btoa \n4. caches \n5. cancelAnimationFrame \n6. cancelIdleCallback \n7. captureEvents \n8. chrome \n9. clearInterval \n10. clearTimeout \n11. clientInformation \n12. close \n13. closed \n14. confirm \n15. cookieStore \n16. createImageBitmap \n17. credentialless \n18. crossOriginIsolated \n19. crypto \n20. customElements \n21. devicePixelRatio \n22. document \n23. documentPictureInPicture \n24. external \n25. fence \n26. fetch \n27. find \n28. focus \n29. frameElement \n30. frames \n31. getComputedStyle \n32. getScreenDetails \n33. getSelection \n34. history \n35. indexedDB \n36. innerHeight \n37. innerWidth \n38. isSecureContext \n39. js_version \n40. launchQueue \n41. length \n42. localStorage \n43. location \n44. locationbar \n45. matchMedia \n46. menubar \n47. moveBy \n48. moveTo \n49. name \n50. navigation \n51. navigator \n52. onabort \n53. onafterprint \n54. onanimationend \n55. onanimationiteration \n56. onanimationstart \n57. onappinstalled \n58. onauxclick \n59. onbeforeinput \n60. onbeforeinstallprompt \n61. onbeforematch \n62. onbeforeprint \n63. onbeforetoggle \n64. onbeforeunload \n65. onbeforexrselect \n66. onblur \n67. oncancel \n68. oncanplay \n69. oncanplaythrough \n70. onchange \n71. onclick \n72. onclose \n73. oncontentvisibilityautostatechange \n74. oncontextlost \n75. oncontextmenu \n76. oncontextrestored \n77. oncuechange \n78. ondblclick \n79. ondevicemotion \n80. ondeviceorientation \n81. ondeviceorientationabsolute \n82. ondrag \n83. ondragend \n84. ondragenter \n85. ondragleave \n86. ondragover \n87. ondragstart \n88. ondrop \n89. ondurationchange \n90. onemptied \n91. onended \n92. onerror \n93. onfocus \n94. onformdata \n95. ongotpointercapture \n96. onhashchange \n97. oninput \n98. oninvalid \n99. onkeydown \n100. onkeypress \n101. onkeyup \n102. onlanguagechange \n103. onload \n104. onloadeddata \n105. onloadedmetadata \n106. onloadstart \n107. onlostpointercapture \n108. onmessage \n109. onmessageerror \n110. onmousedown \n111. onmouseenter \n112. onmouseleave \n113. onmousemove \n114. onmouseout \n115. onmouseover \n116. onmouseup \n117. onmousewheel \n118. onoffline \n119. ononline \n120. onpagehide \n121. onpageshow \n122. onpause \n123. onplay \n124. onplaying \n125. onpointercancel \n126. onpointerdown \n127. onpointerenter \n128. onpointerleave \n129. onpointermove \n130. onpointerout \n131. onpointerover \n132. onpointerrawupdate \n133. onpointerup \n134. onpopstate \n135. onprogress \n136. onratechange \n137. onrejectionhandled \n138. onreset \n139. onresize \n140. onscroll \n141. onscrollend \n142. onsearch \n143. onsecuritypolicyviolation \n144. onseeked \n145. onseeking \n146. onselect \n147. onselectionchange \n148. onselectstart \n149. onslotchange \n150. onstalled \n151. onstorage \n152. onsubmit \n153. onsuspend \n154. ontimeupdate \n155. ontoggle \n156. ontransitioncancel \n157. ontransitionend \n158. ontransitionrun \n159. ontransitionstart \n160. onunhandledrejection \n161. onunload \n162. onvolumechange \n163. onwaiting \n164. onwebkitanimationend \n165. onwebkitanimationiteration \n166. onwebkitanimationstart \n167. onwebkittransitionend \n168. onwheel \n169. open \n170. opener \n171. origin \n172. originAgentCluster \n173. outerHeight \n174. outerWidth \n175. pageXOffset \n176. pageYOffset \n177. parent \n178. performance \n179. personalbar \n180. postMessage \n181. print \n182. prompt \n183. queryLocalFonts \n184. queueMicrotask \n185. releaseEvents \n186. reportError \n187. requestAnimationFrame \n188. requestIdleCallback \n189. resizeBy \n190. resizeTo \n191. scheduler \n192. screen \n193. screenLeft \n194. screenTop \n195. screenX \n196. screenY \n197. scroll \n198. scrollBy \n199. scrollTo \n200. scrollX \n201. scrollY \n202. scrollbars \n203. self \n204. sessionStorage \n205. setInterval \n206. setTimeout \n207. sharedStorage \n208. showDirectoryPicker \n209. showOpenFilePicker \n210. showSaveFilePicker \n211. speechSynthesis \n212. status \n213. statusbar \n214. stop \n215. structuredClone \n216. styleMedia \n217. toolbar \n218. top \n219. trustedTypes \n220. visualViewport \n221. webkitCancelAnimationFrame \n222. webkitRequestAnimationFrame \n223. webkitRequestFileSystem \n224. webkitResolveLocalFileSystemURL \n225. window
+`)""",
+
+""" createScrollableDiv(`
+
+2. Built in globalThis
+
+`, `
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+IJ_values
+: 
+{eG8Zqf: 1, IvNqzc: false, qgwOed: false, qjWw6c: true, XFWgg: false, …}
+WIZ_global_data
+: 
+{Yllh3e: '%.@.1714365896276512,28285903,4144099916]', SNlM0e: '', zChJod: '%.@.null,"https://www.google.co.uk/log?format\\u003djson"]', Im6cmf: '/wizrpcui/_/WizRpcUi', w2btAe: '%.@."","","0",null,null,null,1]', …}
+W_jd
+: 
+{CAkgOE: Array(0), CAkgOI: Array(0), CAkgOM: Array(13), CAkgOQ: Array(3), CAkgOU: Array(3)}
+alert
+: 
+ƒ alert()
+atob
+: 
+ƒ atob()
+blur
+: 
+ƒ blur()
+btoa
+: 
+ƒ btoa()
+caches
+: 
+CacheStorage {}
+cancelAnimationFrame
+: 
+ƒ cancelAnimationFrame()
+cancelIdleCallback
+: 
+ƒ cancelIdleCallback()
+captureEvents
+: 
+ƒ captureEvents()
+chrome
+: 
+{loadTimes: ƒ, csi: ƒ}
+clearInterval
+: 
+ƒ clearInterval()
+clearTimeout
+: 
+ƒ clearTimeout()
+clientInformation
+: 
+Navigator {vendorSub: '', productSub: '20030107', vendor: 'Google Inc.', maxTouchPoints: 0, scheduling: Scheduling, …}
+close
+: 
+ƒ close()
+closed
+: 
+false
+closure_lm_383567
+: 
+_.Re {src: Window, i: {…}, j: 4}
+closure_lm_736642
+: 
+swa {src: Window, Od: {…}, ka: 17}
+closure_uid_820386815
+: 
+1
+confirm
+: 
+ƒ confirm()
+cookieStore
+: 
+CookieStore {onchange: null}
+createImageBitmap
+: 
+ƒ createImageBitmap()
+credentialless
+: 
+false
+crossOriginIsolated
+: 
+false
+crypto
+: 
+Crypto {subtle: SubtleCrypto}
+customElements
+: 
+CustomElementRegistry {}
+devicePixelRatio
+: 
+2
+document
+: 
+document
+documentPictureInPicture
+: 
+DocumentPictureInPicture {window: null, onenter: null}
+external
+: 
+External {}
+fence
+: 
+null
+fetch
+: 
+ƒ fetch()
+find
+: 
+ƒ find()
+focus
+: 
+ƒ focus()
+frameElement
+: 
+null
+frames
+: 
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+gadgets
+: 
+{util: {…}, config: {…}, json: {…}, rpc: {…}}
+gapi
+: 
+{loaded_0: null, _: {…}, config: {…}, iframes: {…}, load: ƒ}
+gbar
+: 
+{a: _.Pc, up: {…}, A: ƒ, B: ƒ, P: ƒ, …}
+gbar_
+: 
+{CONFIG: Array(1), _F_toggles_initialize: ƒ, aa: ƒ, ba: ƒ, ca: ƒ, …}
+getComputedStyle
+: 
+ƒ getComputedStyle()
+getScreenDetails
+: 
+ƒ getScreenDetails()
+getSelection
+: 
+ƒ getSelection()
+google
+: 
+{kEI: 'yCUvZqDwEM-3vr0PzOSHuA8', kEXPI: '0,3300102,31,13188,8194,8682,28296,4329,3798,4530,…614,639,1269,1410,319,113,21622033,8035,6550,3746', kBL: 'rimN', kOPI: 89978449, sn: 'webhp', …}
+googleapis
+: 
+{newHttpRequest: ƒ, setUrlParameter: ƒ}
+gws_wizbind
+: 
+{trigger: ƒ, configure: ƒ}
+history
+: 
+History {length: 3, scrollRestoration: 'auto', state: {…}}
+indexedDB
+: 
+IDBFactory {}
+innerHeight
+: 
+1080
+innerWidth
+: 
+1095
+isSecureContext
+: 
+true
+jsl
+: 
+{dh: ƒ, el: ƒ}
+launchQueue
+: 
+LaunchQueue {}
+length
+: 
+0
+lnk
+: 
+{m_222230912: {…}}
+localStorage
+: 
+Storage {sb_wiz.zpc.gws-wiz.: '{"0":[["shantanu deshpande",46,[3,357,362,396,143]… searches"]}},"q":"vBKPPWBo1c6pK30X15CR_v1yudI"}}', length: 1}
+location
+: 
+Location {ancestorOrigins: DOMStringList, href: 'https://www.google.co.uk/', origin: 'https://www.google.co.uk', protocol: 'https:', host: 'www.google.co.uk', …}
+locationbar
+: 
+BarProp {visible: true}
+matchMedia
+: 
+ƒ matchMedia()
+menubar
+: 
+BarProp {visible: true}
+moveBy
+: 
+ƒ moveBy()
+moveTo
+: 
+ƒ moveTo()
+name
+: 
+""
+navigation
+: 
+Navigation {currentEntry: NavigationHistoryEntry, transition: null, canGoBack: false, canGoForward: false, onnavigate: null, …}
+navigator
+: 
+Navigator {vendorSub: '', productSub: '20030107', vendor: 'Google Inc.', maxTouchPoints: 0, scheduling: Scheduling, …}
+onabort
+: 
+null
+onafterprint
+: 
+null
+onanimationend
+: 
+null
+onanimationiteration
+: 
+null
+onanimationstart
+: 
+null
+onappinstalled
+: 
+null
+onauxclick
+: 
+null
+onbeforeinput
+: 
+null
+onbeforeinstallprompt
+: 
+null
+onbeforematch
+: 
+null
+onbeforeprint
+: 
+null
+onbeforetoggle
+: 
+null
+onbeforeunload
+: 
+null
+onbeforexrselect
+: 
+null
+onblur
+: 
+null
+oncancel
+: 
+null
+oncanplay
+: 
+null
+oncanplaythrough
+: 
+null
+onchange
+: 
+null
+onclick
+: 
+null
+onclose
+: 
+null
+oncontentvisibilityautostatechange
+: 
+null
+oncontextlost
+: 
+null
+oncontextmenu
+: 
+null
+oncontextrestored
+: 
+null
+oncuechange
+: 
+null
+ondblclick
+: 
+null
+ondevicemotion
+: 
+null
+ondeviceorientation
+: 
+null
+ondeviceorientationabsolute
+: 
+null
+ondrag
+: 
+null
+ondragend
+: 
+null
+ondragenter
+: 
+null
+ondragleave
+: 
+null
+ondragover
+: 
+null
+ondragstart
+: 
+null
+ondrop
+: 
+null
+ondurationchange
+: 
+null
+onemptied
+: 
+null
+onended
+: 
+null
+onerror
+: 
+ƒ (a,b,d,m,e)
+onfocus
+: 
+null
+onformdata
+: 
+null
+ongotpointercapture
+: 
+null
+onhashchange
+: 
+null
+oninput
+: 
+null
+oninvalid
+: 
+null
+onkeydown
+: 
+null
+onkeypress
+: 
+null
+onkeyup
+: 
+null
+onlanguagechange
+: 
+null
+onload
+: 
+null
+onloadeddata
+: 
+null
+onloadedmetadata
+: 
+null
+onloadstart
+: 
+null
+onlostpointercapture
+: 
+null
+onmessage
+: 
+null
+onmessageerror
+: 
+null
+onmousedown
+: 
+null
+onmouseenter
+: 
+null
+onmouseleave
+: 
+null
+onmousemove
+: 
+null
+onmouseout
+: 
+null
+onmouseover
+: 
+null
+onmouseup
+: 
+null
+onmousewheel
+: 
+null
+onoffline
+: 
+null
+ononline
+: 
+null
+onpagehide
+: 
+null
+onpageshow
+: 
+null
+onpause
+: 
+null
+onplay
+: 
+null
+onplaying
+: 
+null
+onpointercancel
+: 
+null
+onpointerdown
+: 
+null
+onpointerenter
+: 
+null
+onpointerleave
+: 
+null
+onpointermove
+: 
+null
+onpointerout
+: 
+null
+onpointerover
+: 
+null
+onpointerrawupdate
+: 
+null
+onpointerup
+: 
+null
+onpopstate
+: 
+null
+onprogress
+: 
+null
+onratechange
+: 
+null
+onrejectionhandled
+: 
+null
+onreset
+: 
+null
+onresize
+: 
+null
+onscroll
+: 
+null
+onscrollend
+: 
+null
+onsearch
+: 
+null
+onsecuritypolicyviolation
+: 
+null
+onseeked
+: 
+null
+onseeking
+: 
+null
+onselect
+: 
+null
+onselectionchange
+: 
+null
+onselectstart
+: 
+null
+onslotchange
+: 
+null
+onstalled
+: 
+null
+onstorage
+: 
+null
+onsubmit
+: 
+null
+onsuspend
+: 
+null
+ontimeupdate
+: 
+null
+ontoggle
+: 
+null
+ontransitioncancel
+: 
+null
+ontransitionend
+: 
+null
+ontransitionrun
+: 
+null
+ontransitionstart
+: 
+null
+onunhandledrejection
+: 
+null
+onunload
+: 
+null
+onvolumechange
+: 
+null
+onwaiting
+: 
+null
+onwebkitanimationend
+: 
+null
+onwebkitanimationiteration
+: 
+null
+onwebkitanimationstart
+: 
+null
+onwebkittransitionend
+: 
+null
+onwheel
+: 
+null
+open
+: 
+ƒ open()
+opener
+: 
+null
+origin
+: 
+"https://www.google.co.uk"
+originAgentCluster
+: 
+true
+osapi
+: 
+{}
+outerHeight
+: 
+1080
+outerWidth
+: 
+1728
+pageXOffset
+: 
+0
+pageYOffset
+: 
+0
+parent
+: 
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+performance
+: 
+Performance {timeOrigin: 1714365896030.2, onresourcetimingbufferfull: null, timing: PerformanceTiming, navigation: PerformanceNavigation, memory: MemoryInfo, …}
+personalbar
+: 
+BarProp {visible: true}
+postMessage
+: 
+ƒ postMessage()
+print
+: 
+ƒ print()
+prompt
+: 
+ƒ prompt()
+queryLocalFonts
+: 
+ƒ queryLocalFonts()
+queueMicrotask
+: 
+ƒ queueMicrotask()
+releaseEvents
+: 
+ƒ releaseEvents()
+reportError
+: 
+ƒ reportError()
+requestAnimationFrame
+: 
+ƒ requestAnimationFrame()
+requestIdleCallback
+: 
+ƒ requestIdleCallback()
+resizeBy
+: 
+ƒ resizeBy()
+resizeTo
+: 
+ƒ resizeTo()
+sbmlhf
+: 
+ƒ (b)
+scheduler
+: 
+Scheduler {}
+screen
+: 
+Screen {availWidth: 1728, availHeight: 1085, width: 1728, height: 1117, colorDepth: 30, …}
+screenLeft
+: 
+0
+screenTop
+: 
+37
+screenX
+: 
+0
+screenY
+: 
+37
+scroll
+: 
+ƒ scroll()
+scrollBy
+: 
+ƒ scrollBy()
+scrollTo
+: 
+ƒ scrollTo()
+scrollX
+: 
+0
+scrollY
+: 
+0
+scrollbars
+: 
+BarProp {visible: true}
+self
+: 
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+sessionStorage
+: 
+Storage {_c;;i: 'p:*|l:9007199254740991_2', hsb;;1714365896031: 'p:*|l:1_{"state":null,"url":"/","metadata":{"entry…65896031,"stackId":1714365896032,"stackIndex":0}}', hsb;;1714365896032: 'p:*|l:0_[1714365896031]', length: 3}
+setInterval
+: 
+ƒ setInterval()
+setTimeout
+: 
+ƒ setTimeout()
+sharedStorage
+: 
+SharedStorage {worklet: SharedStorageWorklet}
+shindig
+: 
+{random: ƒ}
+showDirectoryPicker
+: 
+ƒ showDirectoryPicker()
+showOpenFilePicker
+: 
+ƒ showOpenFilePicker()
+showSaveFilePicker
+: 
+ƒ showSaveFilePicker()
+silk
+: 
+{callback: ƒ}
+speechSynthesis
+: 
+SpeechSynthesis {pending: false, speaking: false, paused: false, onvoiceschanged: null}
+status
+: 
+""
+statusbar
+: 
+BarProp {visible: true}
+stop
+: 
+ƒ stop()
+structuredClone
+: 
+ƒ structuredClone()
+styleMedia
+: 
+StyleMedia {type: 'screen'}
+toolbar
+: 
+BarProp {visible: true}
+top
+: 
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+trustedTypes
+: 
+TrustedTypePolicyFactory {emptyHTML: emptyHTML "", emptyScript: emptyScript "", defaultPolicy: null}
+userfeedback
+: 
+{api: {…}}
+visualViewport
+: 
+VisualViewport {offsetLeft: 0, offsetTop: 0, pageLeft: 0, pageTop: 0, width: 1095, …}
+w
+: 
+ƒ (a)
+webkitCancelAnimationFrame
+: 
+ƒ webkitCancelAnimationFrame()
+webkitRequestAnimationFrame
+: 
+ƒ webkitRequestAnimationFrame()
+webkitRequestFileSystem
+: 
+ƒ webkitRequestFileSystem()
+webkitResolveLocalFileSystemURL
+: 
+ƒ webkitResolveLocalFileSystemURL()
+window
+: 
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+wiz_progress
+: 
+ƒ ()
+_
+: 
+{_DumpException: ƒ}
+_DumpException
+: 
+ƒ (e)
+_F_installCss
+: 
+ƒ (a)
+_F_installCssProto
+: 
+ƒ (a)
+_F_jsUrl
+: 
+"/xjs/_/js/k=xjs.hd.en.s-_9hhP1fG4.O/am=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQgAFAABQAAAAAQAAAAAAwBAAQABAADYPQAggAAEBAANABAF4KBMACJgAAACAAIAQgCAAAAgAAABQAAAAAAAAAAAAAA4QQAAAAAAAAAAAAABABwAAAgCAYAAhAAAEAAAAIA9AcAAMUhAAAAAAAAAAAAAAIAAJgrkgAQUBEAAAAAAAAAAAAAAAqXRiYQw/d=1/ed=1/dg=2/br=1/rs=ACT90oGLd_d1CrWONB53SADIwPir49OD4g/ee=ALeJib:B8gLwd;AfeaP:TkrAjf;Afksuc:wMx0R;BMxAGc:E5bFse;BgS6mb:fidj5d;BjwMce:cXX2Wb;CxXAWb:YyRLvc;DM55c:imLrKe;DULqB:RKfG5c;Dkk6ge:wJqrrd;DpcR3d:zL72xf;EABSZ:MXZt9d;ESrPQc:mNTJvc;EVNhjf:pw70Gc;EmZ2Bf:zr1jrb;EnlcNd:WeHg4;Erl4fe:FloWmf,FloWmf;F9mqte:UoRcbe;Fmv9Nc:O1Tzwc;G0KhTb:LIaoZ;G6wU6e:hezEbd;GleZL:J1A7Od;HMDDWe:G8QUdb;HqeXPd:cmbnH;IBADCc:RYquRb;IoGlCf:b5lhvb;IsdWVc:qzxzOb;JXS8fb:Qj0suc;JbMT3:M25sS;JsbNhc:Xd8iUd;KOxcK:OZqGte;KQzWid:ZMKkN;KcokUb:KiuZBf;KeeMUb:HiPxjc;KpRAue:Tia57b;LBgRLc:XVMNvd;LEikZe:byfTOb,lsjVmc;LsNahb:ucGLNb;Me32dd:MEeYgc;NPKaK:PVlQOd;NSEoX:lazG7b;Np8Qkd:Dpx6qc;Nyt6ic:jn2sGd;OgagBe:cNTe0;Oj465e:KG2eXe,KG2eXe;OohIYe:mpEAQb;Pjplud:EEDORb,PoEs9b;Q1Ow7b:x5CSu;Q6C5kf:pfdZCe;QGR0gd:Mlhmy;R2kc8b:ALJqWb;R4IIIb:QWfeKf;R9Ulx:CR7Ufe;RDNBlf:zPRCJb;SLtqO:Kh1xYe;SMDL4c:fTfGO,fTfGO;SNUn3:ZwDk9d,x8cHvb;ShpF6e:N0pvGc;TxfV6d:YORN0b;U96pRd:FsR04;UDrY1c:eps46d;UVmjEd:EesRsb;UyG7Kb:wQd0G;V2HTTe:RolTY;VGRfx:VFqbr;VN6jIc:ddQyuf;VOcgDe:YquhTb;VsAqSb:PGf2Re;VxQ32b:k0XsBb;WCEKNd:I46Hvd;WDGyFe:jcVOxd;Wfmdue:g3MJlb;XUezZ:sa7lqb;YV5bee:IvPZ6d;YkQtAf:rx8ur;ZMvdv:PHFPjb;ZWEUA:afR4Cf;a56pNe:JEfCwb;aAJE9c:WHW6Ef;aZ61od:arTwJ;bDXwRe:UsyOtc;bFZ6gf:RsDQqe;bcPXSc:gSZLJb;cEt90b:ws9Tlc;cFTWae:gT8qnd;coJ8e:KvoW8;dIoSBb:ZgGg9b;dLlj2:Qqt3Gf;daB6be:lMxGPd;dtl0hd:lLQWFe;eBAeSb:Ck63tb;eBZ5Nd:VruDBd;eHDfl:ofjVkb;eO3lse:nFClrf;fWLTFc:TVBJbf;g8nkx:U4MzKc;gaub4:TN6bMe;gtVSi:ekUOYd;h3MYod:cEt90b;hK67qb:QWEO5b;heHB1:sFczq;hjRo6e:F62sG;hsLsYc:Vl118;iFQyKf:QIhFr,vfuNJf;imqimf:jKGL2e;io8t5d:sgY6Zb;jY0zg:Q6tNgc;k2Qxcb:XY51pe;kCQyJ:ueyPK;kMFpHd:OTA3Ae;kbAm9d:MkHyGd;lkq0A:JyBE3e;nAFL3:NTMZac,s39S4;oGtAuc:sOXFj;oSUNyd:fTfGO,fTfGO;oUlnpc:RagDlc;okUaUd:wItadb;p2tIDb:tp1Cx;pKJiXd:VCenhc;pNsl2d:j9Yuyc;pXdRYb:JKoKVe;pj82le:mg5CW;qZx2Fc:j0xrE;qaS3gd:yiLg6e;qavrXe:zQzcXe;qddgKe:d7YSfd,x4FYXe;rQSrae:C6D5Fc;sP4Vbe:VwDzFe;sTsDMc:kHVSUb;tH4IIe:Ymry6;tosKvd:ZCqP3;trZL0b:qY8PFe;uY49fb:COQbmf;uknmt:GkPrzb;uuQkY:u2V3ud;vGrMZ:lPJJ0c;vfVwPd:lcrkwe;w3bZCb:ZPGaIb;w4rSdf:XKiZ9;w9w86d:dt4g2b;wQlYve:aLUfP;wR5FRb:TtcOte;wV5Pjc:L8KGxe;whEZac:F4AmNb;xBbsrc:NEW1Qc;yGxLoc:FmAr0c;yxTchf:KUM7Z;z97YGf:oug9te;zOsCQe:Ko78Df;zaIgPb:Qtpxbd/m=cdos,hsm,jsa,mb4ZUb,d,csi,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl"
+_F_toggles
+: 
+[131072]
+__PVT
+: 
+""
+__REACT_DEVTOOLS_APPEND_COMPONENT_STACK__
+: 
+true
+__REACT_DEVTOOLS_BREAK_ON_CONSOLE_ERRORS__
+: 
+false
+__REACT_DEVTOOLS_BROWSER_THEME__
+: 
+"dark"
+__REACT_DEVTOOLS_COMPONENT_FILTERS__
+: 
+[{…}]
+__REACT_DEVTOOLS_HIDE_CONSOLE_LOGS_IN_STRICT_MODE__
+: 
+false
+__REACT_DEVTOOLS_SHOW_INLINE_WARNINGS_AND_ERRORS__
+: 
+true
+___jsl
+: 
+{h: 'm;/_/scs/abc-static/_/js/k=gapi.gapi.en.SCWmpDDGjP…AHpOoo_Pl64J0IIHlj2zBtEJ3ZwdaJC3HA/m=__features__', dpo: false, ms: 'https://apis.google.com', m: '', l: Array(0), …}
+_hd
+: 
+{aa: ƒ, aaa: ƒ, daa: ƒ, haa: ƒ, da: ƒ, …}
+_qs
+: 
+{_DumpException: ƒ}
+_s
+: 
+{_DumpException: ƒ}
+_xjs_toggles
+: 
+(46) [27392, 0, 384, 0, 0, 0, 1048577, 0, 83697746, 402735118, 16781379, 128, 69824, 402718721, 12882163, 4210794, 73433856, 211935236, 160465153, 637669408, 605090304, 570425555, 134316640, 119013461, 8, 939524105, 268828928, 134496448, 33852, 1901056, 2142214, 138418208, 262144, 1015021568, 460032, 267395, 0, 0, 268566528, 137257090, 268502273, 0, 0, 0, 561149097, 49]
+Infinity
+: 
+Infinity
+AbortController
+: 
+ƒ AbortController()
+AbortSignal
+: 
+ƒ AbortSignal()
+AbsoluteOrientationSensor
+: 
+ƒ AbsoluteOrientationSensor()
+AbstractRange
+: 
+ƒ AbstractRange()
+Accelerometer
+: 
+ƒ Accelerometer()
+AggregateError
+: 
+ƒ AggregateError()
+AnalyserNode
+: 
+ƒ AnalyserNode()
+Animation
+: 
+ƒ Animation()
+AnimationEffect
+: 
+ƒ AnimationEffect()
+AnimationEvent
+: 
+ƒ AnimationEvent()
+AnimationPlaybackEvent
+: 
+ƒ AnimationPlaybackEvent()
+AnimationTimeline
+: 
+ƒ AnimationTimeline()
+Array
+: 
+ƒ Array()
+ArrayBuffer
+: 
+ƒ ArrayBuffer()
+Atomics
+: 
+Atomics {load: ƒ, store: ƒ, add: ƒ, sub: ƒ, and: ƒ, …}
+Attr
+: 
+ƒ Attr()
+Audio
+: 
+ƒ Audio()
+AudioBuffer
+: 
+ƒ AudioBuffer()
+AudioBufferSourceNode
+: 
+ƒ AudioBufferSourceNode()
+AudioContext
+: 
+ƒ AudioContext()
+AudioData
+: 
+ƒ AudioData()
+AudioDecoder
+: 
+ƒ AudioDecoder()
+AudioDestinationNode
+: 
+ƒ AudioDestinationNode()
+AudioEncoder
+: 
+ƒ AudioEncoder()
+AudioListener
+: 
+ƒ AudioListener()
+AudioNode
+: 
+ƒ AudioNode()
+AudioParam
+: 
+ƒ AudioParam()
+AudioParamMap
+: 
+ƒ AudioParamMap()
+AudioProcessingEvent
+: 
+ƒ AudioProcessingEvent()
+AudioScheduledSourceNode
+: 
+ƒ AudioScheduledSourceNode()
+AudioSinkInfo
+: 
+ƒ AudioSinkInfo()
+AudioWorklet
+: 
+ƒ AudioWorklet()
+AudioWorkletNode
+: 
+ƒ AudioWorkletNode()
+AuthenticatorAssertionResponse
+: 
+ƒ AuthenticatorAssertionResponse()
+AuthenticatorAttestationResponse
+: 
+ƒ AuthenticatorAttestationResponse()
+AuthenticatorResponse
+: 
+ƒ AuthenticatorResponse()
+BackgroundFetchManager
+: 
+ƒ BackgroundFetchManager()
+BackgroundFetchRecord
+: 
+ƒ BackgroundFetchRecord()
+BackgroundFetchRegistration
+: 
+ƒ BackgroundFetchRegistration()
+BarProp
+: 
+ƒ BarProp()
+BarcodeDetector
+: 
+ƒ BarcodeDetector()
+BaseAudioContext
+: 
+ƒ BaseAudioContext()
+BatteryManager
+: 
+ƒ BatteryManager()
+BeforeInstallPromptEvent
+: 
+ƒ BeforeInstallPromptEvent()
+BeforeUnloadEvent
+: 
+ƒ BeforeUnloadEvent()
+BigInt
+: 
+ƒ BigInt()
+BigInt64Array
+: 
+ƒ BigInt64Array()
+BigUint64Array
+: 
+ƒ BigUint64Array()
+BiquadFilterNode
+: 
+ƒ BiquadFilterNode()
+Blob
+: 
+ƒ Blob()
+BlobEvent
+: 
+ƒ BlobEvent()
+Bluetooth
+: 
+ƒ Bluetooth()
+BluetoothCharacteristicProperties
+: 
+ƒ BluetoothCharacteristicProperties()
+BluetoothDevice
+: 
+ƒ BluetoothDevice()
+BluetoothRemoteGATTCharacteristic
+: 
+ƒ BluetoothRemoteGATTCharacteristic()
+BluetoothRemoteGATTDescriptor
+: 
+ƒ BluetoothRemoteGATTDescriptor()
+BluetoothRemoteGATTServer
+: 
+ƒ BluetoothRemoteGATTServer()
+BluetoothRemoteGATTService
+: 
+ƒ BluetoothRemoteGATTService()
+BluetoothUUID
+: 
+ƒ BluetoothUUID()
+Boolean
+: 
+ƒ Boolean()
+BroadcastChannel
+: 
+ƒ BroadcastChannel()
+BrowserCaptureMediaStreamTrack
+: 
+ƒ BrowserCaptureMediaStreamTrack()
+ByteLengthQueuingStrategy
+: 
+ƒ ByteLengthQueuingStrategy()
+CDATASection
+: 
+ƒ CDATASection()
+CSS
+: 
+CSS {Hz: ƒ, Q: ƒ, ch: ƒ, cm: ƒ, cqb: ƒ, …}
+CSSAnimation
+: 
+ƒ CSSAnimation()
+CSSConditionRule
+: 
+ƒ CSSConditionRule()
+CSSContainerRule
+: 
+ƒ CSSContainerRule()
+CSSCounterStyleRule
+: 
+ƒ CSSCounterStyleRule()
+CSSFontFaceRule
+: 
+ƒ CSSFontFaceRule()
+CSSFontPaletteValuesRule
+: 
+ƒ CSSFontPaletteValuesRule()
+CSSGroupingRule
+: 
+ƒ CSSGroupingRule()
+CSSImageValue
+: 
+ƒ CSSImageValue()
+CSSImportRule
+: 
+ƒ CSSImportRule()
+CSSKeyframeRule
+: 
+ƒ CSSKeyframeRule()
+CSSKeyframesRule
+: 
+ƒ CSSKeyframesRule()
+CSSKeywordValue
+: 
+ƒ CSSKeywordValue()
+CSSLayerBlockRule
+: 
+ƒ CSSLayerBlockRule()
+CSSLayerStatementRule
+: 
+ƒ CSSLayerStatementRule()
+CSSMathClamp
+: 
+ƒ CSSMathClamp()
+CSSMathInvert
+: 
+ƒ CSSMathInvert()
+CSSMathMax
+: 
+ƒ CSSMathMax()
+CSSMathMin
+: 
+ƒ CSSMathMin()
+CSSMathNegate
+: 
+ƒ CSSMathNegate()
+CSSMathProduct
+: 
+ƒ CSSMathProduct()
+CSSMathSum
+: 
+ƒ CSSMathSum()
+CSSMathValue
+: 
+ƒ CSSMathValue()
+CSSMatrixComponent
+: 
+ƒ CSSMatrixComponent()
+CSSMediaRule
+: 
+ƒ CSSMediaRule()
+CSSNamespaceRule
+: 
+ƒ CSSNamespaceRule()
+CSSNumericArray
+: 
+ƒ CSSNumericArray()
+CSSNumericValue
+: 
+ƒ CSSNumericValue()
+CSSPageRule
+: 
+ƒ CSSPageRule()
+CSSPerspective
+: 
+ƒ CSSPerspective()
+CSSPositionValue
+: 
+ƒ CSSPositionValue()
+CSSPropertyRule
+: 
+ƒ CSSPropertyRule()
+CSSRotate
+: 
+ƒ CSSRotate()
+CSSRule
+: 
+ƒ CSSRule()
+CSSRuleList
+: 
+ƒ CSSRuleList()
+CSSScale
+: 
+ƒ CSSScale()
+CSSScopeRule
+: 
+ƒ CSSScopeRule()
+CSSSkew
+: 
+ƒ CSSSkew()
+CSSSkewX
+: 
+ƒ CSSSkewX()
+CSSSkewY
+: 
+ƒ CSSSkewY()
+CSSStartingStyleRule
+: 
+ƒ CSSStartingStyleRule()
+CSSStyleDeclaration
+: 
+ƒ CSSStyleDeclaration()
+CSSStyleRule
+: 
+ƒ CSSStyleRule()
+CSSStyleSheet
+: 
+ƒ CSSStyleSheet()
+CSSStyleValue
+: 
+ƒ CSSStyleValue()
+CSSSupportsRule
+: 
+ƒ CSSSupportsRule()
+CSSTransformComponent
+: 
+ƒ CSSTransformComponent()
+CSSTransformValue
+: 
+ƒ CSSTransformValue()
+CSSTransition
+: 
+ƒ CSSTransition()
+CSSTranslate
+: 
+ƒ CSSTranslate()
+CSSUnitValue
+: 
+ƒ CSSUnitValue()
+CSSUnparsedValue
+: 
+ƒ CSSUnparsedValue()
+CSSVariableReferenceValue
+: 
+ƒ CSSVariableReferenceValue()
+Cache
+: 
+ƒ Cache()
+CacheStorage
+: 
+ƒ CacheStorage()
+CanvasCaptureMediaStreamTrack
+: 
+ƒ CanvasCaptureMediaStreamTrack()
+CanvasGradient
+: 
+ƒ CanvasGradient()
+CanvasPattern
+: 
+ƒ CanvasPattern()
+CanvasRenderingContext2D
+: 
+ƒ CanvasRenderingContext2D()
+CaptureController
+: 
+ƒ CaptureController()
+ChannelMergerNode
+: 
+ƒ ChannelMergerNode()
+ChannelSplitterNode
+: 
+ƒ ChannelSplitterNode()
+CharacterData
+: 
+ƒ CharacterData()
+Clipboard
+: 
+ƒ Clipboard()
+ClipboardEvent
+: 
+ƒ ClipboardEvent()
+ClipboardItem
+: 
+ƒ ClipboardItem()
+CloseEvent
+: 
+ƒ CloseEvent()
+CloseWatcher
+: 
+ƒ CloseWatcher()
+Comment
+: 
+ƒ Comment()
+CompositionEvent
+: 
+ƒ CompositionEvent()
+CompressionStream
+: 
+ƒ CompressionStream()
+ConstantSourceNode
+: 
+ƒ ConstantSourceNode()
+ContentVisibilityAutoStateChangeEvent
+: 
+ƒ ContentVisibilityAutoStateChangeEvent()
+ConvolverNode
+: 
+ƒ ConvolverNode()
+CookieChangeEvent
+: 
+ƒ CookieChangeEvent()
+CookieStore
+: 
+ƒ CookieStore()
+CookieStoreManager
+: 
+ƒ CookieStoreManager()
+CountQueuingStrategy
+: 
+ƒ CountQueuingStrategy()
+Credential
+: 
+ƒ Credential()
+CredentialsContainer
+: 
+ƒ CredentialsContainer()
+CropTarget
+: 
+ƒ CropTarget()
+Crypto
+: 
+ƒ Crypto()
+CryptoKey
+: 
+ƒ CryptoKey()
+CustomElementRegistry
+: 
+ƒ CustomElementRegistry()
+CustomEvent
+: 
+ƒ CustomEvent()
+CustomStateSet
+: 
+ƒ CustomStateSet()
+DOMError
+: 
+ƒ DOMError()
+DOMException
+: 
+ƒ DOMException()
+DOMImplementation
+: 
+ƒ DOMImplementation()
+DOMMatrix
+: 
+ƒ DOMMatrix()
+DOMMatrixReadOnly
+: 
+ƒ DOMMatrixReadOnly()
+DOMParser
+: 
+ƒ DOMParser()
+DOMPoint
+: 
+ƒ DOMPoint()
+DOMPointReadOnly
+: 
+ƒ DOMPointReadOnly()
+DOMQuad
+: 
+ƒ DOMQuad()
+DOMRect
+: 
+ƒ DOMRect()
+DOMRectList
+: 
+ƒ DOMRectList()
+DOMRectReadOnly
+: 
+ƒ DOMRectReadOnly()
+DOMStringList
+: 
+ƒ DOMStringList()
+DOMStringMap
+: 
+ƒ DOMStringMap()
+DOMTokenList
+: 
+ƒ DOMTokenList()
+DataTransfer
+: 
+ƒ DataTransfer()
+DataTransferItem
+: 
+ƒ DataTransferItem()
+DataTransferItemList
+: 
+ƒ DataTransferItemList()
+DataView
+: 
+ƒ DataView()
+Date
+: 
+ƒ Date()
+DecompressionStream
+: 
+ƒ DecompressionStream()
+DelayNode
+: 
+ƒ DelayNode()
+DelegatedInkTrailPresenter
+: 
+ƒ DelegatedInkTrailPresenter()
+DeviceMotionEvent
+: 
+ƒ DeviceMotionEvent()
+DeviceMotionEventAcceleration
+: 
+ƒ DeviceMotionEventAcceleration()
+DeviceMotionEventRotationRate
+: 
+ƒ DeviceMotionEventRotationRate()
+DeviceOrientationEvent
+: 
+ƒ DeviceOrientationEvent()
+Document
+: 
+ƒ Document()
+DocumentFragment
+: 
+ƒ DocumentFragment()
+DocumentPictureInPicture
+: 
+ƒ DocumentPictureInPicture()
+DocumentPictureInPictureEvent
+: 
+ƒ DocumentPictureInPictureEvent()
+DocumentTimeline
+: 
+ƒ DocumentTimeline()
+DocumentType
+: 
+ƒ DocumentType()
+DragEvent
+: 
+ƒ DragEvent()
+DynamicsCompressorNode
+: 
+ƒ DynamicsCompressorNode()
+Element
+: 
+ƒ Element()
+ElementInternals
+: 
+ƒ ElementInternals()
+EncodedAudioChunk
+: 
+ƒ EncodedAudioChunk()
+EncodedVideoChunk
+: 
+ƒ EncodedVideoChunk()
+Error
+: 
+ƒ Error()
+ErrorEvent
+: 
+ƒ ErrorEvent()
+EvalError
+: 
+ƒ EvalError()
+Event
+: 
+ƒ Event()
+EventCounts
+: 
+ƒ EventCounts()
+EventSource
+: 
+ƒ EventSource()
+EventTarget
+: 
+ƒ EventTarget()
+External
+: 
+ƒ External()
+EyeDropper
+: 
+ƒ EyeDropper()
+FeaturePolicy
+: 
+ƒ FeaturePolicy()
+FederatedCredential
+: 
+ƒ FederatedCredential()
+Fence
+: 
+ƒ Fence()
+FencedFrameConfig
+: 
+ƒ FencedFrameConfig()
+File
+: 
+ƒ File()
+FileList
+: 
+ƒ FileList()
+FileReader
+: 
+ƒ FileReader()
+FileSystemDirectoryHandle
+: 
+ƒ FileSystemDirectoryHandle()
+FileSystemFileHandle
+: 
+ƒ FileSystemFileHandle()
+FileSystemHandle
+: 
+ƒ FileSystemHandle()
+FileSystemWritableFileStream
+: 
+ƒ FileSystemWritableFileStream()
+FinalizationRegistry
+: 
+ƒ FinalizationRegistry()
+Float32Array
+: 
+ƒ Float32Array()
+Float64Array
+: 
+ƒ Float64Array()
+FocusEvent
+: 
+ƒ FocusEvent()
+FontData
+: 
+ƒ FontData()
+FontFace
+: 
+ƒ FontFace()
+FontFaceSetLoadEvent
+: 
+ƒ FontFaceSetLoadEvent()
+FormData
+: 
+ƒ FormData()
+FormDataEvent
+: 
+ƒ FormDataEvent()
+FragmentDirective
+: 
+ƒ FragmentDirective()
+Function
+: 
+ƒ Function()
+GPU
+: 
+ƒ GPU()
+GPUAdapter
+: 
+ƒ GPUAdapter()
+GPUAdapterInfo
+: 
+ƒ GPUAdapterInfo()
+GPUBindGroup
+: 
+ƒ GPUBindGroup()
+GPUBindGroupLayout
+: 
+ƒ GPUBindGroupLayout()
+GPUBuffer
+: 
+ƒ GPUBuffer()
+GPUBufferUsage
+: 
+GPUBufferUsage {MAP_READ: 1, MAP_WRITE: 2, COPY_SRC: 4, COPY_DST: 8, INDEX: 16, …}
+GPUCanvasContext
+: 
+ƒ GPUCanvasContext()
+GPUColorWrite
+: 
+GPUColorWrite {RED: 1, GREEN: 2, BLUE: 4, ALPHA: 8, ALL: 15, …}
+GPUCommandBuffer
+: 
+ƒ GPUCommandBuffer()
+GPUCommandEncoder
+: 
+ƒ GPUCommandEncoder()
+GPUCompilationInfo
+: 
+ƒ GPUCompilationInfo()
+GPUCompilationMessage
+: 
+ƒ GPUCompilationMessage()
+GPUComputePassEncoder
+: 
+ƒ GPUComputePassEncoder()
+GPUComputePipeline
+: 
+ƒ GPUComputePipeline()
+GPUDevice
+: 
+ƒ GPUDevice()
+GPUDeviceLostInfo
+: 
+ƒ GPUDeviceLostInfo()
+GPUError
+: 
+ƒ GPUError()
+GPUExternalTexture
+: 
+ƒ GPUExternalTexture()
+GPUInternalError
+: 
+ƒ GPUInternalError()
+GPUMapMode
+: 
+GPUMapMode {READ: 1, WRITE: 2, Symbol(Symbol.toStringTag): 'GPUMapMode'}
+GPUOutOfMemoryError
+: 
+ƒ GPUOutOfMemoryError()
+GPUPipelineError
+: 
+ƒ GPUPipelineError()
+GPUPipelineLayout
+: 
+ƒ GPUPipelineLayout()
+GPUQuerySet
+: 
+ƒ GPUQuerySet()
+GPUQueue
+: 
+ƒ GPUQueue()
+GPURenderBundle
+: 
+ƒ GPURenderBundle()
+GPURenderBundleEncoder
+: 
+ƒ GPURenderBundleEncoder()
+GPURenderPassEncoder
+: 
+ƒ GPURenderPassEncoder()
+GPURenderPipeline
+: 
+ƒ GPURenderPipeline()
+GPUSampler
+: 
+ƒ GPUSampler()
+GPUShaderModule
+: 
+ƒ GPUShaderModule()
+GPUShaderStage
+: 
+GPUShaderStage {VERTEX: 1, FRAGMENT: 2, COMPUTE: 4, Symbol(Symbol.toStringTag): 'GPUShaderStage'}
+GPUSupportedFeatures
+: 
+ƒ GPUSupportedFeatures()
+GPUSupportedLimits
+: 
+ƒ GPUSupportedLimits()
+GPUTexture
+: 
+ƒ GPUTexture()
+GPUTextureUsage
+: 
+GPUTextureUsage {COPY_SRC: 1, COPY_DST: 2, TEXTURE_BINDING: 4, STORAGE_BINDING: 8, RENDER_ATTACHMENT: 16, …}
+GPUTextureView
+: 
+ƒ GPUTextureView()
+GPUUncapturedErrorEvent
+: 
+ƒ GPUUncapturedErrorEvent()
+GPUValidationError
+: 
+ƒ GPUValidationError()
+GainNode
+: 
+ƒ GainNode()
+Gamepad
+: 
+ƒ Gamepad()
+GamepadButton
+: 
+ƒ GamepadButton()
+GamepadEvent
+: 
+ƒ GamepadEvent()
+GamepadHapticActuator
+: 
+ƒ GamepadHapticActuator()
+Geolocation
+: 
+ƒ Geolocation()
+GeolocationCoordinates
+: 
+ƒ GeolocationCoordinates()
+GeolocationPosition
+: 
+ƒ GeolocationPosition()
+GeolocationPositionError
+: 
+ƒ GeolocationPositionError()
+GravitySensor
+: 
+ƒ GravitySensor()
+Gyroscope
+: 
+ƒ Gyroscope()
+HID
+: 
+ƒ HID()
+HIDConnectionEvent
+: 
+ƒ HIDConnectionEvent()
+HIDDevice
+: 
+ƒ HIDDevice()
+HIDInputReportEvent
+: 
+ƒ HIDInputReportEvent()
+HTMLAllCollection
+: 
+ƒ HTMLAllCollection()
+HTMLAnchorElement
+: 
+ƒ HTMLAnchorElement()
+HTMLAreaElement
+: 
+ƒ HTMLAreaElement()
+HTMLAudioElement
+: 
+ƒ HTMLAudioElement()
+HTMLBRElement
+: 
+ƒ HTMLBRElement()
+HTMLBaseElement
+: 
+ƒ HTMLBaseElement()
+HTMLBodyElement
+: 
+ƒ HTMLBodyElement()
+HTMLButtonElement
+: 
+ƒ HTMLButtonElement()
+HTMLCanvasElement
+: 
+ƒ HTMLCanvasElement()
+HTMLCollection
+: 
+ƒ HTMLCollection()
+HTMLDListElement
+: 
+ƒ HTMLDListElement()
+HTMLDataElement
+: 
+ƒ HTMLDataElement()
+HTMLDataListElement
+: 
+ƒ HTMLDataListElement()
+HTMLDetailsElement
+: 
+ƒ HTMLDetailsElement()
+HTMLDialogElement
+: 
+ƒ HTMLDialogElement()
+HTMLDirectoryElement
+: 
+ƒ HTMLDirectoryElement()
+HTMLDivElement
+: 
+ƒ HTMLDivElement()
+HTMLDocument
+: 
+ƒ HTMLDocument()
+HTMLElement
+: 
+ƒ HTMLElement()
+HTMLEmbedElement
+: 
+ƒ HTMLEmbedElement()
+HTMLFencedFrameElement
+: 
+ƒ HTMLFencedFrameElement()
+HTMLFieldSetElement
+: 
+ƒ HTMLFieldSetElement()
+HTMLFontElement
+: 
+ƒ HTMLFontElement()
+HTMLFormControlsCollection
+: 
+ƒ HTMLFormControlsCollection()
+HTMLFormElement
+: 
+ƒ HTMLFormElement()
+HTMLFrameElement
+: 
+ƒ HTMLFrameElement()
+HTMLFrameSetElement
+: 
+ƒ HTMLFrameSetElement()
+HTMLHRElement
+: 
+ƒ HTMLHRElement()
+HTMLHeadElement
+: 
+ƒ HTMLHeadElement()
+HTMLHeadingElement
+: 
+ƒ HTMLHeadingElement()
+HTMLHtmlElement
+: 
+ƒ HTMLHtmlElement()
+HTMLIFrameElement
+: 
+ƒ HTMLIFrameElement()
+HTMLImageElement
+: 
+ƒ HTMLImageElement()
+HTMLInputElement
+: 
+ƒ HTMLInputElement()
+HTMLLIElement
+: 
+ƒ HTMLLIElement()
+HTMLLabelElement
+: 
+ƒ HTMLLabelElement()
+HTMLLegendElement
+: 
+ƒ HTMLLegendElement()
+HTMLLinkElement
+: 
+ƒ HTMLLinkElement()
+HTMLMapElement
+: 
+ƒ HTMLMapElement()
+HTMLMarqueeElement
+: 
+ƒ HTMLMarqueeElement()
+HTMLMediaElement
+: 
+ƒ HTMLMediaElement()
+HTMLMenuElement
+: 
+ƒ HTMLMenuElement()
+HTMLMetaElement
+: 
+ƒ HTMLMetaElement()
+HTMLMeterElement
+: 
+ƒ HTMLMeterElement()
+HTMLModElement
+: 
+ƒ HTMLModElement()
+HTMLOListElement
+: 
+ƒ HTMLOListElement()
+HTMLObjectElement
+: 
+ƒ HTMLObjectElement()
+HTMLOptGroupElement
+: 
+ƒ HTMLOptGroupElement()
+HTMLOptionElement
+: 
+ƒ HTMLOptionElement()
+HTMLOptionsCollection
+: 
+ƒ HTMLOptionsCollection()
+HTMLOutputElement
+: 
+ƒ HTMLOutputElement()
+HTMLParagraphElement
+: 
+ƒ HTMLParagraphElement()
+HTMLParamElement
+: 
+ƒ HTMLParamElement()
+HTMLPictureElement
+: 
+ƒ HTMLPictureElement()
+HTMLPreElement
+: 
+ƒ HTMLPreElement()
+HTMLProgressElement
+: 
+ƒ HTMLProgressElement()
+HTMLQuoteElement
+: 
+ƒ HTMLQuoteElement()
+HTMLScriptElement
+: 
+ƒ HTMLScriptElement()
+HTMLSelectElement
+: 
+ƒ HTMLSelectElement()
+HTMLSlotElement
+: 
+ƒ HTMLSlotElement()
+HTMLSourceElement
+: 
+ƒ HTMLSourceElement()
+HTMLSpanElement
+: 
+ƒ HTMLSpanElement()
+HTMLStyleElement
+: 
+ƒ HTMLStyleElement()
+HTMLTableCaptionElement
+: 
+ƒ HTMLTableCaptionElement()
+HTMLTableCellElement
+: 
+ƒ HTMLTableCellElement()
+HTMLTableColElement
+: 
+ƒ HTMLTableColElement()
+HTMLTableElement
+: 
+ƒ HTMLTableElement()
+HTMLTableRowElement
+: 
+ƒ HTMLTableRowElement()
+HTMLTableSectionElement
+: 
+ƒ HTMLTableSectionElement()
+HTMLTemplateElement
+: 
+ƒ HTMLTemplateElement()
+HTMLTextAreaElement
+: 
+ƒ HTMLTextAreaElement()
+HTMLTimeElement
+: 
+ƒ HTMLTimeElement()
+HTMLTitleElement
+: 
+ƒ HTMLTitleElement()
+HTMLTrackElement
+: 
+ƒ HTMLTrackElement()
+HTMLUListElement
+: 
+ƒ HTMLUListElement()
+HTMLUnknownElement
+: 
+ƒ HTMLUnknownElement()
+HTMLVideoElement
+: 
+ƒ HTMLVideoElement()
+HashChangeEvent
+: 
+ƒ HashChangeEvent()
+Headers
+: 
+ƒ Headers()
+Highlight
+: 
+ƒ Highlight()
+HighlightRegistry
+: 
+ƒ HighlightRegistry()
+History
+: 
+ƒ History()
+IDBCursor
+: 
+ƒ IDBCursor()
+IDBCursorWithValue
+: 
+ƒ IDBCursorWithValue()
+IDBDatabase
+: 
+ƒ IDBDatabase()
+IDBFactory
+: 
+ƒ IDBFactory()
+IDBIndex
+: 
+ƒ IDBIndex()
+IDBKeyRange
+: 
+ƒ IDBKeyRange()
+IDBObjectStore
+: 
+ƒ IDBObjectStore()
+IDBOpenDBRequest
+: 
+ƒ IDBOpenDBRequest()
+IDBRequest
+: 
+ƒ IDBRequest()
+IDBTransaction
+: 
+ƒ IDBTransaction()
+IDBVersionChangeEvent
+: 
+ƒ IDBVersionChangeEvent()
+IIRFilterNode
+: 
+ƒ IIRFilterNode()
+IdentityCredential
+: 
+ƒ IdentityCredential()
+IdentityCredentialError
+: 
+ƒ IdentityCredentialError()
+IdentityProvider
+: 
+ƒ IdentityProvider()
+IdleDeadline
+: 
+ƒ IdleDeadline()
+IdleDetector
+: 
+ƒ IdleDetector()
+Image
+: 
+ƒ Image()
+ImageBitmap
+: 
+ƒ ImageBitmap()
+ImageBitmapRenderingContext
+: 
+ƒ ImageBitmapRenderingContext()
+ImageCapture
+: 
+ƒ ImageCapture()
+ImageData
+: 
+ƒ ImageData()
+ImageDecoder
+: 
+ƒ ImageDecoder()
+ImageTrack
+: 
+ƒ ImageTrack()
+ImageTrackList
+: 
+ƒ ImageTrackList()
+Ink
+: 
+ƒ Ink()
+InputDeviceCapabilities
+: 
+ƒ InputDeviceCapabilities()
+InputDeviceInfo
+: 
+ƒ InputDeviceInfo()
+InputEvent
+: 
+ƒ InputEvent()
+Int8Array
+: 
+ƒ Int8Array()
+Int16Array
+: 
+ƒ Int16Array()
+Int32Array
+: 
+ƒ Int32Array()
+IntersectionObserver
+: 
+ƒ IntersectionObserver()
+IntersectionObserverEntry
+: 
+ƒ IntersectionObserverEntry()
+Intl
+: 
+Intl {getCanonicalLocales: ƒ, supportedValuesOf: ƒ, DateTimeFormat: ƒ, NumberFormat: ƒ, Collator: ƒ, …}
+JSON
+: 
+JSON {Symbol(Symbol.toStringTag): 'JSON', parse: ƒ, stringify: ƒ, rawJSON: ƒ, isRawJSON: ƒ}
+Keyboard
+: 
+ƒ Keyboard()
+KeyboardEvent
+: 
+ƒ KeyboardEvent()
+KeyboardLayoutMap
+: 
+ƒ KeyboardLayoutMap()
+KeyframeEffect
+: 
+ƒ KeyframeEffect()
+LargestContentfulPaint
+: 
+ƒ LargestContentfulPaint()
+LaunchParams
+: 
+ƒ LaunchParams()
+LaunchQueue
+: 
+ƒ LaunchQueue()
+LayoutShift
+: 
+ƒ LayoutShift()
+LayoutShiftAttribution
+: 
+ƒ LayoutShiftAttribution()
+LinearAccelerationSensor
+: 
+ƒ LinearAccelerationSensor()
+Location
+: 
+ƒ Location()
+Lock
+: 
+ƒ Lock()
+LockManager
+: 
+ƒ LockManager()
+MIDIAccess
+: 
+ƒ MIDIAccess()
+MIDIConnectionEvent
+: 
+ƒ MIDIConnectionEvent()
+MIDIInput
+: 
+ƒ MIDIInput()
+MIDIInputMap
+: 
+ƒ MIDIInputMap()
+MIDIMessageEvent
+: 
+ƒ MIDIMessageEvent()
+MIDIOutput
+: 
+ƒ MIDIOutput()
+MIDIOutputMap
+: 
+ƒ MIDIOutputMap()
+MIDIPort
+: 
+ƒ MIDIPort()
+Map
+: 
+ƒ Map()
+Math
+: 
+Math {abs: ƒ, acos: ƒ, acosh: ƒ, asin: ƒ, asinh: ƒ, …}
+MathMLElement
+: 
+ƒ MathMLElement()
+MediaCapabilities
+: 
+ƒ MediaCapabilities()
+MediaDeviceInfo
+: 
+ƒ MediaDeviceInfo()
+MediaDevices
+: 
+ƒ MediaDevices()
+MediaElementAudioSourceNode
+: 
+ƒ MediaElementAudioSourceNode()
+MediaEncryptedEvent
+: 
+ƒ MediaEncryptedEvent()
+MediaError
+: 
+ƒ MediaError()
+MediaKeyMessageEvent
+: 
+ƒ MediaKeyMessageEvent()
+MediaKeySession
+: 
+ƒ MediaKeySession()
+MediaKeyStatusMap
+: 
+ƒ MediaKeyStatusMap()
+MediaKeySystemAccess
+: 
+ƒ MediaKeySystemAccess()
+MediaKeys
+: 
+ƒ MediaKeys()
+MediaList
+: 
+ƒ MediaList()
+MediaMetadata
+: 
+ƒ MediaMetadata()
+MediaQueryList
+: 
+ƒ MediaQueryList()
+MediaQueryListEvent
+: 
+ƒ MediaQueryListEvent()
+MediaRecorder
+: 
+ƒ MediaRecorder()
+MediaSession
+: 
+ƒ MediaSession()
+MediaSource
+: 
+ƒ MediaSource()
+MediaSourceHandle
+: 
+ƒ MediaSourceHandle()
+MediaStream
+: 
+ƒ MediaStream()
+MediaStreamAudioDestinationNode
+: 
+ƒ MediaStreamAudioDestinationNode()
+MediaStreamAudioSourceNode
+: 
+ƒ MediaStreamAudioSourceNode()
+MediaStreamEvent
+: 
+ƒ MediaStreamEvent()
+MediaStreamTrack
+: 
+ƒ MediaStreamTrack()
+MediaStreamTrackEvent
+: 
+ƒ MediaStreamTrackEvent()
+MediaStreamTrackGenerator
+: 
+ƒ MediaStreamTrackGenerator()
+MediaStreamTrackProcessor
+: 
+ƒ MediaStreamTrackProcessor()
+MediaStreamTrackVideoStats
+: 
+ƒ MediaStreamTrackVideoStats()
+MessageChannel
+: 
+ƒ MessageChannel()
+MessageEvent
+: 
+ƒ MessageEvent()
+MessagePort
+: 
+ƒ MessagePort()
+MimeType
+: 
+ƒ MimeType()
+MimeTypeArray
+: 
+ƒ MimeTypeArray()
+MouseEvent
+: 
+ƒ MouseEvent()
+MutationEvent
+: 
+ƒ MutationEvent()
+MutationObserver
+: 
+ƒ MutationObserver()
+MutationRecord
+: 
+ƒ MutationRecord()
+NaN
+: 
+NaN
+NamedNodeMap
+: 
+ƒ NamedNodeMap()
+NavigateEvent
+: 
+ƒ NavigateEvent()
+Navigation
+: 
+ƒ Navigation()
+NavigationCurrentEntryChangeEvent
+: 
+ƒ NavigationCurrentEntryChangeEvent()
+NavigationDestination
+: 
+ƒ NavigationDestination()
+NavigationHistoryEntry
+: 
+ƒ NavigationHistoryEntry()
+NavigationPreloadManager
+: 
+ƒ NavigationPreloadManager()
+NavigationTransition
+: 
+ƒ NavigationTransition()
+Navigator
+: 
+ƒ Navigator()
+NavigatorLogin
+: 
+ƒ NavigatorLogin()
+NavigatorManagedData
+: 
+ƒ NavigatorManagedData()
+NavigatorUAData
+: 
+ƒ NavigatorUAData()
+NetworkInformation
+: 
+ƒ NetworkInformation()
+Node
+: 
+ƒ Node()
+NodeFilter
+: 
+ƒ NodeFilter()
+NodeIterator
+: 
+ƒ NodeIterator()
+NodeList
+: 
+ƒ NodeList()
+Notification
+: 
+ƒ Notification()
+Number
+: 
+ƒ Number()
+OTPCredential
+: 
+ƒ OTPCredential()
+Object
+: 
+ƒ Object()
+OfflineAudioCompletionEvent
+: 
+ƒ OfflineAudioCompletionEvent()
+OfflineAudioContext
+: 
+ƒ OfflineAudioContext()
+OffscreenCanvas
+: 
+ƒ OffscreenCanvas()
+OffscreenCanvasRenderingContext2D
+: 
+ƒ OffscreenCanvasRenderingContext2D()
+Option
+: 
+ƒ Option()
+OrientationSensor
+: 
+ƒ OrientationSensor()
+OscillatorNode
+: 
+ƒ OscillatorNode()
+OverconstrainedError
+: 
+ƒ OverconstrainedError()
+PageTransitionEvent
+: 
+ƒ PageTransitionEvent()
+PannerNode
+: 
+ƒ PannerNode()
+PasswordCredential
+: 
+ƒ PasswordCredential()
+Path2D
+: 
+ƒ Path2D()
+PaymentAddress
+: 
+ƒ PaymentAddress()
+PaymentManager
+: 
+ƒ PaymentManager()
+PaymentMethodChangeEvent
+: 
+ƒ PaymentMethodChangeEvent()
+PaymentRequest
+: 
+ƒ PaymentRequest()
+PaymentRequestUpdateEvent
+: 
+ƒ PaymentRequestUpdateEvent()
+PaymentResponse
+: 
+ƒ PaymentResponse()
+Performance
+: 
+ƒ Performance()
+PerformanceElementTiming
+: 
+ƒ PerformanceElementTiming()
+PerformanceEntry
+: 
+ƒ PerformanceEntry()
+PerformanceEventTiming
+: 
+ƒ PerformanceEventTiming()
+PerformanceLongTaskTiming
+: 
+ƒ PerformanceLongTaskTiming()
+PerformanceMark
+: 
+ƒ PerformanceMark()
+PerformanceMeasure
+: 
+ƒ PerformanceMeasure()
+PerformanceNavigation
+: 
+ƒ PerformanceNavigation()
+PerformanceNavigationTiming
+: 
+ƒ PerformanceNavigationTiming()
+PerformanceObserver
+: 
+ƒ PerformanceObserver()
+PerformanceObserverEntryList
+: 
+ƒ PerformanceObserverEntryList()
+PerformancePaintTiming
+: 
+ƒ PerformancePaintTiming()
+PerformanceResourceTiming
+: 
+ƒ PerformanceResourceTiming()
+PerformanceServerTiming
+: 
+ƒ PerformanceServerTiming()
+PerformanceTiming
+: 
+ƒ PerformanceTiming()
+PeriodicSyncManager
+: 
+ƒ PeriodicSyncManager()
+PeriodicWave
+: 
+ƒ PeriodicWave()
+PermissionStatus
+: 
+ƒ PermissionStatus()
+Permissions
+: 
+ƒ Permissions()
+PictureInPictureEvent
+: 
+ƒ PictureInPictureEvent()
+PictureInPictureWindow
+: 
+ƒ PictureInPictureWindow()
+Plugin
+: 
+ƒ Plugin()
+PluginArray
+: 
+ƒ PluginArray()
+PointerEvent
+: 
+ƒ PointerEvent()
+PopStateEvent
+: 
+ƒ PopStateEvent()
+Presentation
+: 
+ƒ Presentation()
+PresentationAvailability
+: 
+ƒ PresentationAvailability()
+PresentationConnection
+: 
+ƒ PresentationConnection()
+PresentationConnectionAvailableEvent
+: 
+ƒ PresentationConnectionAvailableEvent()
+PresentationConnectionCloseEvent
+: 
+ƒ PresentationConnectionCloseEvent()
+PresentationConnectionList
+: 
+ƒ PresentationConnectionList()
+PresentationReceiver
+: 
+ƒ PresentationReceiver()
+PresentationRequest
+: 
+ƒ PresentationRequest()
+ProcessingInstruction
+: 
+ƒ ProcessingInstruction()
+Profiler
+: 
+ƒ Profiler()
+ProgressEvent
+: 
+ƒ ProgressEvent()
+Promise
+: 
+ƒ Promise()
+PromiseRejectionEvent
+: 
+ƒ PromiseRejectionEvent()
+Proxy
+: 
+ƒ Proxy()
+PublicKeyCredential
+: 
+ƒ PublicKeyCredential()
+PushManager
+: 
+ƒ PushManager()
+PushSubscription
+: 
+ƒ PushSubscription()
+PushSubscriptionOptions
+: 
+ƒ PushSubscriptionOptions()
+RTCCertificate
+: 
+ƒ RTCCertificate()
+RTCDTMFSender
+: 
+ƒ RTCDTMFSender()
+RTCDTMFToneChangeEvent
+: 
+ƒ RTCDTMFToneChangeEvent()
+RTCDataChannel
+: 
+ƒ RTCDataChannel()
+RTCDataChannelEvent
+: 
+ƒ RTCDataChannelEvent()
+RTCDtlsTransport
+: 
+ƒ RTCDtlsTransport()
+RTCEncodedAudioFrame
+: 
+ƒ RTCEncodedAudioFrame()
+RTCEncodedVideoFrame
+: 
+ƒ RTCEncodedVideoFrame()
+RTCError
+: 
+ƒ RTCError()
+RTCErrorEvent
+: 
+ƒ RTCErrorEvent()
+RTCIceCandidate
+: 
+ƒ RTCIceCandidate()
+RTCIceTransport
+: 
+ƒ RTCIceTransport()
+RTCPeerConnection
+: 
+ƒ RTCPeerConnection()
+RTCPeerConnectionIceErrorEvent
+: 
+ƒ RTCPeerConnectionIceErrorEvent()
+RTCPeerConnectionIceEvent
+: 
+ƒ RTCPeerConnectionIceEvent()
+RTCRtpReceiver
+: 
+ƒ RTCRtpReceiver()
+RTCRtpSender
+: 
+ƒ RTCRtpSender()
+RTCRtpTransceiver
+: 
+ƒ RTCRtpTransceiver()
+RTCSctpTransport
+: 
+ƒ RTCSctpTransport()
+RTCSessionDescription
+: 
+ƒ RTCSessionDescription()
+RTCStatsReport
+: 
+ƒ RTCStatsReport()
+RTCTrackEvent
+: 
+ƒ RTCTrackEvent()
+RadioNodeList
+: 
+ƒ RadioNodeList()
+Range
+: 
+ƒ Range()
+RangeError
+: 
+ƒ RangeError()
+ReadableByteStreamController
+: 
+ƒ ReadableByteStreamController()
+ReadableStream
+: 
+ƒ ReadableStream()
+ReadableStreamBYOBReader
+: 
+ƒ ReadableStreamBYOBReader()
+ReadableStreamBYOBRequest
+: 
+ƒ ReadableStreamBYOBRequest()
+ReadableStreamDefaultController
+: 
+ƒ ReadableStreamDefaultController()
+ReadableStreamDefaultReader
+: 
+ƒ ReadableStreamDefaultReader()
+ReferenceError
+: 
+ƒ ReferenceError()
+Reflect
+: 
+Reflect {defineProperty: ƒ, deleteProperty: ƒ, apply: ƒ, construct: ƒ, get: ƒ, …}
+RegExp
+: 
+ƒ RegExp()
+RelativeOrientationSensor
+: 
+ƒ RelativeOrientationSensor()
+RemotePlayback
+: 
+ƒ RemotePlayback()
+ReportingObserver
+: 
+ƒ ReportingObserver()
+Request
+: 
+ƒ Request()
+ResizeObserver
+: 
+ƒ ResizeObserver()
+ResizeObserverEntry
+: 
+ƒ ResizeObserverEntry()
+ResizeObserverSize
+: 
+ƒ ResizeObserverSize()
+Response
+: 
+ƒ Response()
+SVGAElement
+: 
+ƒ SVGAElement()
+SVGAngle
+: 
+ƒ SVGAngle()
+SVGAnimateElement
+: 
+ƒ SVGAnimateElement()
+SVGAnimateMotionElement
+: 
+ƒ SVGAnimateMotionElement()
+SVGAnimateTransformElement
+: 
+ƒ SVGAnimateTransformElement()
+SVGAnimatedAngle
+: 
+ƒ SVGAnimatedAngle()
+SVGAnimatedBoolean
+: 
+ƒ SVGAnimatedBoolean()
+SVGAnimatedEnumeration
+: 
+ƒ SVGAnimatedEnumeration()
+SVGAnimatedInteger
+: 
+ƒ SVGAnimatedInteger()
+SVGAnimatedLength
+: 
+ƒ SVGAnimatedLength()
+SVGAnimatedLengthList
+: 
+ƒ SVGAnimatedLengthList()
+SVGAnimatedNumber
+: 
+ƒ SVGAnimatedNumber()
+SVGAnimatedNumberList
+: 
+ƒ SVGAnimatedNumberList()
+SVGAnimatedPreserveAspectRatio
+: 
+ƒ SVGAnimatedPreserveAspectRatio()
+SVGAnimatedRect
+: 
+ƒ SVGAnimatedRect()
+SVGAnimatedString
+: 
+ƒ SVGAnimatedString()
+SVGAnimatedTransformList
+: 
+ƒ SVGAnimatedTransformList()
+SVGAnimationElement
+: 
+ƒ SVGAnimationElement()
+SVGCircleElement
+: 
+ƒ SVGCircleElement()
+SVGClipPathElement
+: 
+ƒ SVGClipPathElement()
+SVGComponentTransferFunctionElement
+: 
+ƒ SVGComponentTransferFunctionElement()
+SVGDefsElement
+: 
+ƒ SVGDefsElement()
+SVGDescElement
+: 
+ƒ SVGDescElement()
+SVGElement
+: 
+ƒ SVGElement()
+SVGEllipseElement
+: 
+ƒ SVGEllipseElement()
+SVGFEBlendElement
+: 
+ƒ SVGFEBlendElement()
+SVGFEColorMatrixElement
+: 
+ƒ SVGFEColorMatrixElement()
+SVGFEComponentTransferElement
+: 
+ƒ SVGFEComponentTransferElement()
+SVGFECompositeElement
+: 
+ƒ SVGFECompositeElement()
+SVGFEConvolveMatrixElement
+: 
+ƒ SVGFEConvolveMatrixElement()
+SVGFEDiffuseLightingElement
+: 
+ƒ SVGFEDiffuseLightingElement()
+SVGFEDisplacementMapElement
+: 
+ƒ SVGFEDisplacementMapElement()
+SVGFEDistantLightElement
+: 
+ƒ SVGFEDistantLightElement()
+SVGFEDropShadowElement
+: 
+ƒ SVGFEDropShadowElement()
+SVGFEFloodElement
+: 
+ƒ SVGFEFloodElement()
+SVGFEFuncAElement
+: 
+ƒ SVGFEFuncAElement()
+SVGFEFuncBElement
+: 
+ƒ SVGFEFuncBElement()
+SVGFEFuncGElement
+: 
+ƒ SVGFEFuncGElement()
+SVGFEFuncRElement
+: 
+ƒ SVGFEFuncRElement()
+SVGFEGaussianBlurElement
+: 
+ƒ SVGFEGaussianBlurElement()
+SVGFEImageElement
+: 
+ƒ SVGFEImageElement()
+SVGFEMergeElement
+: 
+ƒ SVGFEMergeElement()
+SVGFEMergeNodeElement
+: 
+ƒ SVGFEMergeNodeElement()
+SVGFEMorphologyElement
+: 
+ƒ SVGFEMorphologyElement()
+SVGFEOffsetElement
+: 
+ƒ SVGFEOffsetElement()
+SVGFEPointLightElement
+: 
+ƒ SVGFEPointLightElement()
+SVGFESpecularLightingElement
+: 
+ƒ SVGFESpecularLightingElement()
+SVGFESpotLightElement
+: 
+ƒ SVGFESpotLightElement()
+SVGFETileElement
+: 
+ƒ SVGFETileElement()
+SVGFETurbulenceElement
+: 
+ƒ SVGFETurbulenceElement()
+SVGFilterElement
+: 
+ƒ SVGFilterElement()
+SVGForeignObjectElement
+: 
+ƒ SVGForeignObjectElement()
+SVGGElement
+: 
+ƒ SVGGElement()
+SVGGeometryElement
+: 
+ƒ SVGGeometryElement()
+SVGGradientElement
+: 
+ƒ SVGGradientElement()
+SVGGraphicsElement
+: 
+ƒ SVGGraphicsElement()
+SVGImageElement
+: 
+ƒ SVGImageElement()
+SVGLength
+: 
+ƒ SVGLength()
+SVGLengthList
+: 
+ƒ SVGLengthList()
+SVGLineElement
+: 
+ƒ SVGLineElement()
+SVGLinearGradientElement
+: 
+ƒ SVGLinearGradientElement()
+SVGMPathElement
+: 
+ƒ SVGMPathElement()
+SVGMarkerElement
+: 
+ƒ SVGMarkerElement()
+SVGMaskElement
+: 
+ƒ SVGMaskElement()
+SVGMatrix
+: 
+ƒ SVGMatrix()
+SVGMetadataElement
+: 
+ƒ SVGMetadataElement()
+SVGNumber
+: 
+ƒ SVGNumber()
+SVGNumberList
+: 
+ƒ SVGNumberList()
+SVGPathElement
+: 
+ƒ SVGPathElement()
+SVGPatternElement
+: 
+ƒ SVGPatternElement()
+SVGPoint
+: 
+ƒ SVGPoint()
+SVGPointList
+: 
+ƒ SVGPointList()
+SVGPolygonElement
+: 
+ƒ SVGPolygonElement()
+SVGPolylineElement
+: 
+ƒ SVGPolylineElement()
+SVGPreserveAspectRatio
+: 
+ƒ SVGPreserveAspectRatio()
+SVGRadialGradientElement
+: 
+ƒ SVGRadialGradientElement()
+SVGRect
+: 
+ƒ SVGRect()
+SVGRectElement
+: 
+ƒ SVGRectElement()
+SVGSVGElement
+: 
+ƒ SVGSVGElement()
+SVGScriptElement
+: 
+ƒ SVGScriptElement()
+SVGSetElement
+: 
+ƒ SVGSetElement()
+SVGStopElement
+: 
+ƒ SVGStopElement()
+SVGStringList
+: 
+ƒ SVGStringList()
+SVGStyleElement
+: 
+ƒ SVGStyleElement()
+SVGSwitchElement
+: 
+ƒ SVGSwitchElement()
+SVGSymbolElement
+: 
+ƒ SVGSymbolElement()
+SVGTSpanElement
+: 
+ƒ SVGTSpanElement()
+SVGTextContentElement
+: 
+ƒ SVGTextContentElement()
+SVGTextElement
+: 
+ƒ SVGTextElement()
+SVGTextPathElement
+: 
+ƒ SVGTextPathElement()
+SVGTextPositioningElement
+: 
+ƒ SVGTextPositioningElement()
+SVGTitleElement
+: 
+ƒ SVGTitleElement()
+SVGTransform
+: 
+ƒ SVGTransform()
+SVGTransformList
+: 
+ƒ SVGTransformList()
+SVGUnitTypes
+: 
+ƒ SVGUnitTypes()
+SVGUseElement
+: 
+ƒ SVGUseElement()
+SVGViewElement
+: 
+ƒ SVGViewElement()
+Scheduler
+: 
+ƒ Scheduler()
+Scheduling
+: 
+ƒ Scheduling()
+Screen
+: 
+ƒ Screen()
+ScreenDetailed
+: 
+ƒ ScreenDetailed()
+ScreenDetails
+: 
+ƒ ScreenDetails()
+ScreenOrientation
+: 
+ƒ ScreenOrientation()
+ScriptProcessorNode
+: 
+ƒ ScriptProcessorNode()
+ScrollTimeline
+: 
+ƒ ScrollTimeline()
+SecurityPolicyViolationEvent
+: 
+ƒ SecurityPolicyViolationEvent()
+Selection
+: 
+ƒ Selection()
+Sensor
+: 
+ƒ Sensor()
+SensorErrorEvent
+: 
+ƒ SensorErrorEvent()
+Serial
+: 
+ƒ Serial()
+SerialPort
+: 
+ƒ SerialPort()
+ServiceWorker
+: 
+ƒ ServiceWorker()
+ServiceWorkerContainer
+: 
+ƒ ServiceWorkerContainer()
+ServiceWorkerRegistration
+: 
+ƒ ServiceWorkerRegistration()
+Set
+: 
+ƒ Set()
+ShadowRoot
+: 
+ƒ ShadowRoot()
+SharedStorage
+: 
+ƒ SharedStorage()
+SharedStorageWorklet
+: 
+ƒ SharedStorageWorklet()
+SharedWorker
+: 
+ƒ SharedWorker()
+SourceBuffer
+: 
+ƒ SourceBuffer()
+SourceBufferList
+: 
+ƒ SourceBufferList()
+SpeechSynthesisErrorEvent
+: 
+ƒ SpeechSynthesisErrorEvent()
+SpeechSynthesisEvent
+: 
+ƒ SpeechSynthesisEvent()
+SpeechSynthesisUtterance
+: 
+ƒ SpeechSynthesisUtterance()
+StaticRange
+: 
+ƒ StaticRange()
+StereoPannerNode
+: 
+ƒ StereoPannerNode()
+Storage
+: 
+ƒ Storage()
+StorageEvent
+: 
+ƒ StorageEvent()
+StorageManager
+: 
+ƒ StorageManager()
+String
+: 
+ƒ String()
+StylePropertyMap
+: 
+ƒ StylePropertyMap()
+StylePropertyMapReadOnly
+: 
+ƒ StylePropertyMapReadOnly()
+StyleSheet
+: 
+ƒ StyleSheet()
+StyleSheetList
+: 
+ƒ StyleSheetList()
+SubmitEvent
+: 
+ƒ SubmitEvent()
+SubtleCrypto
+: 
+ƒ SubtleCrypto()
+Symbol
+: 
+ƒ Symbol()
+SyncManager
+: 
+ƒ SyncManager()
+SyntaxError
+: 
+ƒ SyntaxError()
+TaskAttributionTiming
+: 
+ƒ TaskAttributionTiming()
+TaskController
+: 
+ƒ TaskController()
+TaskPriorityChangeEvent
+: 
+ƒ TaskPriorityChangeEvent()
+TaskSignal
+: 
+ƒ TaskSignal()
+Text
+: 
+ƒ Text()
+TextDecoder
+: 
+ƒ TextDecoder()
+TextDecoderStream
+: 
+ƒ TextDecoderStream()
+TextEncoder
+: 
+ƒ TextEncoder()
+TextEncoderStream
+: 
+ƒ TextEncoderStream()
+TextEvent
+: 
+ƒ TextEvent()
+TextMetrics
+: 
+ƒ TextMetrics()
+TextTrack
+: 
+ƒ TextTrack()
+TextTrackCue
+: 
+ƒ TextTrackCue()
+TextTrackCueList
+: 
+ƒ TextTrackCueList()
+TextTrackList
+: 
+ƒ TextTrackList()
+TimeRanges
+: 
+ƒ TimeRanges()
+ToggleEvent
+: 
+ƒ ToggleEvent()
+Touch
+: 
+ƒ Touch()
+TouchEvent
+: 
+ƒ TouchEvent()
+TouchList
+: 
+ƒ TouchList()
+TrackEvent
+: 
+ƒ TrackEvent()
+TransformStream
+: 
+ƒ TransformStream()
+TransformStreamDefaultController
+: 
+ƒ TransformStreamDefaultController()
+TransitionEvent
+: 
+ƒ TransitionEvent()
+TreeWalker
+: 
+ƒ TreeWalker()
+TrustedHTML
+: 
+ƒ TrustedHTML()
+TrustedScript
+: 
+ƒ TrustedScript()
+TrustedScriptURL
+: 
+ƒ TrustedScriptURL()
+TrustedTypePolicy
+: 
+ƒ TrustedTypePolicy()
+TrustedTypePolicyFactory
+: 
+ƒ TrustedTypePolicyFactory()
+TypeError
+: 
+ƒ TypeError()
+UIEvent
+: 
+ƒ UIEvent()
+URIError
+: 
+ƒ URIError()
+URL
+: 
+ƒ URL()
+URLPattern
+: 
+ƒ URLPattern()
+URLSearchParams
+: 
+ƒ URLSearchParams()
+USB
+: 
+ƒ USB()
+USBAlternateInterface
+: 
+ƒ USBAlternateInterface()
+USBConfiguration
+: 
+ƒ USBConfiguration()
+USBConnectionEvent
+: 
+ƒ USBConnectionEvent()
+USBDevice
+: 
+ƒ USBDevice()
+USBEndpoint
+: 
+ƒ USBEndpoint()
+USBInTransferResult
+: 
+ƒ USBInTransferResult()
+USBInterface
+: 
+ƒ USBInterface()
+USBIsochronousInTransferPacket
+: 
+ƒ USBIsochronousInTransferPacket()
+USBIsochronousInTransferResult
+: 
+ƒ USBIsochronousInTransferResult()
+USBIsochronousOutTransferPacket
+: 
+ƒ USBIsochronousOutTransferPacket()
+USBIsochronousOutTransferResult
+: 
+ƒ USBIsochronousOutTransferResult()
+USBOutTransferResult
+: 
+ƒ USBOutTransferResult()
+Uint8Array
+: 
+ƒ Uint8Array()
+Uint8ClampedArray
+: 
+ƒ Uint8ClampedArray()
+Uint16Array
+: 
+ƒ Uint16Array()
+Uint32Array
+: 
+ƒ Uint32Array()
+UserActivation
+: 
+ƒ UserActivation()
+VTTCue
+: 
+ƒ VTTCue()
+ValidityState
+: 
+ƒ ValidityState()
+VideoColorSpace
+: 
+ƒ VideoColorSpace()
+VideoDecoder
+: 
+ƒ VideoDecoder()
+VideoEncoder
+: 
+ƒ VideoEncoder()
+VideoFrame
+: 
+ƒ VideoFrame()
+VideoPlaybackQuality
+: 
+ƒ VideoPlaybackQuality()
+ViewTimeline
+: 
+ƒ ViewTimeline()
+ViewTransition
+: 
+ƒ ViewTransition()
+VirtualKeyboard
+: 
+ƒ VirtualKeyboard()
+VirtualKeyboardGeometryChangeEvent
+: 
+ƒ VirtualKeyboardGeometryChangeEvent()
+VisibilityStateEntry
+: 
+ƒ VisibilityStateEntry()
+VisualViewport
+: 
+ƒ VisualViewport()
+WGSLLanguageFeatures
+: 
+ƒ WGSLLanguageFeatures()
+WakeLock
+: 
+ƒ WakeLock()
+WakeLockSentinel
+: 
+ƒ WakeLockSentinel()
+WaveShaperNode
+: 
+ƒ WaveShaperNode()
+WeakMap
+: 
+ƒ WeakMap()
+WeakRef
+: 
+ƒ WeakRef()
+WeakSet
+: 
+ƒ WeakSet()
+WebAssembly
+: 
+WebAssembly {compile: ƒ, validate: ƒ, instantiate: ƒ, compileStreaming: ƒ, instantiateStreaming: ƒ, …}
+WebGL2RenderingContext
+: 
+ƒ WebGL2RenderingContext()
+WebGLActiveInfo
+: 
+ƒ WebGLActiveInfo()
+WebGLBuffer
+: 
+ƒ WebGLBuffer()
+WebGLContextEvent
+: 
+ƒ WebGLContextEvent()
+WebGLFramebuffer
+: 
+ƒ WebGLFramebuffer()
+WebGLProgram
+: 
+ƒ WebGLProgram()
+WebGLQuery
+: 
+ƒ WebGLQuery()
+WebGLRenderbuffer
+: 
+ƒ WebGLRenderbuffer()
+WebGLRenderingContext
+: 
+ƒ WebGLRenderingContext()
+WebGLSampler
+: 
+ƒ WebGLSampler()
+WebGLShader
+: 
+ƒ WebGLShader()
+WebGLShaderPrecisionFormat
+: 
+ƒ WebGLShaderPrecisionFormat()
+WebGLSync
+: 
+ƒ WebGLSync()
+WebGLTexture
+: 
+ƒ WebGLTexture()
+WebGLTransformFeedback
+: 
+ƒ WebGLTransformFeedback()
+WebGLUniformLocation
+: 
+ƒ WebGLUniformLocation()
+WebGLVertexArrayObject
+: 
+ƒ WebGLVertexArrayObject()
+WebKitCSSMatrix
+: 
+ƒ DOMMatrix()
+WebKitMutationObserver
+: 
+ƒ MutationObserver()
+WebSocket
+: 
+ƒ WebSocket()
+WebTransport
+: 
+ƒ WebTransport()
+WebTransportBidirectionalStream
+: 
+ƒ WebTransportBidirectionalStream()
+WebTransportDatagramDuplexStream
+: 
+ƒ WebTransportDatagramDuplexStream()
+WebTransportError
+: 
+ƒ WebTransportError()
+WheelEvent
+: 
+ƒ WheelEvent()
+Window
+: 
+ƒ Window()
+WindowControlsOverlay
+: 
+ƒ WindowControlsOverlay()
+WindowControlsOverlayGeometryChangeEvent
+: 
+ƒ WindowControlsOverlayGeometryChangeEvent()
+Worker
+: 
+ƒ Worker()
+Worklet
+: 
+ƒ Worklet()
+WritableStream
+: 
+ƒ WritableStream()
+WritableStreamDefaultController
+: 
+ƒ WritableStreamDefaultController()
+WritableStreamDefaultWriter
+: 
+ƒ WritableStreamDefaultWriter()
+XMLDocument
+: 
+ƒ XMLDocument()
+XMLHttpRequest
+: 
+ƒ XMLHttpRequest()
+XMLHttpRequestEventTarget
+: 
+ƒ XMLHttpRequestEventTarget()
+XMLHttpRequestUpload
+: 
+ƒ XMLHttpRequestUpload()
+XMLSerializer
+: 
+ƒ XMLSerializer()
+XPathEvaluator
+: 
+ƒ XPathEvaluator()
+XPathExpression
+: 
+ƒ XPathExpression()
+XPathResult
+: 
+ƒ XPathResult()
+XRAnchor
+: 
+ƒ XRAnchor()
+XRAnchorSet
+: 
+ƒ XRAnchorSet()
+XRBoundedReferenceSpace
+: 
+ƒ XRBoundedReferenceSpace()
+XRCPUDepthInformation
+: 
+ƒ XRCPUDepthInformation()
+XRCamera
+: 
+ƒ XRCamera()
+XRDOMOverlayState
+: 
+ƒ XRDOMOverlayState()
+XRDepthInformation
+: 
+ƒ XRDepthInformation()
+XRFrame
+: 
+ƒ XRFrame()
+XRHitTestResult
+: 
+ƒ XRHitTestResult()
+XRHitTestSource
+: 
+ƒ XRHitTestSource()
+XRInputSource
+: 
+ƒ XRInputSource()
+XRInputSourceArray
+: 
+ƒ XRInputSourceArray()
+XRInputSourceEvent
+: 
+ƒ XRInputSourceEvent()
+XRInputSourcesChangeEvent
+: 
+ƒ XRInputSourcesChangeEvent()
+XRLayer
+: 
+ƒ XRLayer()
+XRLightEstimate
+: 
+ƒ XRLightEstimate()
+XRLightProbe
+: 
+ƒ XRLightProbe()
+XRPose
+: 
+ƒ XRPose()
+XRRay
+: 
+ƒ XRRay()
+XRReferenceSpace
+: 
+ƒ XRReferenceSpace()
+XRReferenceSpaceEvent
+: 
+ƒ XRReferenceSpaceEvent()
+XRRenderState
+: 
+ƒ XRRenderState()
+XRRigidTransform
+: 
+ƒ XRRigidTransform()
+XRSession
+: 
+ƒ XRSession()
+XRSessionEvent
+: 
+ƒ XRSessionEvent()
+XRSpace
+: 
+ƒ XRSpace()
+XRSystem
+: 
+ƒ XRSystem()
+XRTransientInputHitTestResult
+: 
+ƒ XRTransientInputHitTestResult()
+XRTransientInputHitTestSource
+: 
+ƒ XRTransientInputHitTestSource()
+XRView
+: 
+ƒ XRView()
+XRViewerPose
+: 
+ƒ XRViewerPose()
+XRViewport
+: 
+ƒ XRViewport()
+XRWebGLBinding
+: 
+ƒ XRWebGLBinding()
+XRWebGLDepthInformation
+: 
+ƒ XRWebGLDepthInformation()
+XRWebGLLayer
+: 
+ƒ XRWebGLLayer()
+XSLTProcessor
+: 
+ƒ XSLTProcessor()
+console
+: 
+console {debug: ƒ, error: ƒ, info: ƒ, log: ƒ, warn: ƒ, …}
+decodeURI
+: 
+ƒ decodeURI()
+decodeURIComponent
+: 
+ƒ decodeURIComponent()
+encodeURI
+: 
+ƒ encodeURI()
+encodeURIComponent
+: 
+ƒ encodeURIComponent()
+escape
+: 
+ƒ escape()
+eval
+: 
+ƒ eval()
+event
+: 
+undefined
+globalThis
+: 
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+isFinite
+: 
+ƒ isFinite()
+isNaN
+: 
+ƒ isNaN()
+offscreenBuffering
+: 
+true
+parseFloat
+: 
+ƒ parseFloat()
+parseInt
+: 
+ƒ parseInt()
+undefined
+: 
+undefined
+unescape
+: 
+ƒ unescape()
+webkitMediaStream
+: 
+ƒ MediaStream()
+webkitRTCPeerConnection
+: 
+ƒ RTCPeerConnection()
+webkitSpeechGrammar
+: 
+ƒ SpeechGrammar()
+webkitSpeechGrammarList
+: 
+ƒ SpeechGrammarList()
+webkitSpeechRecognition
+: 
+ƒ SpeechRecognition()
+webkitSpeechRecognitionError
+: 
+ƒ SpeechRecognitionErrorEvent()
+webkitSpeechRecognitionEvent
+: 
+ƒ SpeechRecognitionEvent()
+webkitURL
+: 
+ƒ URL()
+__REACT_DEVTOOLS_GLOBAL_HOOK__
+: 
+(...)
+get __REACT_DEVTOOLS_GLOBAL_HOOK__
+: 
+()=>O
+[[Prototype]]
+: 
+Window 
+`)
+"""
+]
+
+

@@ -1,0 +1,19 @@
+
+
+
+
+["Ref Eloquent javascript",
+"Appendix VII ",
+"2024-05-27 14:21:51",
+"2024-05-27 14:21:51",
+"",
+"""createBlock(`Links`, `
+
+`""",
+"""showLink("?page=js-intro", "JS intro")""",
+"""showLink("?page=js-language", "JS language")""",
+"""`
+
+`)
+"""
+]

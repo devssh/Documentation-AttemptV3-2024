@@ -1,0 +1,27 @@
+
+
+
+["JS Intro",
+"00014. ",
+"2024-05-27 14:25:00",
+"2024-05-27 14:25:00",
+"",
+"""createBlock(`Intro`, `
+1. JS started in Netscape navigator
+2. Computer programs require opcodes from an instruction set and the values the opcodes need to execute
+3. Web assembly is incredibly fast on microprocessors using registers(almost the speed of elecron frequency/microprocessor frequency)
+As known microprocessors are simply chips of gates designed to executed Op codes with many pins for input and control signals.
+4. Javascript provides syntax which under the hood is macro for web assembly code. 
+5. JS also abstracts the platform and operating system details to the browser implementation for a device.
+6. 2000 - 2010 Javascript version 1 - 3
+7. 2010 released a minor version 4 that drafted the major changes
+8. 2015 ES5 and ES6 implemented major changes
+9. 2023 ES continues to add features with backward compatibility for most software written till now
+10. MongoDB and CouchDB use Javascript as scripting and query language
+11. Node.js provides an environment to execute JS outside scope of browser (spidermonkey, chromium and now retired Edge/IE engine)
+12. Eloquent js chapters till chapter 12 are about JS language. 
+13. Next 7 chapters till 19th chapter are about web browser.
+14. Last 2 chapters are about Node.js standalone environment.
+15. Project 1 is building a robot. Project 2 is a DSL. Project 3 is a game on browser. Project 4 is painting on browser.
+`)"""
+]

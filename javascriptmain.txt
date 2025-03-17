@@ -1,0 +1,64 @@
+
+
+
+
+["Javascript Uses",
+"00007. ",
+"2024-05-09 12:20:00",
+"2024-05-17 12:20:00",
+"",
+""" createBlock(`Javascript has a few primary use cases 
+`, `
+1. Manipulate webpage content using the DOM (Document Object Model)
+2. Retrieve content from the fetch API with sync and async events
+3. Store complex data using IndexDB
+4. Draw graphics with canvas API
+5. Interacting with hardware low level programming
+6. Both on client side browser and server side like Node.js
+`)""",
+
+
+"""createBlock(`The standards of javascript
+`, `
+1.  ECMA-262 for ES2023 which is ES14 from June 2023
+2. ECMA-ES6 2015
+WebIDL, E4L
+`)""",
+
+""" createLinkBlock("ECMA-262 standard doc","https://262.ecma-international.org/5.1/", `
+Javascript history - Brendan Eich - Server Side - Netscape Navigator - JScript - Oracle
+Javascript HTTP(HTTP1, HTTP1.1, HTTP2, TLS, REST) and Websockets(for example persistant TCP connections)
+`)""",
+
+
+""" createLinkBlock("Javascript Wiki", "https://en.wikipedia.org/wiki/JavaScript", `
+Eloquent Javascript - Marijin Haverbeke
+Flash and ActionScript
+Keith Peters Bit101
+`)""",
+
+
+""" createLinkBlock("Design of JS-Javascript V8 engine Wiki", "https://en.wikipedia.org/wiki/V8_(JavaScript_engine)", `
+V8 first generates an abstract syntax tree with its own parser. 
+Then, Ignition generates bytecode from this syntax tree using the internal V8 bytecode format
+TurboFan compiles this bytecode into machine code. 
+In other words, V8 compiles ECMAScript directly to native machine code using just-in-time compilation before executing it.
+The compiled code is additionally optimized (and re-optimized) dynamically at runtime,
+based on heuristics of the code's execution profile.
+Optimization techniques used include inlining, elision of expensive runtime properties, and inline caching.
+The garbage collector is a generational incremental collector.
+`)""",
+
+"""createBlock(`Notable mentions
+`, `
+1. Ignition interpreter
+2. TurboFan compiler optimization
+3. Maglev SSA based compiler
+4. Sparkplug - parallel
+5. Strongtalk assembler
+6. WebAssembly and asm.js
+7. Java HotSpot Virtual Machine - Sun Microsystems - C1 compiler
+8. Crankshaft register based machine
+`)"""
+]
+

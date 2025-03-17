@@ -1,0 +1,57 @@
+
+
+["Window interface",
+"00008. ",
+"2024-05-09 17:00:00",
+"2024-05-17 17:00:00",
+"",
+""" createBlock(`Window API/Interface
+`, `
+1. Window is an interface which contains a DOM document. 
+2. document points to the DOM document loaded in that window
+3. document.defaultView returns a Window for the document.
+4. When there are tabs open, there are separate window objects for every tab
+5. Window inherits EventTarget
+`)""",
+""" createBlock(`Related topics
+`, `
+1. HTML iframe tag Window.credentialless
+2. Window.crypto
+3. Window.launchQueue - Progressive Web Apps (PWA)
+4. HTML fencedframe tag, Window.fence
+5. Window.history, Window.location, Window.localStorage, Window.indexedDB, Window.navigator, 
+Window.caches, Window.cookieStore, Window.timing, Window.performance, Window.scrollX, scrollY,
+Window.sessionStorage, speechSynthesis,
+Window.visualViewport, devicePixelRatio, alert, setInterval, setTimeout, 
+blur, confirm, console, fetch,
+createImageBitmap, getComputedStyle,
+print, open, postMessage, prompt,
+scroll, scrollBy, scrollByLines, scrollTo, scrollByPages, 
+structuredClone, 
+showDirectoryPicker, showOpenFilePicker, showSaveFilePicker,
+list of popular deprecated features still available in old version
+6. Navigator API, NavigationTiming
+7. WebkitPoint
+8. Events - 
+bubbled events from document come to window
+addEventListener()
+List of events:
+error, languagechange,
+resize, storage,
+copy, cut, paste,
+offline, online,
+devicemotion, 
+deviceorientation,
+deviceorientationabsolute,
+blur, focus,
+gamepadconnected, gamepadisconnected,
+hashchange, pagehide,
+pageshow, popstate,
+beforeunload, load, unload,
+appinstalled, beforeinstallprompt,
+message, messageerror,
+afterprint, beforeprint,
+rejectionhandled, unhandledrejection
+and a list of deprecatedEvents
+`)"""
+]

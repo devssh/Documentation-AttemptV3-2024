@@ -1,0 +1,355 @@
+
+
+
+[
+"Digital Subscriber Line",
+"00012. ",
+"2024-05-24 04:34:00",
+"2024-05-24 04:34:00",
+"",
+
+"""createBlock(`
+DSL
+`, `
+1. The PSTN and ISDN are important to architecture along with ITU-T standards
+2. Copper wires have attenuation and limited range(18000 feet length or 5.5km),
+limited bandwidth 3400Khz(earlier), crosstalk, limits on bridged taps
+64kilobit - 128kilobit limit on ISDN BRI(Basic Rate Interface) or 2.94 Mbps using ISDN PRI(Primary Rate Interface) which uses channels.
+BONDING(Bandwidth On Demand Interoperability Group) and Multilink PPP
+ISDN is used because - copper wires, remote region, B-ISDN(Broadband ISDN),
+better than dial up, uses digital modem,
+works using telephone infra,
+works for credit card readers, fax
+Alternative to ISDN - VoIP Provider over PSTN - ATA(analog telephone terminal adapter), IP Phones, SIP trunking, cost efficient
+ISDN is outdated and to be phased out for being inflexible, time consuming and expensive to setup.
+ISDN advantages - Bearer services(no manipulation or modification to data, end to end),
+Teleservices, Supplementary services, Integrated Services(2 + 1 channels simultaneously ),
+Satellite connection, cable TV, banks, ATM, BSNL, ADSL, VDSL, places where QoS does not exist
+B channel - bearer, D channel - data
+2B + D = 64 * 2 + 16 kilobit/sec - BRA(BRI)
+30B + 2D = 2.048Megabit/sec - PRI
+3. OSI layers - Physical, Data Link, Network, Transport, Session, Presentation, Application
+4. DSL have speeds of 100Mbps and are also known as "always on connections"
+5. DSL Home lists the requirements (created by DSL Forum)
+Triple/Quad play services to end user's like voice, video, data, IPTV, Video on Demand(VoD), Content on Demand(CoD)
+TR069 of the Broadband Forum
+Remote management is core of DSL Home
+WT-124 - RG access via xPON and others
+TR-122 Voice ATA
+Limits of VDSL 55Megabit, VDSL2 100Megabit, ADSL 7Megabit
+6. DSL Home TR069
+Provisioning of services via auto configuration
+ISP needs to have Access Control systems
+ACS Captive portal
+ISP needs Notification mechanisms
+ISP needs Firmware update
+Status and performance monitoring
+Diagnostics
+Remote management via SSL/TLS
+TR-111 for End Devices(ED) with STUN RFC 3489
+7. Network connectivity problems
+DSL cannot train or DSL signal not detected or Broadband Ethernet not connected
+ATM PVC not detected
+IEE 802.1x failure
+PPP server not detected
+PPP authentication failure
+DHCP not available
+8. ADSL block diagram for PHY layer -
+Data in, Framing TC, RS encoder, Interleaver, Trellis encoder, QAM, IFFT, Tx-filter, D/A,
+Telephone Channel,
+ A/D, Rx-filter, FFT, QAM demodulator, Trellis decoder, De interleaver, RS decoder, Framing TC, Data out
+9. ADSL2 benefits -
+12M data rate, 6000m range, no seamless rate change, Power saving mode, avoid 1bit per bin and partial byte per symbol,
+64kbps overhead channel rate(Framing Structure 3)
+ADSL2+ benefits -
+24M data rate, seamless rate adaptation when SNR change, power management, 1bit per bin, partial byte per symbol increase reach,
+variable overhead channel rate meets need, loop diagnostic during training
+Higher rates, extended reach, improved stability, power management, enhanced spectral compatibility
+Rate enhancement tech - mandatory trellis coding, reduced framing overhead, 1-bit constellations, data on pilot tone
+LDSL - long reach DSL
+RE-ADSL - reach extended ADSL
+Reed solomon coding,
+10. VDSL Access Technology
+Also known as VADSL, Ansi working group T1E1.4
+VDSL is 30x faster than HDSL
+VADSL was incorrect as VDSL supports both symmetric and asymmetric
+VDSL uses higher frequency in copper than POTS and ISDN for Telco 20khz to 30Mhz and more
+passive filters called dispatchers preserve baseband for ISDN
+HDTV requires 18Megabits/sec downstream
+SONET canonical speed 155.52 Mbps
+SDH canonical 51.82, 25.92, 12, 96 Mbps
+
+10. VDSL service sets
+Symmetric VDSL 
+short haul T1 replacements NXT1 rate
+6.48 - 21.92Mbps
+Short range 1kft
+Medium range 3kft
+Long range 4.5kft
+between T1(1.5mbps) to T3(44.3mbps)
+
+11. VDSL video service
+Digital TV broadcast, VoD, HDTV
+WebTV, e-commerce, video games, video conferencing, interactive video
+DBS
+Internet growth, the ADSL runs out of bandwidth
+Internet architecture backbone is shifting to ATM(Asynchronous Transfer Mode ITU-T standard)
+ATM is preferred FSAN(Full Service Access Network) backbone
+Telephony services - DSL provides POTS always
+VoIP and Voice over ATM(VToA)
+VoDSL and derived channels
+Lifeline services
+Deployment Scenarios - FTTX
+VDSL is only suitable for FTTEx, FTTN, FTTCab would use standalone deployments or NG-DLC or VDSL switch.
+MDU businesses would use FTTB which would end VDSL.
+VDSL2 activity is -
+5 band 100Megabit/sec activity
+CHT telecom, Swisscom, Belgacom, Deutsche telecom, KPN, Telephonica
+Bandwidth 14x ADSL2+ and 4096 tones (8x ADSL+)
+DMT - Discrete multi tone for VDSL2
+dBm - decibell milliwatts
+VDSL1 has limit of 14.5dBm for CO deployment and 11.5dBm for cabinet
+High tx power like 20.5dBm for 8b profile increase range, FEXT impact and raise dS1 power in PSD
+`)""",
+
+
+
+"""createBlock(`Review questions DSL`, `
+What is DSL?
+What do you understand by "attenuation" in DSL technology?
+What do you understand by "bridged taps" in DSL technology?
+What is "cross talk" in DSL technology?
+Explain DSL Home.
+Which services can be enabled by DSL Home?
+Which protocol is used for DSL remote management?
+Which protocol is used for DSL local management?
+What do you understand by TR111?
+Explain TR98 and TR133.
+What is purpose of TR-104, TR-106, TR-122, WT-135, WT-140, and WT-142 protocols?
+What are the options in DSL technology?
+What are the services offered by DSL Home- TR-69?
+What are the services offered by TR-064?
+Difference between TR69 and SNMP?
+What are the components of the DSL system?
+Explain the Transport system in a DSL system.
+Explain the Local system in a DSL system.
+Explain the Multi service DSLAM in DSL system.
+Explain the DSL Modem/ Router in DSL system.
+Explain the POTs splitter in DSL system.
+Explain the Micro filter in DSL system.
+What are the ADSL standards available as on date?
+What do you understand by the ADSL technology?
+What do you understand by the RADSL Standards?
+What do you understand by the Multirate Symmetric DSL?
+What are the benefits of ReachDSL (RDSL)?
+What are the benefits of ADSL2?
+What are the benefits of ADSL2+?
+Explain the benefits of ADSL2/2+.
+Explain the features of ADSL2+.
+What do you understand by the VDSL Access Technology?
+What are the different variants available in VDSL today?
+What do you understand by asymmetric VDSL?
+What do you understand by symmetric VDSL?
+Give a service and rate comparison between ADSL and VDSL technology.
+What are the key features of VDSL?
+What do you understand by DMT?
+`)""",
+"""createBlock(`
+References
+`, `
+1. Digital Subscriber Line (DSL) aka Digital Subscriber Loop aka Digital Loop Carrier(DLC)
+2. Internet Service Provider
+3. Copper Loop Transmission Technology
+4. Access Network
+5. Network Service Provider
+6. Corporate Network Service Provider
+7. Frame Relay Network Service Provider
+8. Analog modem
+9. DSL Router
+10. Service Level Management (SLM)
+11. SLM-DSL, FRoDSL, VoDSL
+12. Publically Switched Telephone Network (PSTN)
+13. International Telecommunication Union Telecommunication Standardization Sector (ITU-T previously aka CCITT)
+14. Open Document Architecture(ODA)
+SGML(Standard Generalized Markup Language)
+ASN1(Abstract Syntax Notation One)
+OGIF (Open Document Interchange Format)
+15. Integrated Services Digital Network (ISDN) - support data as well along with PSTN
+16. Packet
+17. Dial up services
+18. MarketResearch.com
+19. IHOP
+20. Securitycatalyst.com
+21. OSI Model(Open Systems Interconnection) by ISO(International Organisation for Standardization)
+22. ` + showInlineLink("https://www.geeksforgeeks.org/open-systems-interconnection-model-osi/","OSI Geeks for geeks") + `
+23. ` + showInlineLink("https://www.tutorialspoint.com/dsl/dsl_basics.htm", "DSL basics") + `
+24. TCP/IP model
+25. POTS(Plain Old Telephone Service) line
+26. ANSI (American National Standards Institute) - previously Bell labs and AT&T
+27. ADSL (Asymmetric DSL)
+28. DSLAM (DSL Access Multiplexers) - keep upgrading to next generation
+29. Asynchronous Transfer Mode (ATM)
+30. X.25 data packet - AO/DI(Always on/Dynamic ISBN)
+31. Reference Points in ISDN
+32. Customer Premises Equipment (CPE)
+33. NT1 (Network Termination Type 1 equipment) - Eg - personal router
+34. NT2 (Network Termination Type 2 equipment) - Eg - ISP society box
+35. TA (Terminal adapter) - Eg - ISP external building
+36. Point R interface - non-ISDN devices(TE2) and TA - translation
+37. Point S interface - ISDN device(TE1) and (TA or NT2 ) - customer wire S/T
+38. Point T interface - NT2 and NT1 - modem
+39. S/T
+40. TE (Terminal equipment)
+41. Private branch exchange(PBX)
+42. Key Telephone System(KTS)
+43. Frame relay
+44. Pulse code modulation(G.711 encoding)
+45. Point U interface - Exchange and Network Termination Unit NT1/NT2 to LT(Line termination)
+46. Q.931 - Digital Subscriber Signalling System No. 1 - calling
+47. H.320 standard for audio and video coding
+48. G.728 CELP(Code excited linear prediction) - Speech coding
+49. DCT (Discrete Cosine Transform)
+50. H.261 - video coding is H.26x, H.263(video compression)
+51. BSNL (Bharat Sanchar Nigam Limited)
+52. VDSL (very high speed DSL - eg G.992)
+53. Digital Fax Modems
+54. Private Line Modem
+55. Advanced Metering Infrastructure(AMI) implementation
+56. 2B1Q(2 Binary 1 Quaternary)
+57. Echo cancellation
+58. QAM (Quadrature Amplitude and Phase Modulation)
+59. CAP (Carrierless Amplitude Phase modulation) - HSDL(High bitrate digital subscriber line DSL)
+60. DMT (Discrete MultiTone)
+61. European Telecommunication Standards Institute (ETSI)
+62. Hilbert transform - Cauchy
+63. Pulse Amplitude Modulation (PAM)
+64. Frequency Duplication Multiplexing(FDM)
+65. Frequency Division Duplexing (FDD)
+66. DSL Home and DSL Forum
+67. Residential gateways (RG)
+68. IPTV (Internet Protocol TeleVision)
+69. DSL Home remote management protocol (TR-69)
+TR069
+70. STB devices (Set Top Box)
+71. Technical Report (TR) eg - TR-122
+72. WT-124 Functional Requirements for Broadband Residential Gateway Devices
+73. xPON (Passive Optical Network with Extended Reach)
+74. PON (Passive Optical Network)
+75. Optical Line Terminal(OLT)
+76. TDMA (Time Division Multiple Access)
+77. GPON (Gigabit PON) G.987
+78. GEM (GPON Encapsulation Method)
+79. IEEE Ethernet PON 802.3ah-2004
+80. Wavelength Division Multiplexers(WDM)
+81. Truck roll
+82. Network Attached Storage (NAS)
+83. xDSL (extended reach)
+84. PVC(Permanent Virtual Circuit)
+85. Auto Configuration Server
+86. Captive portal
+87. IEEE 802.1x Port Network Based Access Control
+88. Opex (Operating Expenses)
+89. Simple Network Management Protocol (SNMP)
+90. DHCP (Dynamic Host Configuration Protocol)
+91. Simple Object Access Protocol (SOAP)
+92. RPC - Remote Procedure Calls
+93. STUN - Simple Traversal of User Datagram Protocol (UDP)
+Through Network Address Translators (NATs)
+94. Management Information Bases (MIBs)
+95. NAT (Network Address Translation) - local(private) IP to global public IP address
+96. CPE WAN Management Protocal (CWMP for TR069)
+97. Data Over Cable Service Interface Specification(DOCSIS)
+98. ITU-T SG16 Q21, HGI, DVB, ATIS IIF
+99. SONET (Synchronous Optical Network) fiber optic networks
+100. Optical carrier transmission rates
+101. OC-1, OC-3(aka STS3), OC-12, OC1 is 51.84Megabit/s, OC3 is 3x, OC12 is 12x
+102. STS-1 and STS-3 (Synchronous Transport Signal)
+103. SDH (Synchronous Digital Hierarchy)
+104. STM (Synchronous Transport Module) - protocol for LED signal over fiber optic
+105. STM1 - equivalent to OC-3, STM3 equivalent to OC12 0.5Gigabits/sec
+106. 40G SONET - WAN networks 40Gigabits/sec, 100G SONET - backbone, STM256
+107. PDH networks (Plesiochronous Digital hierarchy)
+108. ILEC (Incumbent Local Exchange Carrier) vs CLEC(Competitive)
+109. Public Telephone Operators (PTO)
+110. Ethernet over Twisted Pair (10BaseT)
+111. 8P8C ethernet physical layer, Cat-3 to Cat-8, 40GBaseT(40Gigabits/sec)
+112. PLCA (Phy-level Collision Avoidance)
+113. Backhaul services - Between the backbone and subnetworks
+114. IEEE 1394 Firewire (serial bus - Cat-5 and above)
+115. PCI (Peripheral Component Interconnect Express) PCIe motherboard interface
+116. Registered jack (RJ11, RJ14, RJ25)
+117. Multicast downstream recognition, Network Bridge, Bridged Parameters
+118. Frame Relay Access Devices (FRAD)
+119. DSU / CSU (Data Service Unit / Channel Service Unit)
+120. DSL modem - Layer 1 and 2 management statistics, Layer 3 packet count and statistics
+121. IAD (Integrated Access Device) - aggregates multiple to a single link
+122. POTS Splitters and Microfilters - external power supply and essential voice service in power failure
+123. Services Reference Schema based DSL
+124. MTBF - Mean Time Between Failures
+125. Low pass microfilters
+126. Network Interface Device (NID) - demarcation point (aka NIU, TNI, SNI, TNB, NTD)
+127. SNR - Signal to Noise ratio
+128. TCM-ISDN - Time compression multiplexed ISDN
+129. PSD masks - Power Spectral Density Masks
+130. NSC - number of sub carriers
+131. G.992 G.DMT
+132. ANSI T1.413 Issue 2
+133. RADSL - Adaptive Rate DSL for Windows media, real media compressed video over DSL
+134. ANSI TR59 RADSL standard
+135. IDSL is IDSN DSL
+136. SOHO - Small Office and Residential Home
+137. SDSL - Symmetric DSL
+138. G.lite - fast retrain
+139. UAWD - Universal ADSL Working Group
+140. Reach DSL - Multiple Virtual Lines (MVL) and jammers - increased reach to 30,000 feet
+141. Digital Signal Processors (DSPs)
+142. 6000 metres reach with 20kf AWG(American Wire Gauge)
+143. ADSL2+ benefits
+144. Trellis coding
+145. Reed solomon coding
+146. HDLC - High-level Data Link Control
+147. Sliding Window Protocols and bit stuffing
+148. OAM protocol (Ethernet Operations, Administration, and Maintenance) - performance monitoring
+149. PMD enhancement - training, performance, power, dynamic (PMD - Photonic Mixer device)
+150. RF1 measurement - RF1 near field probes for E-fields and magnetic fields from 30MHz to 3GHz - tone blackout
+151. ATU-C with L2 low power state and L3 idle state
+152. Seamless Rate Adaptation(SRA) (bi, gi, Bpn, Lp, L)
+153. Dynamic Rate Repartitioning(DRR) (bi, gi, Bpn, Lp)
+154. Bit swapping(BS) (bi, gi)
+155. OLR - (On-Line Reconfiguration)
+156. Maximum Margin Algorithm (OLR)
+157. ADSL/ADSL2 ATU-C TX Spectrum
+158. G.Span
+159. BIS and BIS+(nickname for bit i signal in ADSL2)
+160. Distance learning and Telemedicine
+161. Distance television broadcasting
+162. ANSI S1.4 of T1
+163. Webhosting, Multiple VoD, HDTV, telecommuting
+164. DBS (Direct Broadcasting Satellite)
+165. Full Service Access Network (FSAN)
+166. VToA (Voice over ATM)
+167. Fiber to the trade (FTTTEx)
+168. Fiber to the neighbourhood (FTTN)
+169. FTTCab (Fiber to the Cabinet)
+170. FTTB (Fiber to building/business/basement
+171. FTTP (Fiber to the Premise)
+172. FTTX - Fiber to the x - contains other categories
+173. FTTE - Fiber to the edge
+174. FTTH - Fiber to the home
+175. FTTD - Fiber to the desk/desktop/door
+176. NGDLC - Next Generation Digital Loop Carrier - NG-DLC
+177. MDU (multi site unit or multi dwelling unit)
+178. NTT (Nippon Telegraph and Telephone)
+179. UCOM (Universal Communications) founded 2007
+180. KDDI Corporation (Japan) DDI Cellular group
+181. PCCW Corporation (Hong Kong) Pacific Century Premium Developments Limited
+182. VDSL2 
+183. Bin number * Tone spacing = Bin frequency
+184. FEXT (Far End Crosstalk)
+185. Downstream Transmit Power
+186. DS1 (Switch Point delay time of SP1 hysterisis mode and FH2 FL2 window mode) of PSD level raise
+187. Central Exchange (CO)
+`)"""
+]
+
+

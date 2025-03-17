@@ -1,0 +1,35 @@
+
+DOI number - Digital Object Identifier number - for articles in journals
+(resolver service(website), prefix(assigning body number), suffix(resource letters and digits))
+
+ISBN number - International Standard Book Number - for books
+(EAN prefix(European article number), Registration group, Registrant, Publication Element, Check digit)
+(Group id, publisher id, title id, check digit)
+
+arXiv:numbers(suffix in DOI)
+
+
+-> Bibliographic tools
+Bibliographic explorer
+litmaps
+scite (smart citation)
+
+-> Code, Data, Media
+CatalyzeX Code Finder for papers
+DagsHub
+Gotit.pub
+Papers with code
+Science Cast
+
+-> Demos
+Replicate
+Hugging Face spaces
+TXYZ.AI
+
+-> Related papers and Recommenders/Search Tools
+Influence flower
+Connected Papers
+CORE recommender
+
+-> arXiv labs
+

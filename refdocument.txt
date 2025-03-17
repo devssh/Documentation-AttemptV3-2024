@@ -1,0 +1,578 @@
+
+
+
+
+["Document ref",
+"Appendix IV",
+"2024-05-09 20:00:00",
+"2024-05-17 20:00:00",
+"",
+""" `
+ Document 
+
+The Document interface represents any web page loaded in the browser and serves as an entry point into the web pages content which is the DOM tree .
+The DOM tree includes elements such as ltbodygt and lttablegt among many others .
+It provides functionality globally to the document like how to obtain the pages URL and create new elements in the document.
+EventTarget Node Document The Document interface describes the common properties and methods for any kind of document.
+Depending on the documents type (e.g.
+HTML XML SVG ) a larger API is available HTML documents served with the texthtml content type also implement the HTMLDocument interface whereas XML and SVG documents implement the XMLDocument interface.
+Constructor Document() Creates a new Document object.
+Instance properties This interface also inherits from the Node and EventTarget interfaces.
+Document.activeElement Read only Returns the Element that currently has focus.
+Document.adoptedStyleSheets Add an array of constructed stylesheets to be used by the document.
+These stylesheets may also be shared with shadow DOM subtrees of the same document.
+Document.body Returns the ltbodygt or ltframesetgt node of the current document.
+Document.characterSet Read only Returns the character set being used by the document.
+Document.childElementCount Read only Returns the number of child elements of the current document.
+Document.children Read only Returns the child elements of the current document.
+Document.compatMode Read only Indicates whether the document is rendered in quirks or strict mode.
+Document.contentType Read only Returns the ContentType from the MIME Header of the current document.
+Document.currentScript Read only Returns the ltscriptgt element whose script is currently being processed and isnt a JavaScript module .
+Document.doctype Read only Returns the Document Type Definition (DTD) of the current document.
+Document.documentElement Read only Returns the Element that is a direct child of the document.
+For HTML documents this is normally the HTMLHtmlElement object representing the documents lthtmlgt element.
+Document.documentURI Read only Returns the document location as a string.
+Document.embeds Read only Returns an HTMLCollection of the embedded ltembedgt elements in the document.
+Document.featurePolicy Experimental Read only Returns the FeaturePolicy interface with the feature policies applied to the document.
+Document.firstElementChild Read only Returns the first child element of the current document.
+Document.fonts Returns the FontFaceSet interface of the current document.
+Document.forms Read only Returns an HTMLCollection of the ltformgt elements in the document.
+Document.fragmentDirective Read only Experimental Returns the FragmentDirective for the current document.
+Document.fullscreenElement Read only The element thats currently in full screen mode for this document.
+Document.head Read only Returns the ltheadgt element of the current document.
+Document.hidden Read only Returns a Boolean value indicating if the page is considered hidden or not.
+Document.images Read only Returns an HTMLCollection of the images in the document.
+Document.implementation Read only Returns the DOM implementation associated with the current document.
+Document.lastElementChild Read only Returns the last child element of the current document.
+Document.links Read only Returns an HTMLCollection of the hyperlinks in the document.
+Document.pictureInPictureElement Read only Returns the Element currently being presented in pictureinpicture mode in this document.
+Document.pictureInPictureEnabled Read only Returns true if the pictureinpicture feature is enabled.
+Document.plugins Read only Returns an HTMLCollection of the available plugins.
+Document.pointerLockElement Read only Returns the element set as the target for mouse events while the pointer is locked.
+null if lock is pending pointer is unlocked or if the target is in another document.
+Document.prerendering Read only Experimental Returns a boolean that indicates whether the document is currently in the process of prerendering as initiated via the Speculation Rules API .
+Document.scripts Read only Returns an HTMLCollection of the ltscriptgt elements in the document.
+Document.scrollingElement Read only Returns a reference to the Element that scrolls the document.
+Document.styleSheets Read only Returns a StyleSheetList of CSSStyleSheet objects for stylesheets explicitly linked into or embedded in a document.
+Document.timeline Read only Returns timeline as a special instance of DocumentTimeline that is automatically created on page load.
+Document.visibilityState Read only Returns a string denoting the visibility state of the document.
+Possible values are visible hidden prerender and unloaded .
+Extensions for HTMLDocument The Document interface for HTML documents inherits from the HTMLDocument interface or is extended for such documents.
+Document.cookie Returns a semicolonseparated list of the cookies for that document or sets a single cookie.
+Document.defaultView Read only Returns a reference to the window object.
+Document.designMode Getssets the ability to edit the whole document.
+Document.dir Getssets directionality (rtlltr) of the document.
+Document.fullscreenEnabled Read only Indicates whether fullscreen mode is available.
+Document.lastModified Read only Returns the date on which the document was last modified.
+Document.location Read only Returns the URI of the current document.
+Document.readyState Read only Returns loading status of the document.
+Document.referrer Read only Returns the URI of the page that linked to this page.
+Document.title Sets or gets the title of the current document.
+Document.URL Read only Returns the document location as a string.
+Deprecated properties Document.alinkColor Deprecated Returns or sets the color of active links in the document body.
+Document.all Deprecated Provides access to all elements in the document it returns an HTMLAllCollection rooted at the document node.
+This is a legacy nonstandard property and should not be used.
+Document.anchors Deprecated Read only Returns a list of all of the anchors in the document.
+Document.applets Deprecated Read only Returns an empty HTMLCollection .
+Legacy property that used to return the list of applets within a document.
+Document.bgColor Deprecated Getssets the background color of the current document.
+Document.charset Deprecated Read only Alias of Document.characterSet .
+Use this property instead.
+Document.domain Deprecated Getssets the domain of the current document.
+Document.fgColor Deprecated Getssets the foreground color or text color of the current document.
+Document.fullscreen Deprecated Returns true when the document is in fullscreen mode .
+Document.inputEncoding Deprecated Read only Alias of Document.characterSet .
+Use this property instead.
+Document.lastStyleSheetSet Deprecated Read only Nonstandard Returns the name of the style sheet set that was last enabled.
+Has the value null until the style sheet is changed by setting the value of selectedStyleSheetSet .
+Document.linkColor Deprecated Getssets the color of hyperlinks in the document.
+Document.preferredStyleSheetSet Deprecated Read only Nonstandard Returns the preferred style sheet set as specified by the page author.
+Document.rootElement Deprecated Like Document.documentElement but only for ltsvggt root elements.
+Use this property instead.
+Document.selectedStyleSheetSet Deprecated Nonstandard Returns which style sheet set is currently in use.
+Document.styleSheetSets Deprecated Read only Nonstandard Returns a list of the style sheet sets available on the document.
+Document.vlinkColor Deprecated Getssets the color of visited hyperlinks.
+Document.xmlEncoding Deprecated Returns the encoding as determined by the XML declaration.
+Document.xmlStandalone Deprecated Returns true if the XML declaration specifies the document to be standalone ( e.g.
+An external part of the DTD affects the documents content) else false .
+Document.xmlVersion Deprecated Returns the version number as specified in the XML declaration or .
+if the declaration is absent.
+Instance methods This interface also inherits from the Node and EventTarget interfaces.
+Document.adoptNode() Adopt node from an external document.
+Document.append() Inserts a set of Node objects or string objects after the last child of the document.
+Document.browsingTopics() Experimental Nonstandard Returns a promise that fulfills with an array of objects representing the top topics for the user one from each of the last three epochs.
+By default the method also causes the browser to record the current page visit as observed by the caller so the pages hostname can later be used in topics calculation.
+See the Topics API for more details.
+Document.captureEvents() Deprecated See Window.captureEvents .
+Document.caretPositionFromPoint() Returns a CaretPosition object containing the DOM node containing the caret and carets character offset within that node.
+Document.caretRangeFromPoint() Nonstandard Gets a Range object for the document fragment under the specified coordinates.
+Document.createAttribute() Creates a new Attr object and returns it.
+Document.createAttributeNS() Creates a new attribute node in a given namespace and returns it.
+Document.createCDATASection() Creates a new CDATA node and returns it.
+Document.createComment() Creates a new comment node and returns it.
+Document.createDocumentFragment() Creates a new document fragment.
+Document.createElement() Creates a new element with the given tag name.
+Document.createElementNS() Creates a new element with the given tag name and namespace URI.
+Document.createEvent() Creates an event object.
+Document.createNodeIterator() Creates a NodeIterator object.
+Document.createProcessingInstruction() Creates a new ProcessingInstruction object.
+Document.createRange() Creates a Range object.
+Document.createTextNode() Creates a text node.
+Document.createTouch() Deprecated Nonstandard Creates a Touch object.
+Document.createTouchList() Deprecated Nonstandard Creates a TouchList object.
+Document.createTreeWalker() Creates a TreeWalker object.
+Document.elementFromPoint() Returns the topmost element at the specified coordinates.
+Document.elementsFromPoint() Returns an array of all elements at the specified coordinates.
+Document.enableStyleSheetsForSet() Deprecated Nonstandard Enables the style sheets for the specified style sheet set.
+Document.exitFullscreen() Stops documents fullscreen element from being displayed fullscreen.
+Document.exitPictureInPicture() Remove the video from the floating pictureinpicture window back to its original container.
+Document.exitPointerLock() Release the pointer lock.
+Document.getAnimations() Returns an array of all Animation objects currently in effect whose target elements are descendants of the document .
+Document.getBoxQuads() Experimental Returns a list of DOMQuad objects representing the CSS fragments of the node.
+Document.getElementById() Returns an object reference to the identified element.
+Document.getElementsByClassName() Returns a list of elements with the given class name.
+Document.getElementsByTagName() Returns a list of elements with the given tag name.
+Document.getElementsByTagNameNS() Returns a list of elements with the given tag name and namespace.
+Document.getSelection() Returns a Selection object representing the range of text selected by the user or the current position of the caret.
+Document.hasStorageAccess() Returns a Promise that resolves with a boolean value indicating whether the document has access to unpartitioned cookies.
+Document.importNode() Returns a clone of a node from an external document.
+Document.mozSetImageElement() Nonstandard Allows you to change the element being used as the background image for a specified element ID.
+Document.prepend() Inserts a set of Node objects or string objects before the first child of the document.
+Document.querySelector() Returns the first Element node within the document in document order that matches the specified selectors.
+Document.querySelectorAll() Returns a list of all the Element nodes within the document that match the specified selectors.
+Document.releaseCapture() Nonstandard Releases the current mouse capture if its on an element in this document.
+Document.releaseEvents() Deprecated See Window.releaseEvents() .
+Document.replaceChildren() Replaces the existing children of a document with a specified new set of children.
+Document.requestStorageAccess() Allows a document loaded in a thirdparty context (i.e.
+embedded in an ltiframegt ) to request access to unpartitioned cookies in cases where user agents by default block access to unpartitioned cookies by sites loaded in a thirdparty context to improve privacy.
+Document.requestStorageAccessFor() Experimental Allows toplevel sites to request thirdparty cookie access on behalf of embedded content originating from another site in the same related website set .
+Document.startViewTransition() Experimental Starts a new view transition and returns a ViewTransition object to represent it.
+The Document interface is extended with the XPathEvaluator interface Document.createExpression() Compiles an XPathExpression which can then be used for (repeated) evaluations.
+Document.createNSResolver() Creates an XPathNSResolver object.
+Document.evaluate() Evaluates an XPath expression.
+Extension for HTML documents The Document interface for HTML documents inherit from the HTMLDocument interface or is extended for such documents Document.clear() Deprecated This method does nothing.
+Document.close() Closes a document stream for writing.
+Document.execCommand() Deprecated On an editable document executes a formatting command.
+Document.getElementsByName() Returns a list of elements with the given name.
+Document.hasFocus() Returns true if the focus is currently located anywhere inside the specified document.
+Document.open() Opens a document stream for writing.
+Document.queryCommandEnabled() Deprecated Nonstandard Returns true if the formatting command can be executed on the current range.
+Document.queryCommandIndeterm() Deprecated Returns true if the formatting command is in an indeterminate state on the current range.
+Document.queryCommandState() Deprecated Nonstandard Returns true if the formatting command has been executed on the current range.
+Document.queryCommandSupported() Deprecated Nonstandard Returns true if the formatting command is supported on the current range.
+Document.queryCommandValue() Deprecated Returns the current value of the current range for a formatting command.
+Document.write() Writes text in a document.
+Document.writeln() Writes a line of text in a document.
+Events Listen to these events using addEventListener() or by assigning an event listener to the oneventname property of this interface.
+In addition to the events listed below many events can bubble from nodes contained in the document tree.
+afterscriptexecute Nonstandard Fired when a static ltscriptgt element finishes executing its script beforescriptexecute Nonstandard Fired when a static ltscriptgt is about to start executing.
+prerenderingchange Experimental Fired on a prerendered document when it is activated (i.e.
+the user views the page).
+securitypolicyviolation Fired when a content security policy is violated.
+visibilitychange Fired when the content of a tab has become visible or has been hidden.
+Clipboard events copy Fired when the user initiates a copy action through the browsers user interface.
+cut Fired when the user initiates a cut action through the browsers user interface.
+paste Fired when the user initiates a paste action through the browsers user interface.
+Fullscreen events fullscreenchange Fired when the Document transitions into or out of fullscreen mode.
+fullscreenerror Fired if an error occurs while attempting to switch into or out of fullscreen mode.
+Load amp unload events DOMContentLoaded Fired when the document has been completely loaded and parsed without waiting for stylesheets images and subframes to finish loading.
+readystatechange Fired when the readyState attribute of a document has changed.
+Pointer lock events pointerlockchange Fired when the pointer is lockedunlocked.
+pointerlockerror Fired when locking the pointer failed.
+Scroll events scroll Fired when the document view or an element has been scrolled.
+scrollend Fired when the document view or an element has completed scrolling.
+Selection events selectionchange Fired when the current text selection on a document is changed.
+Specifications Specification DOM Standard interfacedocument HTML Standard thedocumentobject CSSOM View Module extensionstothedocumentinterface Pointer Lock .
+extensionstothedocumentinterface Selection API extensionstodocumentinterface Browser compatibility Report problems with this compatibility data on GitHub desktop mobile Chrome Edge Firefox Opera Safari Chrome Android Firefox for Android Opera Android Safari on iOS Samsung Internet WebView Android Document Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history DOMContentLoaded event Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history Document() constructor Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history URL Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history activeElement Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history adoptNode Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history adoptedStyleSheets Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history afterscriptexecute event Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history alinkColor Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history all Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history anchors Deprecated Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history append Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history applets Deprecated Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history beforescriptexecute event Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history bgColor Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history body Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android more Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history browsingTopics Experimental Nonstandard Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history captureEvents Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history caretPositionFromPoint No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history caretRangeFromPoint Nonstandard Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history characterSet Full support Chrome more Toggle history Full support Edge more Toggle history Full support Firefox more Toggle history Full support Opera .
+more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android .
+more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history childElementCount Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history children Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history clear Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history close Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history compatMode Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history contentType Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history cookie Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox footnote Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android footnote Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createAttribute Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android more Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createAttributeNS Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createCDATASection Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createComment Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createDocumentFragment Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createElement Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox footnote Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history options parameter Full support Chrome footnote Toggle history Full support Edge footnote Toggle history Full support Firefox footnote Toggle history Full support Opera footnote Toggle history No support Safari No Toggle history Full support Chrome Android footnote Toggle history Full support Firefox for Android footnote Toggle history Full support Opera Android footnote Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+footnote Toggle history Full support WebView Android footnote Toggle history createElementNS Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox footnote Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history options parameter Full support Chrome footnote Toggle history Full support Edge footnote Toggle history Full support Firefox footnote Toggle history Full support Opera footnote Toggle history No support Safari No Toggle history Full support Chrome Android footnote Toggle history Full support Firefox for Android footnote Toggle history Full support Opera Android footnote Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+footnote Toggle history Full support WebView Android footnote Toggle history createEvent Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox footnote Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createExpression Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history createNSResolver Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history createNodeIterator Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createProcessingInstruction Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createRange Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createTextNode Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history createTouch Deprecated Nonstandard No support Chrome No Toggle history No support Edge No Toggle history No support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android Toggle history Full support Firefox for Android Toggle history No support Opera Android Toggle history Full support Safari on iOS Toggle history No support Samsung Internet ..
+Toggle history No support WebView Android .
+Toggle history createTouchList Deprecated Nonstandard No support Chrome Toggle history No support Edge No Toggle history No support Firefox Toggle history No support Opera Toggle history No support Safari No Toggle history No support Chrome Android Toggle history Full support Firefox for Android Toggle history No support Opera Android Toggle history Full support Safari on iOS Toggle history No support Samsung Internet ..
+Toggle history No support WebView Android .
+Toggle history createTreeWalker Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history whatToShow and filter parameters are optional Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history currentScript Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history defaultView Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history designMode Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history dir Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox footnote Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android footnote Toggle history Full support Opera Android more Toggle history Full support Safari on iOS .
+more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history doctype Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history documentElement Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history documentURI Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history domain Deprecated Full support Chrome footnote Toggle history Full support Edge Toggle history Full support Firefox footnote Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android footnote Toggle history Full support Firefox for Android footnote Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+footnote Toggle history Full support WebView Android .
+footnote Toggle history elementFromPoint Full support Chrome footnote Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+footnote Toggle history Full support Safari Toggle history Full support Chrome Android footnote Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+footnote Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+footnote Toggle history Full support WebView Android footnote Toggle history elementsFromPoint Full support Chrome footnote Toggle history Full support Edge more Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android footnote Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+footnote Toggle history Full support WebView Android footnote Toggle history embeds Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS .
+more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history enableStyleSheetsForSet Deprecated Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history evaluate Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history execCommand Deprecated Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox footnote Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android footnote Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history copy command Deprecated Nonstandard Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history cut command Deprecated Nonstandard Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history defaultParagraphSeparator command Deprecated Nonstandard No support Chrome No Toggle history No support Edge Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history insertBrOnReturn command Deprecated Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox .
+Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history exitFullscreen Full support Chrome more Toggle history Full support Edge more Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history Partial support Safari on iOS prefix more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history Returns a Promise Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history exitPictureInPicture Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history No support WebView Android No Toggle history exitPointerLock Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history featurePolicy Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox disabled Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history fgColor Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history firstElementChild Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history fonts Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history forms Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history fragmentDirective Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No footnote Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No footnote Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history freeze event Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history fullscreen Deprecated Full support Chrome more Toggle history Full support Edge more Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history Partial support Safari on iOS altname more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history fullscreenElement Full support Chrome more Toggle history Full support Edge more Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history Partial support Safari on iOS prefix more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history fullscreenEnabled Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history Partial support Safari on iOS prefix more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history fullscreenchange event Full support Chrome more Toggle history Full support Edge more Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history Partial support Safari on iOS prefix more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history fullscreenerror event Full support Chrome more Toggle history Full support Edge more Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history Partial support Safari on iOS prefix more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history getAnimations Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari more Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history getBoxQuads Experimental No support Chrome No Toggle history No support Edge No Toggle history No support Firefox disabled Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history getElementById Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history getElementsByClassName Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history getElementsByName Full support Chrome Toggle history Full support Edge footnote Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history getElementsByTagName Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history getElementsByTagNameNS Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history getSelection Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history hasFocus Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history hasPrivateToken Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history hasRedemptionRecord Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history hasStorageAccess Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history hasUnpartitionedCookieAccess Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history Preview browser support Chrome Android Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history Preview browser support WebView Android Toggle history head Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history hidden Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox footnote more Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android footnote more Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android ..
+more Toggle history images Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history implementation Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history importNode Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history lastElementChild Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history lastModified Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history lastStyleSheetSet Deprecated Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history linkColor Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history links Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history location Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history mozSetImageElement Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history open Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history parseHTMLUnsafe() static method Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Preview browser support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history Full support Safari on iOS .
+Toggle history No support Samsung Internet No Toggle history Full support WebView Android Toggle history pictureInPictureElement Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history No support WebView Android No Toggle history pictureInPictureEnabled Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history No support WebView Android No Toggle history plugins Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS .
+more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history pointerLockElement Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android more Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history pointerlockchange event Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history pointerlockerror event Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari .
+Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history preferredStyleSheetSet Deprecated Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history prepend Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history prerendering Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history prerenderingchange event Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history queryCommandEnabled Deprecated Nonstandard Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android more Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history queryCommandIndeterm Deprecated Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history queryCommandState Deprecated Nonstandard Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history queryCommandSupported Deprecated Nonstandard Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android more Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history queryCommandValue Deprecated Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history querySelector Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox .
+Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history querySelectorAll Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox .
+Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history readyState Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox .
+Toggle history Full support Opera footnote Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android footnote Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history readystatechange event Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history referrer Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history releaseCapture Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history releaseEvents Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history replaceChildren Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history requestStorageAccess Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+footnote Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+footnote Toggle history Full support Samsung Internet .
+Toggle history No support WebView Android No Toggle history types parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.BroadcastChannel parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.SharedWorker parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.all parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.caches parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.cookies parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.createObjectURL parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.estimate parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.getDirectory parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.indexedDB parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.localStorage parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.locks parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.revokeObjectURL parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history types.sessionStorage parameter Preview browser support Chrome Toggle history No support Edge No Toggle history No support Firefox No Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history No support Firefox for Android No Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history requestStorageAccessFor Experimental Full support Chrome footnote Toggle history Full support Edge footnote Toggle history No support Firefox No Toggle history Full support Opera footnote Toggle history No support Safari No Toggle history Full support Chrome Android footnote Toggle history No support Firefox for Android No Toggle history Full support Opera Android footnote Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+footnote Toggle history No support WebView Android No Toggle history resume event Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history rootElement Deprecated Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history scripts Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history scroll event Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history scrollend event Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history No support Safari No footnote Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history No support Safari on iOS No footnote Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history scrollingElement Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history securitypolicyviolation event Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history selectedStyleSheetSet Deprecated Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history selectionchange event Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history startViewTransition Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history styleSheetSets Deprecated Nonstandard No support Chrome No Toggle history No support Edge No Toggle history Full support Firefox Toggle history No support Opera No Toggle history No support Safari No Toggle history No support Chrome Android No Toggle history Full support Firefox for Android Toggle history No support Opera Android No Toggle history No support Safari on iOS No Toggle history No support Samsung Internet No Toggle history No support WebView Android No Toggle history styleSheets Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history timeline Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari .
+Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS .
+Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history title Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera .
+Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history visibilityState Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox more Toggle history Full support Opera more Toggle history Full support Safari Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android more Toggle history Full support Opera Android more Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android ..
+more Toggle history visibilitychange event Full support Chrome more Toggle history Full support Edge more Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari .
+more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS .
+more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history vlinkColor Deprecated Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history wasDiscarded Experimental Full support Chrome Toggle history Full support Edge Toggle history No support Firefox No Toggle history Full support Opera Toggle history No support Safari No Toggle history Full support Chrome Android Toggle history No support Firefox for Android No Toggle history Full support Opera Android Toggle history No support Safari on iOS No Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android Toggle history write Full support Chrome Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history Full support Firefox for Android Toggle history Full support Opera Android .
+Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history writeln Full support Chrome more Toggle history Full support Edge Toggle history Full support Firefox Toggle history Full support Opera more Toggle history Full support Safari more Toggle history Full support Chrome Android more Toggle history Full support Firefox for Android Toggle history Full support Opera Android more Toggle history Full support Safari on iOS more Toggle history Full support Samsung Internet .
+more Toggle history Full support WebView Android more Toggle history xmlEncoding Deprecated Full support Chrome Toggle history Full support Edge Toggle history No support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history No support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history xmlStandalone Deprecated Full support Chrome Toggle history Full support Edge Toggle history No support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history No support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history xmlVersion Deprecated Full support Chrome Toggle history Full support Edge Toggle history No support Firefox Toggle history Full support Opera Toggle history Full support Safari Toggle history Full support Chrome Android Toggle history No support Firefox for Android Toggle history Full support Opera Android Toggle history Full support Safari on iOS Toggle history Full support Samsung Internet .
+Toggle history Full support WebView Android .
+Toggle history Legend Tip you can clicktap on a cell for more information.
+Full support Full support Partial support Partial support In development.
+Supported in a prerelease version.
+In development.
+Supported in a prerelease version.
+No support No support Experimental.
+Expect behavior to change in the future.
+Nonstandard.
+Check crossbrowser support before using.
+Deprecated.
+Not for use in new websites.
+See implementation notes.
+User must explicitly enable this feature.
+Uses a nonstandard name.
+Requires a vendor prefix or different name for use.
+Has more compatibility info.
+The compatibility table on this page is generated from structured data.
+If youd like to contribute to the data please check out httpsgithub.commdnbrowsercompatdata and send us a pull request.
+
+`"""
+]
+
+

@@ -1,0 +1,51 @@
+
+
+
+[
+"Just in Time Compilation JIT",
+"00005. ",
+"2024-04-29 12:22:00",
+"2024-05-17 12:22:00",
+"",
+"""createLinkBlock("JIT Compilation Wikipedia", "https://en.wikipedia.org/wiki/Just-in-time_compilation", `
+1. JIT compilation is dynamic compilation at runtime
+2. Objective is to provide compiler access at runtime, be as performant or faster than statically compiled code
+3. JIT compilers were used to speedup byte code conversion to machine code by delaying compilation to perform optimizations.
+4. Javascript by Oracle has a JIT compiler.
+5. JIT has advantages over interpreted compilers in terms of optimization capability.
+6. JIT compilation in Javascript allows the compiler to provide interpretation in console at runtime, and load code when it is required to enhance performance.
+7. Disadvantages of JIT compilation include error messages not thrown until runtime, slower and less safe than statically typed compiled code.
+8. Details - types of optimizations - exact nature of drawbacks
+9. JIT saves time overhead of recompilation by adding the flexibility of interpretors to run code without compilation time of whole project.
+10. Use case - suited for enforcing security guarantee of late binding or dynamic linkage at runtime
+11. Von neumann architecture is good for JIT. JIT cannot run on Harvard architecture?
+12. Security of JIT is possible exploit because of runtime execution
+13. Regex can be done on JIT in limited and certain capacity
+14. JIT can cache compiled code to translate continuously and speed up compilation.
+`)""",
+"""createBlock(`Glossary`, `
+1. Source code translation and byte code translation to machine code
+2. AOT - Ahead of Time compilation
+3. Interpretor
+4. Dynamic compilation
+5. Dynamic programming language - eval, runtime type addition/change, reflection, S-expressions
+6. Microarchitecture specific speedups
+7. Adaptive optimization
+8. Dynamic recompilation
+9. Linking
+10. Late bound data types
+11. LISP has JIT compiler
+12. P-code, bytecode or portable code or virtual machine code
+13. Virtual machines
+14. Harvard architecture vs Von neumann architecture
+15. JVM
+16. Inline caching
+17. Profile guided optimization
+18. JIT spraying exploit
+19. Runtime environment
+20. LLVM - low level virtual machine
+21. Copy and patch technique
+22. Binary translation
+`)"""
+]
+

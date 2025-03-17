@@ -1,0 +1,199 @@
+
+
+
+
+window.onload = function () {
+
+globalThis.checkIndexedDB = function () {
+console.log("IndexedDB is like NoSQL. Is indexedDB working?");
+console.log('indexedDB' in globalThis.window);
+};
+
+globalThis.createDatabase = function () {
+globalThis.indexedDB = globalThis.window.indexedDB;
+globalThis.request = globalThis.indexedDB.open("TestDatabase", 1);
+
+globalThis.request.onerror = (e) => {
+console.error("IndexedDB error: ");
+console.error(globalThis.request.errorCode);
+console.log(e);
+};
+
+globalThis.request.onsuccess = (e) => {
+console.log("Successful database connection");
+console.log(e);
+globalThis.db = globalThis.request.result;
+};
+
+globalThis.request.onupgradeneeded = (e) => {
+console.log("Database Created");
+globalThis.db = globalThis.request.result;
+globalThis.objectStore = globalThis.db.createObjectStore("TestTable", {keypath: "name"});
+console.log("Object store created: TestTable");
+
+globalThis.objectStore.createIndex("name", "name", {unique: true});
+globalThis.objectStore.createIndex("age", "age", {unique: false});
+globalThis.objectStore.createIndex("sex", "sex", {unique: false});
+console.log("Creating object store indexes");
+
+globalThis.objectStore.transaction.oncompleted = (e) => {
+console.log("Object store indexes created");
+console.log(e);
+};
+
+};
+
+};
+
+globalThis.checkDatabase = async function () {
+let dbs = await globalThis.indexedDB.databases();
+console.log("Databases:")
+console.log(dbs);
+};
+
+globalThis.checkTables = function () {
+indexedDB.open("TestDatabase").onsuccess = function(sender, args) { 
+console.log("Tables in database are: ");
+console.log(sender.target.result.objectStoreNames);
+console.log("Table schema DDL unknown.");
+};
+
+};
+
+globalThis.addEntry = function (entry) {
+console.log("Adding entry start");
+globalThis.addEntryRequest = globalThis.window.indexedDB.open("TestDatabase");
+console.log("Opening db");
+//let db = globalThis.addEntryRequest.result;
+//globalThis.addEntryToTable = db.transaction("TestDatabase", "readwrite").objectStore('TestTable').add(entry);
+globalThis.window.indexedDB.open("TestDatabase").onsuccess = (e) => {
+console.log("Success on open IDB connection");
+var db = e.target.result;
+console.log("DB object is active");
+var transaction = db.transaction("TestTable", "readwrite");
+console.log("Transaction created");
+console.log(transaction);
+
+transaction.oncomplete = (e) => {
+console.log("Successful transaction for ");
+console.log(entry);
+console.log(e);
+};
+
+transaction.onerror = (e) => {
+console.log("Error transaction");
+console.log(e);
+};
+
+console.log("Attempting add");
+transaction.objectStore('TestTable').add({
+"name": "MyName",
+"age": "TestAge",
+"sex": "SampleGender"
+}, "TestName");
+
+console.log("DB finished transaction");
+
+transaction.objectStore('TestTable').add({
+"name": "Test2",
+"age": "Damn it does not work cross tab sameorigin out of box.",
+"sex": "Archive indexeddb."
+}, "Test2");
+
+console.log("DB finished transaction2");
+
+};
+console.log("Added Entry to table");
+
+};
+
+globalThis.getAllEntries = function () {
+console.log("Getting entries");
+globalThis.window.indexedDB.open("TestDatabase").onsuccess = function(e) {
+console.log("Opened connection");
+var db = e.target.result;
+console.log("DB is active");
+db.transaction("TestTable").objectStore("TestTable").getAll().onsuccess = (e) => {
+console.log("Successfully got all objects");
+console.log(e);
+console.log(e.target.result);
+};
+};
+
+};
+
+globalThis.getEntry = function (key) {
+
+};
+
+globalThis.getEntries = function (keys) {
+
+};
+
+globalThis.updateEntry = function (update) {
+
+};
+
+globalThis.deleteDatabase = async function () {
+let x = await indexedDB.deleteDatabase("TestDatabase");
+console.log("Deleting database")
+return x;
+};
+
+globalThis.deleteTable = function () {
+};
+
+globalThis.deleteAllEntries = function () {
+};
+
+globalThis.deleteEntry = function (key) {
+};
+
+globalThis.postload = function () {
+
+globalThis.checkIndexedDB();
+globalThis.createDatabase();
+globalThis.checkDatabase();
+globalThis.checkTables();
+
+globalThis.testEntry = {
+name: "TestName",
+age: "30",
+sex: "MA"
+};
+
+console.log("Adding entry");
+globalThis.addEntry(globalThis.testEntry);
+console.log("Added entry");
+
+globalThis.getAllEntries();
+
+};
+
+globalThis.env = {};
+globalThis.env["checkIndexedDB"] = globalThis.checkIndexedDB;
+globalThis.env["createDatabase"] = globalThis.createDatabase;
+globalThis.env["checkDatabase"] = globalThis.checkDatabase;
+globalThis.env["checkTables"] = globalThis.checkTables;
+globalThis.env["addEntry"] = globalThis.addEntry;
+globalThis.env["postload"] = globalThis.postload;
+console.log(`${Object.keys(globalThis.env).length} keys working`);
+
+postload();
+
+globalThis.env["indexedDB"] = globalThis.indexedDB;
+globalThis.env["request"] = globalThis.request;
+globalThis.env["db"] = globalThis.db;
+globalThis.env["objectStore"] = globalThis.objectStore;
+globalThis.env["transaction"] = globalThis.transaction;
+globalThis.env["TobjectStore"] = globalThis.TobjectStore;
+globalThis.env["Trequest"] = globalThis.Trequest;
+globalThis.env["Erequest"] = globalThis.Erequest;
+console.log(`${Object.keys(globalThis.env).length} keys working`);
+
+};
+
+
+
+
+

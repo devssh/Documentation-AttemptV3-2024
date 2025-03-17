@@ -1,0 +1,22 @@
+
+
+
+
+["MDN javascript-The Mozilla Development Network",
+"00003. ",
+"2024-04-20 00:00:00",
+"2024-05-17 00:00:00",
+"""
+""",
+
+
+""" "MDN homepage url is " + showInlineLink("https://developer.mozilla.org/en-US/", "MDN home page") + `
+
+Mozilla Developer Network is a website that provides documentation on HTML, CSS and Javascript for the Mozilla Firefox Browser engine. 
+
+The javascript documentation url is ` + showInlineLink("https://developer.mozilla.org/en-US/docs/Learn/JavaScript", "MDN Javascript Guide") + `
+
+The javascript reference url is ` + showInlineLink("https://developer.mozilla.org/en-US/docs/Web/JavaScript", "MDN JS References") + `
+
+The url for web api documentation is ` + showInlineLink("https://developer.mozilla.org/en-US/docs/Web/API", "Web API")"""
+]
